@@ -1,0 +1,8 @@
+com\metrix\loginpackage\LoginServlet.class
+com\metrix\loginpackage\User.class
+com\metrix\loginpackage\LogoutServlet.class
+com\metrix\loginpackage\ConnectionProvider.class
+com\mycompany\loginregistration\resources\JavaEE8Resource.class
+com\metrix\loginpackage\UserDatabase.class
+com\mycompany\loginregistration\JAXRSConfiguration.class
+com\metrix\loginpackage\RegisterServlet.class
