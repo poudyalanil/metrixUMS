@@ -1,8 +1,13 @@
-E:\Binil\Works\ClassWorks\2Sem2\System Analysis and Design\Coursework\metrixUMS\src\main\java\com\metrix\loginpackage\RegisterServlet.java
-E:\Binil\Works\ClassWorks\2Sem2\System Analysis and Design\Coursework\metrixUMS\src\main\java\com\mycompany\loginregistration\resources\JavaEE8Resource.java
-E:\Binil\Works\ClassWorks\2Sem2\System Analysis and Design\Coursework\metrixUMS\src\main\java\com\metrix\loginpackage\ConnectionProvider.java
-E:\Binil\Works\ClassWorks\2Sem2\System Analysis and Design\Coursework\metrixUMS\src\main\java\com\metrix\loginpackage\User.java
-E:\Binil\Works\ClassWorks\2Sem2\System Analysis and Design\Coursework\metrixUMS\src\main\java\com\metrix\loginpackage\LoginServlet.java
-E:\Binil\Works\ClassWorks\2Sem2\System Analysis and Design\Coursework\metrixUMS\src\main\java\com\metrix\loginpackage\LogoutServlet.java
-E:\Binil\Works\ClassWorks\2Sem2\System Analysis and Design\Coursework\metrixUMS\src\main\java\com\mycompany\loginregistration\JAXRSConfiguration.java
-E:\Binil\Works\ClassWorks\2Sem2\System Analysis and Design\Coursework\metrixUMS\src\main\java\com\metrix\loginpackage\UserDatabase.java
+C:\Users\College\Documents\NetBeansProjects\mavenproject\metrixUMS\src\main\java\com\metrix\loginpackage\UserDatabase.java
+C:\Users\College\Documents\NetBeansProjects\mavenproject\metrixUMS\src\main\java\CRUDuser\UserDAO.java
+C:\Users\College\Documents\NetBeansProjects\mavenproject\metrixUMS\src\main\java\com\metrix\loginpackage\LoginServlet.java
+C:\Users\College\Documents\NetBeansProjects\mavenproject\metrixUMS\src\main\java\com\metrix\loginpackage\User.java
+C:\Users\College\Documents\NetBeansProjects\mavenproject\metrixUMS\src\main\java\CRUDuser\AddUserServlet.java
+C:\Users\College\Documents\NetBeansProjects\mavenproject\metrixUMS\src\main\java\com\metrix\loginpackage\ConnectionProvider.java
+C:\Users\College\Documents\NetBeansProjects\mavenproject\metrixUMS\src\main\java\CRUDuser\EditUserServlet.java
+C:\Users\College\Documents\NetBeansProjects\mavenproject\metrixUMS\src\main\java\com\mycompany\loginregistration\resources\JavaEE8Resource.java
+C:\Users\College\Documents\NetBeansProjects\mavenproject\metrixUMS\src\main\java\com\metrix\loginpackage\AdminLogin.java
+C:\Users\College\Documents\NetBeansProjects\mavenproject\metrixUMS\src\main\java\com\metrix\loginpackage\LogoutServlet.java
+C:\Users\College\Documents\NetBeansProjects\mavenproject\metrixUMS\src\main\java\com\mycompany\loginregistration\JAXRSConfiguration.java
+C:\Users\College\Documents\NetBeansProjects\mavenproject\metrixUMS\src\main\java\CRUDuser\DeleteUserServlet.java
+C:\Users\College\Documents\NetBeansProjects\mavenproject\metrixUMS\src\main\java\com\metrix\loginpackage\RegisterServlet.java

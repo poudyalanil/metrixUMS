@@ -25,7 +25,7 @@
           <div class="card card-signin my-5 " >
           <div class="card-body">
             <h5 class="card-title text-center"> Admin-SignIn</h5>
-            <form class="form-signin" action="userLogin" method="POST">
+            <form class="form-signin" action="AdminLogin" method="POST">
               <div class="form-label-group">
                 <input type="email" name="email" class="form-control" placeholder="Email address" required autofocus>
                 <label for="inputEmail">Email address</label>

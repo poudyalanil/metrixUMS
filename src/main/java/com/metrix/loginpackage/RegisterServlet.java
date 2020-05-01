@@ -48,13 +48,7 @@ public class RegisterServlet extends HttpServlet {
             String email = request.getParameter("email");
             String password =request.getParameter("password");
             
-            User userModel = new User();
-            userModel.setFirstName(firstName);
-            userModel.setMiddleName(middleName);
-            userModel.setLastName(lastName);
-            userModel.setAddress(address);
-            userModel.setEmail(email);
-            userModel.setPassword(password);
+            User userModel = new User(firstName,middleName,lastName,address,email,password);
 //create a database model
             UserDatabase regUser = new UserDatabase(ConnectionProvider.getConnection());
             if (regUser.saveUser(userModel)) {

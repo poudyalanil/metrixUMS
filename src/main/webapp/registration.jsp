@@ -53,8 +53,8 @@
                                             <label for="lname">Last Name</label>
                                         </div>
                                         <div class="form-label-group">
-                                            <input type="number" name ="phnumber" class="form-control" placeholder="Phone Number" required>
-                                            <label for="address">Phone Number</label>
+                                            <input type="number" name ="phno" class="form-control" placeholder="Phone Number" required>
+                                            <label for="phno">Phone Number</label>
                                         </div>
                                         <div class="form-label-group">
                                             <input type="text" name ="address" class="form-control" placeholder="Address" required>
@@ -73,12 +73,12 @@
                                         -->
 
                                         <div class="form-label-group">
-                                            <input type="password" name = "password1"  class="form-control" placeholder="Password" required>
-                                            <label for="password1">Password</label>
+                                            <input type="password" name = "password"  class="form-control" placeholder="Password" required>
+                                            <label for="password">Password</label>
                                         </div>
                                         <div class="form-label-group">
-                                            <input type="password" name="password2"  class="form-control" placeholder="Password" required>
-                                            <label for="inputPassword2"> Confirm Password</label>
+                                            <input type="password" name="repassword"  class="form-control" placeholder="Password" required>
+                                            <label for="rePassword"> Confirm Password</label>
                                         </div>
 
                                         <div style='text-align: center;'>

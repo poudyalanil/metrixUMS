@@ -40,7 +40,7 @@
         <header class="masthead bg-primary text-white text-center">
             <div class="container d-flex align-items-center flex-column">
                 <!-- Masthead Avatar Image--><img class="masthead-avatar mb-5" src="images/signin-image.jpg" alt="" /><!-- Masthead Heading-->
-                <h1 class="masthead-heading text-uppercase mb-0">Software Analysis and Development</h1>
+                <h1 class="masthead-heading text-uppercase mb-0">User Management System</h1>
                 <!-- Icon Divider-->
                 <div class="divider-custom divider-light">
                     <div class="divider-custom-line"></div>
@@ -48,7 +48,7 @@
                     <div class="divider-custom-line"></div>
                 </div>
                 <!-- Masthead Subheading-->
-                <p class="masthead-subheading font-weight-light mb-0">ADC3 - Web Application</p>
+                <p class="masthead-subheading font-weight-light mb-0">Metrix - ADC3 - Web Application</p>
             </div>
         </header>
         <!-- Portfolio Section-->

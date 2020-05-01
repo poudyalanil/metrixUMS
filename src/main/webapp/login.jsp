@@ -40,8 +40,8 @@
                                         </div>
 
                                         <div class="form-label-group">
-                                            <input type="password" name = "password1"  class="form-control" placeholder="Password" required>
-                                            <label for="password1">Password</label>
+                                            <input type="password" name = "password"  class="form-control" placeholder="Password" required>
+                                            <label for="password">Password</label>
                                         </div>
                                         <div style="text-align: center;">
                                             <button class="btn btn-md btn-outline-light btn-login" type="submit">LogIn</button>
@@ -51,7 +51,8 @@
                             </div>
                         </div>
                     </div>
-                    <a class="small" style="float: right; margin: -40px 20px 0px 0px;" href="registration.jsp">Register</a>
+                    <a class="small" style="float: right; margin: -40px 20px 0px 0px;" href="registration.jsp">Register</a><br>
+                    <a class="small" style="float: right; margin: -40px 20px 0px 0px;" href="adminLogin.jsp">Admin</a>
                 </div>
             </div>
         </div>
