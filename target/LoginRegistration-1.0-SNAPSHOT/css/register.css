@@ -1,15 +1,17 @@
-/*
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
-*/
-/* 
-    Created on : Apr 25, 2020, 8:30:20 AM
-    Author     : goani
-*/
 :root {
                 --input-padding-x: 1.5rem;
                 --input-padding-y: 0.75rem;
+            }
+            @font-face {
+                font-family: Acme;
+                src: url(../fonts/Acme.ttf);
+            }
+            @font-face {
+                font-family: Akronim;
+                src: url(../fonts/Akronim.ttf);
+            }
+            body{
+                font-family: Acme;
             }
             .login,
             .image {
@@ -20,14 +22,21 @@ and open the template in the editor.
                 background-size: cover;
                 background-position: center;
             }
-            .login-heading {
-                font-weight: 300;
+            .login-heading{
+                text-align: center;
+            }
+            .login-heading>span {
+                text-decoration: underline;
+                text-decoration-color: #18ABA2; 
             }
             .btn-login {
-                font-size: 0.9rem;
-                letter-spacing: 0.05rem;
-                padding: 0.75rem 1rem;
-                border-radius: 2rem;
+                color:black;
+                border-color: #999;
+                border-radius: 25px;
+                padding: 5px 25px 5px 25px;
+            }
+            .btn-login:hover{
+                border-color: #495057;
             }
             .form-label-group {
                 position: relative;
@@ -35,11 +44,26 @@ and open the template in the editor.
             }
             .form-label-group>input,
             .form-label-group>label {
-               
+                padding: var(--input-padding-y) var(--input-padding-x);
+                height: auto;
+                border-radius: 2rem;
             }
             .form-label-group>label {
-                
-              
+                pointer-events: none;
+                position: absolute;
+                top: 0;
+                left: 0;
+                display: block;
+                width: 100%;
+                margin-bottom: 0;
+                /* Override default `<label>` margin */
+                line-height: 1.5;
+                color: #495057;
+                cursor: text;
+                /* Match the input under the label */
+                border: 1px solid transparent;
+                border-radius: .25rem;
+                transition: all .1s ease-in-out;
             }
             .form-label-group input::-webkit-input-placeholder {
                 color: transparent;
@@ -70,12 +94,34 @@ and open the template in the editor.
                 background-color: #18ABA2;
                 border: none;
             }
-            .btn:hover{
+/*            .btn:hover{
                 background-color:rgba(24, 171, 162, 0.76); 
                 border: none;
-            }
+            }*/
             .alignus{
                 margin-bottom: 0px; 
                 padding-bottom: 0px;
                 padding-top: 0px
+            }
+            
+            .know-us{
+                color: white;
+                text-align: justify;
+                padding: 250px;
+                margin-top: 50px;
+                margin-bottom: 50px;
+            }
+            .know-us>h1{
+                margin-bottom: 25px;
+                text-align: center;
+            }
+            .know-us>h1>.logo{
+                font-family: Akronim;
+            }
+            .know-us>h1>.random{
+                border-bottom: 3px solid #fff;
+            }
+            .know-us>div>button{
+                border-radius: 25px;
+                padding: 5px 25px 5px 25px;
             }

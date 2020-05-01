@@ -15,20 +15,30 @@
    
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     
-    <link rel="stylesheet" href="css/register.css" type="text/css" rel="stylesheet">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/register.css" type="text/css" rel="stylesheet">
     <title>Register</title>
   </head>
  
 <body>
   <div class="container-fluid">
             <div class="row no-gutter">
-                <div class="d-none d-md-flex col-md-4 col-lg-6 mgreen" ></div>
+                <div class="d-none d-md-flex col-md-4 col-lg-6 mgreen" >
+                    <div class="container know-us"> 
+                        <h1><span class="random">SignUp to</span><span class="logo"> USM</span></h1>
+                        <p>
+                            Boy the way Glen Miller played, songs that made the hit parade. Guys like us we had it made, those were the days. And you knew who you were then, girls were girls and men were men. Mister, we could use a man like Herbert Hoover again. Didn't need no welfare state, everybody pulled his weight. Gee our old LaSalle ran great. Those were the days.
+                        </p>
+                        <div style="text-align: center;">
+                            <button class="btn btn-sm btn-outline-light" style="text-align: center;">Know Us</button>
+                        </div>
+                    </div>
+                </div>
                 <div class="col-md-8 col-lg-6">
                     <div class="login d-flex align-items-center py-5 alignus">
                         <div class="container">
                             <div class="row"  >
                                 <div class="col-md-9 col-lg-8 mx-auto" >
-                                    <h3 class="login-heading mb-4">Metrix LMS Signup</h3>
+                                    <h3 class="login-heading mb-4">SignUp</h3>
                                     <form action="RegisterServlet" method="POST">
                                         <div class="form-label-group">
                                             <input type="text" name ="fname" class="form-control" placeholder="First Name" required autofocus>
@@ -41,6 +51,10 @@
                                         <div class="form-label-group">
                                             <input type="text" name ="lname" class="form-control" placeholder="Last Name" required>
                                             <label for="lname">Last Name</label>
+                                        </div>
+                                        <div class="form-label-group">
+                                            <input type="number" name ="phnumber" class="form-control" placeholder="Phone Number" required>
+                                            <label for="address">Phone Number</label>
                                         </div>
                                         <div class="form-label-group">
                                             <input type="text" name ="address" class="form-control" placeholder="Address" required>
@@ -59,23 +73,24 @@
                                         -->
 
                                         <div class="form-label-group">
-                                            <input type="password" name = "password"  class="form-control" placeholder="Password" required>
+                                            <input type="password" name = "password1"  class="form-control" placeholder="Password" required>
                                             <label for="password1">Password</label>
                                         </div>
                                         <div class="form-label-group">
-                                            <input type="password" name="password"  class="form-control" placeholder="Password" required>
+                                            <input type="password" name="password2"  class="form-control" placeholder="Password" required>
                                             <label for="inputPassword2"> Confirm Password</label>
                                         </div>
 
-
-                                        <button class="btn btn-lg btn-primary btn-block btn-login text-uppercase font-weight-bold mb-2 mgreen" type="submit" href="login.jsp">Sign Up</button>
-                                        <div class="text-center">
-                                            <a class="small" href="login.jsp">Sign In</a></div>
+                                        <div style='text-align: center;'>
+                                            <button class="btn btn-md btn-outline-light btn-login" type="submit" href="login.jsp">SignUp</button>
+                                        </div>
+                                        
                                     </form>
                                 </div>
                             </div>
                         </div>
                     </div>
+                    <a class="small" style="float: right; margin: -40px 20px 0px 0px;" href="login.jsp">SignIn</a>
                 </div>
             </div>
         </div>

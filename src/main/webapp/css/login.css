@@ -1,21 +1,20 @@
-/*
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
-*/
-/* 
-    Created on : Apr 25, 2020, 9:39:42 AM
-    Author     : goani
-*/
-
-    :root {
+:root {
   --input-padding-x: 1.5rem;
   --input-padding-y: .75rem;
 }
+@font-face {
+    font-family: Acme;
+    src: url(../fonts/Acme.ttf);
+}
+@font-face {
+    font-family: Akronim;
+    src: url(../fonts/Akronim.ttf);
+}
 
 body {
- background: rgb(0,36,33);
-background: radial-gradient(circle, rgba(0,36,33,1) 0%, rgba(31,186,177,1) 100%);
+    font-family: Acme;
+/*    background: rgb(0,36,33);
+    background: radial-gradient(circle, rgba(0,36,33,1) 0%, rgba(31,186,177,1) 100%);*/
 }
 
 .card-signin {
@@ -27,21 +26,25 @@ background: radial-gradient(circle, rgba(0,36,33,1) 0%, rgba(31,186,177,1) 100%)
 .card-signin .card-title {
   margin-bottom: 2rem;
   font-weight: 300;
-  font-size: 1.5rem;
+  font-size: 1.5rem;  
 }
 
 .card-signin .card-body {
-  padding: 2rem;
+    background-color: #2D18AB;
+    color: white;
+    padding: 2rem;
+    border-radius: 15px;
+    box-shadow: 3px 3px 5px #495057;
 }
 
 .form-signin {
   width: 100%;
 }
 
-.form-signin .btn {
+.form-signin {
   font-size: 80%;
   border-radius: 5rem;
-  letter-spacing: .1rem;
+  letter-spacing: 1px;
   font-weight: bold;
   padding: 1rem;
   transition: all 0.2s;
@@ -63,18 +66,19 @@ background: radial-gradient(circle, rgba(0,36,33,1) 0%, rgba(31,186,177,1) 100%)
 }
 
 .form-label-group>label {
-  position: absolute;
-  top: 0;
-  left: 0;
-  display: block;
-  width: 100%;
-  margin-bottom: 0;
-  /* Override default `<label>` margin */
-  line-height: 1.5;
-  color: #495057;
-  border: 1px solid transparent;
-  border-radius: .25rem;
-  transition: all .1s ease-in-out;
+    pointer-events: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: block;
+    width: 100%;
+    margin-bottom: 0;
+    /* Override default `<label>` margin */
+    line-height: 1.5;
+    color: #495057;
+    border: 1px solid transparent;
+    border-radius: .25rem;
+    transition: all .1s ease-in-out;
 }
 
 .form-label-group input::-webkit-input-placeholder {
@@ -108,3 +112,14 @@ background: radial-gradient(circle, rgba(0,36,33,1) 0%, rgba(31,186,177,1) 100%)
   font-size: 12px;
   color: #777;
 }
+
+.btn-login {
+    color:black;
+    border-color: #999;
+    border-radius: 25px;
+    padding: 5px 25px 5px 25px;
+}
+.btn-login:hover{
+    border-color: #495057;
+}
+
