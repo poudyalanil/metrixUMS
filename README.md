@@ -17,7 +17,7 @@ It is a User Management System developed on top of Java Maven. It is backed up b
  * Glassfish/Tomcat
  * SQL
  * Bootstrap
- *JUnit
+ * JUnit
  
 -------------------
 This web app is deployed in Heroku platform
