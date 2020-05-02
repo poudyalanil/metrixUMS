@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite tests="2" failures="0" name="JUnitTest" time="0.003" errors="0" skipped="0">
+<testsuite tests="2" failures="0" name="JUnitTest" time="0.002" errors="0" skipped="0">
   <properties>
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
-    <property name="java.vm.version" value="13+33"/>
-    <property name="sun.boot.library.path" value="C:\Program Files\Java\jdk-13\bin"/>
-    <property name="maven.multiModuleProjectDirectory" value="E:\Binil\Works\ClassWorks\2Sem2\System Analysis and Design\Coursework\metrixUMS"/>
+    <property name="java.vm.version" value="13.0.2+8"/>
+    <property name="sun.boot.library.path" value="C:\Program Files\Java\jdk-13.0.2\bin"/>
+    <property name="maven.multiModuleProjectDirectory" value="C:\Users\College\Documents\NetBeansProjects\mavenproject\metrixUMS"/>
     <property name="java.vm.vendor" value="Oracle Corporation"/>
     <property name="java.vendor.url" value="https://java.oracle.com/"/>
     <property name="guice.disable.misplaced.annotation.check" value="true"/>
@@ -14,50 +14,50 @@
     <property name="user.script" value=""/>
     <property name="user.country" value="US"/>
     <property name="sun.java.launcher" value="SUN_STANDARD"/>
+    <property name="test" value="JUnitTest"/>
     <property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
-    <property name="user.dir" value="E:\Binil\Works\ClassWorks\2Sem2\System Analysis and Design\Coursework\metrixUMS"/>
+    <property name="user.dir" value="C:\Users\College\Documents\NetBeansProjects\mavenproject\metrixUMS"/>
     <property name="java.vm.compressedOopsMode" value="32-bit"/>
-    <property name="java.runtime.version" value="13+33"/>
-    <property name="netbeans.deploy" value="true"/>
+    <property name="java.runtime.version" value="13.0.2+8"/>
     <property name="os.arch" value="amd64"/>
-    <property name="java.io.tmpdir" value="C:\Users\Dell\AppData\Local\Temp\"/>
+    <property name="java.io.tmpdir" value="C:\Users\College\AppData\Local\Temp\"/>
     <property name="line.separator" value="
 "/>
     <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
     <property name="user.variant" value=""/>
     <property name="os.name" value="Windows 10"/>
-    <property name="maven.ext.class.path" value="E:\Binil\Works\NetBeans-11.3\netbeans\java\maven-nblib\netbeans-eventspy.jar"/>
-    <property name="classworlds.conf" value="E:\Binil\Works\NetBeans-11.3\netbeans\java\maven\bin\m2.conf"/>
+    <property name="maven.ext.class.path" value="C:\Program Files\NetBeans-11.3\netbeans\java\maven-nblib\netbeans-eventspy.jar"/>
+    <property name="classworlds.conf" value="C:\Program Files\NetBeans-11.3\netbeans\java\maven\bin\m2.conf"/>
     <property name="sun.jnu.encoding" value="Cp1252"/>
-    <property name="java.library.path" value="C:\Program Files\Java\jdk-13\bin;C:\WINDOWS\Sun\Java\bin;C:\WINDOWS\system32;C:\WINDOWS;E:\Binil\Works\Anaconda3;E:\Binil\Works\Anaconda3\Library\mingw-w64\bin;E:\Binil\Works\Anaconda3\Library\usr\bin;E:\Binil\Works\Anaconda3\Library\bin;E:\Binil\Works\Anaconda3\Scripts;C:\app\Binil\virtual\product\12.2.0\dbhome_1\bin;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\Program Files\nodejs\;E:\Binil\Works\Xampp\php;C:\ProgramData\ComposerSetup\bin;E:\Binil\Works\Git\cmd;E:\Binil\Works\Git\mingw64\bin;E:\Binil\Works\Git\usr\bin;E:\Binil\Works\Sublime Text 3;C:\Program Files\MongoDB\Server\4.2\bin;E:\Binil\Works\PuTTY\;E:\Binil\Works\Python\Python38-32\Scripts\;E:\Binil\Works\Python\Python38-32\;C:\Users\Dell\AppData\Local\Microsoft\WindowsApps;C:\Users\Dell\AppData\Roaming\npm;C:\Users\Dell\AppData\Roaming\Composer\vendor\bin;C:\Users\Dell\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\Dell\AppData\Local\GitHubDesktop\bin;."/>
+    <property name="java.library.path" value="C:\Program Files\Java\jdk-13.0.2\bin;C:\Windows\Sun\Java\bin;C:\Windows\system32;C:\Windows;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;E:\db_home\bin;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Program Files\NVIDIA Corporation\NVIDIA NvDLISR;C:\Program Files\nodejs\;C:\Program Files\Git\cmd;C:\Program Files\Intel\WiFi\bin\;C:\Program Files\Common Files\Intel\WirelessCommon\;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files\Intel\Intel(R) Management Engine Components\DAL;C:\Users\College\AppData\Local\Programs\Python\Python38-32\Scripts\;C:\Users\College\AppData\Local\Programs\Python\Python38-32\;C:\Users\College\AppData\Local\Microsoft\WindowsApps;C:\Users\College\AppData\Roaming\npm;C:\Users\College\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\College\AppData\Local\GitHubDesktop\bin;C:\Program Files\heroku\bin;."/>
     <property name="jdk.debug" value="release"/>
     <property name="java.class.version" value="57.0"/>
     <property name="java.specification.name" value="Java Platform API Specification"/>
     <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
     <property name="os.version" value="10.0"/>
-    <property name="user.home" value="C:\Users\Dell"/>
+    <property name="user.home" value="C:\Users\College"/>
     <property name="user.timezone" value="Asia/Katmandu"/>
     <property name="file.encoding" value="UTF-8"/>
     <property name="java.specification.version" value="13"/>
-    <property name="user.name" value="Binil"/>
-    <property name="java.class.path" value="E:\Binil\Works\NetBeans-11.3\netbeans\java\maven\boot\plexus-classworlds-2.5.2.jar"/>
+    <property name="user.name" value="College"/>
+    <property name="java.class.path" value="C:\Program Files\NetBeans-11.3\netbeans\java\maven\boot\plexus-classworlds-2.5.2.jar"/>
     <property name="java.vm.specification.version" value="13"/>
     <property name="sun.arch.data.model" value="64"/>
-    <property name="sun.java.command" value="org.codehaus.plexus.classworlds.launcher.Launcher -Dnetbeans.deploy=true -Dmaven.ext.class.path=E:\Binil\Works\NetBeans-11.3\netbeans\java\maven-nblib\netbeans-eventspy.jar -Dfile.encoding=UTF-8 package"/>
-    <property name="java.home" value="C:\Program Files\Java\jdk-13"/>
+    <property name="sun.java.command" value="org.codehaus.plexus.classworlds.launcher.Launcher -Dtest=JUnitTest -Dmaven.ext.class.path=C:\Program Files\NetBeans-11.3\netbeans\java\maven-nblib\netbeans-eventspy.jar -Dfile.encoding=UTF-8 surefire:test"/>
+    <property name="java.home" value="C:\Program Files\Java\jdk-13.0.2"/>
     <property name="user.language" value="en"/>
     <property name="java.specification.vendor" value="Oracle Corporation"/>
     <property name="java.vm.info" value="mixed mode, sharing"/>
-    <property name="java.version" value="13"/>
+    <property name="java.version" value="13.0.2"/>
     <property name="java.vendor" value="Oracle Corporation"/>
-    <property name="maven.home" value="E:\Binil\Works\NetBeans-11.3\netbeans\java\maven"/>
+    <property name="maven.home" value="C:\Program Files\NetBeans-11.3\netbeans\java\maven"/>
     <property name="file.separator" value="\"/>
-    <property name="java.version.date" value="2019-09-17"/>
+    <property name="java.version.date" value="2020-01-14"/>
     <property name="java.vendor.url.bug" value="https://bugreport.java.com/bugreport/"/>
     <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
     <property name="sun.cpu.endian" value="little"/>
     <property name="sun.cpu.isalist" value="amd64"/>
   </properties>
-  <testcase classname="JUnitTest" name="testSetFirstName" time="0.003"/>
+  <testcase classname="JUnitTest" name="testSetFirstName" time="0.002"/>
   <testcase classname="JUnitTest" name="testSetEmail" time="0"/>
 </testsuite>
