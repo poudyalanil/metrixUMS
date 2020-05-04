@@ -41,16 +41,17 @@ public class EditUserServlet extends HttpServlet {
             out.println("</head>");
             out.println("<body>");
             out.println("<h1>Servlet EditUserServlet at " + request.getContextPath() + "</h1>");
+            int iduser = Integer.parseInt(request.getParameter("iduser"));
             String firstName = request.getParameter("fname");
             String middleName = request.getParameter("mname");
             String lastName = request.getParameter("lname");
             String address = request.getParameter("address");
             String email = request.getParameter("email");
             String password =request.getParameter("password");
-            User user = new User(firstName, middleName,lastName,address, email,password);
+            User user = new User(iduser, firstName, middleName,lastName,address, email,password);
             try{
                 UserDAO usdao = new UserDAO(ConnectionProvider.getConnection());
-                if(usdao.addUser(user)){
+                if(usdao.editUserInfo(user)){
                     response.sendRedirect("userList.jsp");
                 }else{
                     out.print("wrong cre3dential");

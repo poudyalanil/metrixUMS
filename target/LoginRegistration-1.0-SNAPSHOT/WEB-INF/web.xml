@@ -36,6 +36,22 @@
         <servlet-name>AdminRegister</servlet-name>
         <servlet-class>com.metrix.loginpackage.AdminRegister</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>resetPassword</servlet-name>
+        <servlet-class>CRUDuser.resetPassword</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ResetPassword</servlet-name>
+        <servlet-class>com.metrix.loginpackage.ResetPassword</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ResetPass</servlet-name>
+        <servlet-class>com.metrix.loginpackage.ResetPass</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>EditProfile</servlet-name>
+        <servlet-class>com.metrix.loginpackage.EditProfile</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>RegisterServlet</servlet-name>
         <url-pattern>/RegisterServlet</url-pattern>
@@ -71,6 +87,22 @@
     <servlet-mapping>
         <servlet-name>AdminRegister</servlet-name>
         <url-pattern>/AdminRegister</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>resetPassword</servlet-name>
+        <url-pattern>/resetPassword</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ResetPassword</servlet-name>
+        <url-pattern>/ResetPassword</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ResetPass</servlet-name>
+        <url-pattern>/ResetPass</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>EditProfile</servlet-name>
+        <url-pattern>/EditProfile</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

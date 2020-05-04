@@ -1,8 +1,15 @@
+CRUDuser\DeleteUserServlet.class
 com\metrix\loginpackage\LoginServlet.class
 com\metrix\loginpackage\User.class
 com\metrix\loginpackage\LogoutServlet.class
+CRUDuser\AddUserServlet.class
 com\metrix\loginpackage\ConnectionProvider.class
+com\metrix\loginpackage\ResetPass.class
 com\mycompany\loginregistration\resources\JavaEE8Resource.class
+CRUDuser\EditUserServlet.class
+CRUDuser\UserDAO.class
+com\metrix\loginpackage\AdminRegister.class
 com\metrix\loginpackage\UserDatabase.class
 com\mycompany\loginregistration\JAXRSConfiguration.class
+com\metrix\loginpackage\AdminLogin.class
 com\metrix\loginpackage\RegisterServlet.class

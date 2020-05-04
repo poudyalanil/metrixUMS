@@ -19,7 +19,7 @@
         <!-- Bootstrap CSS -->
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
 
-        <title>Edit Book Data</title>
+        <title>Edit User Data</title>
         <style>
             .inner{
                 position: relative;
@@ -46,10 +46,10 @@
     <body>
        <div  class="container-fluid">
             <nav class="navbar navbar-light">
-                <a class="navbar-brand">Book Store</a>
+                <a class="navbar-brand">Edit User Form</a>
                 <ul class="navbar-nav ml-auto mt-3 mx-5">
 <li class="nav-item">
-                            <a class="nav-link active" href="index.jsp">Home</a>
+                            <a class="nav-link active" href="adminDashboard.jsp">Home</a>
                         </li>
 </ul>
 </nav>
@@ -65,18 +65,22 @@ Edit User Details</h3>
                                 <label>User ID</label>
                                 <input class="form-control" name="iduser" value="${edit_users.iduser }" required>
                             </div>
+                            
 <div class="form-group">
                                 <label>First Name</label>
                                 <input class="form-control" name="fname" value="${edit_users.firstName }" required>
                             </div>
+                            
 <div class="form-group">
                                 <label>Middle Name</label>
-                                <input class="form-control" name="mname" value="${edit_books.middleName}" required>
+                                <input class="form-control" name="mname" value="${edit_users.middleName}">
                             </div>
+                            
 <div class="form-group">
                                 <label>Last Name</label>
-                                <input class="form-control" name="lname" value="${edit_books.lastName}" required>
+                                <input class="form-control" name="lname" value="${edit_users.lastName}" required>
                             </div>
+                            
 <div class="form-group">
                                 <label>Address</label>
                                 <input class="form-control" name="address" value="${edit_users.address }" required>

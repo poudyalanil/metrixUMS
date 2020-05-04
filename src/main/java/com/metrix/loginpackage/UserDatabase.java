@@ -9,7 +9,10 @@ package com.metrix.loginpackage;
  *
  * @author College
  */
+import CRUDuser.UserDAO;
 import java.sql.*;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class UserDatabase {
     Connection con ;
@@ -59,9 +62,12 @@ public class UserDatabase {
            pt.executeUpdate();
            set = true;
            con.close();
+          
+            pt.close();
         }catch(Exception e){
             e.printStackTrace();
         }
+        
         return set;
     }
     
@@ -87,6 +93,8 @@ public class UserDatabase {
                 usr.setPassword(rs.getString("password"));
                 
             }
+            rs.close();
+            pst.close();
             
         }catch(Exception e){
             e.printStackTrace();
@@ -107,19 +115,77 @@ public class UserDatabase {
             if(rs.next()){
                 usr = new User();
                 usr.setIduser(rs.getInt("iduser"));
-                usr.setFirstName(rs.getString("fname"));
-                usr.setMiddleName(rs.getString("mname"));
-                usr.setLastName(rs.getString("lname"));
+                usr.setFirstName(rs.getString("firstname"));
+                usr.setMiddleName(rs.getString("middlename"));
+                usr.setLastName(rs.getString("lastname"));
                 usr.setAddress(rs.getString("address"));
                 usr.setEmail(rs.getString("email"));
                 usr.setPassword(rs.getString("password"));
                 
             }
+            rs.close();
+            pst.close();
             
         }catch(Exception e){
             e.printStackTrace();
         }
         return usr;
     }
-}
+    
+    
+    
+    public boolean updateProfile(User user){
+        boolean test = false;
+        
+        try {
+            String query = "UPDATE USER SET FIRSTNAME=?, middlename=?, lastname=?, address=?, email=?, password=? where iduser=?";
+            PreparedStatement pt = this.con.prepareStatement(query);
+            pt.setString(1, user.getFirstName());
+            pt.setString(2, user.getMiddleName());
+            pt.setString(3, user.getLastName());
+            pt.setString(4, user.getAddress());
+            pt.setString(5, user.getEmail());
+            pt.setString(6, user.getPassword());
+            pt.setInt(7, user.getIduser());
+            
+            pt.executeUpdate();
+            test = true;
+           
+            pt.close();
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(UserDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return test;
+    }
+    
+    public User getProfile(int id){
+        User user = null;
+        
+        try{
+            String query = "select * from metrix.user where iduser=? ";
+            
+            PreparedStatement pt = this.con.prepareStatement(query);
+            pt.setInt(1, id);
+            ResultSet rs= pt.executeQuery();
+            
+            while(rs.next()){
+                int iduser = rs.getInt("iduser");
+                String firstname = rs.getString("firstname");
+                String middlename = rs.getString("middlename");
+                String lastname = rs.getString("lastname");
+                String address = rs.getString("address");
+                String email = rs.getString("email");
+                String password = rs.getString("password");
+                user = new User(iduser,firstname,middlename,lastname,address,email,password);
+            }
+            rs.close();
+            pt.close();
+        }catch(Exception ex){
+            ex.printStackTrace();;
+        }
+        return user;
+    }
+    }
+
 

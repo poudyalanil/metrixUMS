@@ -33,6 +33,7 @@
         <div  class="container-fluid">
             <nav class="navbar navbar-light">
                 <a class="navbar-brand">Manage Users</a>
+                <a class="navbar-brand" href="adminDashboard.jsp">Home</a>
                 <form class="form-inline">
                     <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
                     <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
@@ -53,7 +54,7 @@ Create New User</h3>
                             </div>
 <div class="form-group">
                                 <label>Middle Name</label>
-                                <input class="form-control" name="mname" place-holder="Middle Name" required>
+                                <input class="form-control" name="mname" place-holder="Middle Name">
                             </div>
 <div class="form-group">
                                 <label>Last Name</label>

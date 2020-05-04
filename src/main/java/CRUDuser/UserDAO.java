@@ -13,6 +13,8 @@ import com.metrix.loginpackage.User;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 public class UserDAO {
     Connection con;
 
@@ -66,6 +68,8 @@ public class UserDAO {
                 User row = new User(iduser,firstname,middlename,lastname,address,email,password);
                 user.add(row);
             }
+            rs.close();
+            pt.close();
             
         }catch(Exception e){
             e.printStackTrace();;
@@ -75,10 +79,11 @@ public class UserDAO {
     
     
 //    eidt book information
-    public void editUserInfo(User user){
+    public boolean editUserInfo(User user){
+        boolean test = false;
         
-        try{
-            String query = "update metrix.user set firstname=?, middlename=?,lastname=?,address=?,email=?,password=? where iduser=?";
+        try {
+            String query = "UPDATE USER SET FIRSTNAME=?, middlename=?, lastname=?, address=?, email=?, password=? where iduser=?";
             PreparedStatement pt = this.con.prepareStatement(query);
             pt.setString(1, user.getFirstName());
             pt.setString(2, user.getMiddleName());
@@ -86,18 +91,25 @@ public class UserDAO {
             pt.setString(4, user.getAddress());
             pt.setString(5, user.getEmail());
             pt.setString(6, user.getPassword());
+            pt.setInt(7, user.getIduser());
             
             pt.executeUpdate();
-        }catch(Exception ex){
-            ex.printStackTrace();;
+            test = true;
+           
+            pt.close();
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(UserDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
-        
+        return test;
     }
+        
+        
+    
     
 //    get single book information in edit page
     public User getSingleUser(int id){
-        User us = null;
+        User user = null;
         
         try{
             String query = "select * from metrix.user where iduser=? ";
@@ -114,12 +126,14 @@ public class UserDAO {
                 String address = rs.getString("address");
                 String email = rs.getString("email");
                 String password = rs.getString("password");
-                us = new User(iduser,firstname,middlename,lastname,address,email,password);
+                user = new User(iduser,firstname,middlename,lastname,address,email,password);
             }
+            rs.close();
+            pt.close();
         }catch(Exception ex){
             ex.printStackTrace();;
         }
-        return us;
+        return user;
     }
     
     
@@ -133,6 +147,8 @@ public class UserDAO {
            PreparedStatement pt = this.con.prepareStatement(query);
            pt.setInt(1, id);
            pt.execute();
+           
+            pt.close();
             
         }catch(Exception ex){
             ex.printStackTrace();;
