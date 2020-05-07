@@ -67,8 +67,8 @@
                             </div>
                         </div>
                     </div>
-                    <a class="small" style="float: right; margin: -40px 20px 0px 0px;" href="registration.jsp">Register</a><br>
-                    <a class="small" style="float: right; margin: -40px 20px 0px 0px;" href="adminLogin.jsp">Admin</a>
+                    <a class="small" style="float: right; margin: -80px 20px 0px 0px;" href="registration.jsp">Register</a><br>
+                    <a class="small" style="float: right; margin: -80px 20px 0px 0px;" href="adminLogin.jsp">Admin</a>
                 </div>
             </div>
         </div>
