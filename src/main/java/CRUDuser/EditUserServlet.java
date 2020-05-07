@@ -9,6 +9,7 @@ import com.metrix.loginpackage.ConnectionProvider;
 import com.metrix.loginpackage.User;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.time.LocalDate;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -48,7 +49,9 @@ public class EditUserServlet extends HttpServlet {
             String address = request.getParameter("address");
             String email = request.getParameter("email");
             String password =request.getParameter("password");
-            User user = new User(iduser, firstName, middleName,lastName,address, email,password);
+            LocalDate today = LocalDate.now();
+           
+            User user = new User(iduser, firstName, middleName,lastName,address, email,password,today);
             try{
                 UserDAO usdao = new UserDAO(ConnectionProvider.getConnection());
                 if(usdao.editUserInfo(user)){

@@ -11,6 +11,7 @@ package CRUDuser;
  */
 import com.metrix.loginpackage.User;
 import java.sql.*;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
@@ -28,7 +29,7 @@ public class UserDAO {
         boolean test = false;
         
         try{
-            String query =  "INSERT INTO METRIX.USER(FIRSTNAME,MIDDLENAME,LASTNAME,ADDRESS,EMAIL,PASSWORD) VALUES(?,?,?,?,?,?)";
+            String query =  "INSERT INTO METRIX.USER(FIRSTNAME,MIDDLENAME,LASTNAME,ADDRESS,EMAIL,PASSWORD,JOINDATE) VALUES(?,?,?,?,?,?,?)";
             PreparedStatement pst = this.con.prepareStatement(query);
             pst.setString(1, user.getFirstName());
             pst.setString(2, user.getMiddleName());
@@ -36,6 +37,7 @@ public class UserDAO {
             pst.setString(4, user.getAddress());
             pst.setString(5, user.getEmail());
             pst.setString(6, user.getPassword());
+            pst.setObject(7, user.getJoinDate());
             
             pst.executeUpdate();
             test= true;
@@ -64,8 +66,9 @@ public class UserDAO {
                 String address = rs.getString("address");
                 String email = rs.getString("email");
                 String password = rs.getString("password");
+                LocalDate joinDate = rs.getObject ( "joindate" , LocalDate.class );
                 
-                User row = new User(iduser,firstname,middlename,lastname,address,email,password);
+                User row = new User(iduser,firstname,middlename,lastname,address,email,password,joinDate);
                 user.add(row);
             }
             rs.close();
@@ -126,7 +129,8 @@ public class UserDAO {
                 String address = rs.getString("address");
                 String email = rs.getString("email");
                 String password = rs.getString("password");
-                user = new User(iduser,firstname,middlename,lastname,address,email,password);
+                LocalDate joinDate = rs.getObject ( "joindate" , LocalDate.class );
+                user = new User(iduser,firstname,middlename,lastname,address,email,password,joinDate);
             }
             rs.close();
             pt.close();

@@ -7,6 +7,7 @@ package com.metrix.loginpackage;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.time.LocalDate;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -48,7 +49,8 @@ public class AdminRegister extends HttpServlet {
             String email = request.getParameter("email");
             String password =request.getParameter("password");
             
-            User userModel = new User(firstName,middleName,lastName,address,email,password);
+            LocalDate today = LocalDate.now();
+            User userModel = new User(firstName,middleName,lastName,address,email,password, today);
 //create a database model
             UserDatabase regAdmin = new UserDatabase(ConnectionProvider.getConnection());
             if (regAdmin.saveAdmin(userModel)) {

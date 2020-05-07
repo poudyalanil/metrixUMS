@@ -11,11 +11,12 @@ package com.metrix.loginpackage;
  */
 import CRUDuser.UserDAO;
 import java.sql.*;
+import java.time.LocalDate;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
 public class UserDatabase {
-    Connection con ;
+    public Connection con ;
 
     public UserDatabase(Connection con) {
         this.con = con;
@@ -26,7 +27,7 @@ public class UserDatabase {
         boolean set = false;
         try{
             //Insert register data to database
-           String query = "INSERT INTO METRIX.USER(FIRSTNAME,MIDDLENAME,LASTNAME,ADDRESS,EMAIL,PASSWORD) VALUES(?,?,?,?,?,?);";
+           String query = "INSERT INTO METRIX.USER(FNAME,MNAME,LNAME,ADDRESS,EMAIL,PASSWORD,JOINDATE) VALUES(?,?,?,?,?,?,?);";
            
            PreparedStatement pt = this.con.prepareStatement(query);
            pt.setString(1, user.getFirstName());
@@ -35,6 +36,8 @@ public class UserDatabase {
            pt.setString(4, user.getAddress());
            pt.setString(5, user.getEmail());
            pt.setString(6, user.getPassword());
+           pt.setObject(7, user.getJoinDate());
+        
            
            pt.executeUpdate();
            set = true;
@@ -49,7 +52,7 @@ public class UserDatabase {
         boolean set = false;
         try{
             //Insert register data to database
-           String query = "INSERT INTO METRIX.ADMIN(FIRSTNAME,MIDDLENAME,LASTNAME,ADDRESS,EMAIL,PASSWORD) VALUES(?,?,?,?,?,?);";
+           String query = "INSERT INTO METRIX.ADMIN(FNAME,MNAME,LNAME,ADDRESS,EMAIL,PASSWORD) VALUES(?,?,?,?,?,?);";
            
            PreparedStatement pt = this.con.prepareStatement(query);
            pt.setString(1, user.getFirstName());
@@ -75,7 +78,7 @@ public class UserDatabase {
     public User logUser(String email, String password){
         User usr=null;
         try{
-            String query ="select * from user where email=? and password=?";
+            String query ="select * from user where email=? and password=? and status=1";
             PreparedStatement pst = this.con.prepareStatement(query);
             pst.setString(1, email);
             pst.setString(2, password);
@@ -91,6 +94,9 @@ public class UserDatabase {
                 usr.setAddress(rs.getString("address"));
                 usr.setEmail(rs.getString("email"));
                 usr.setPassword(rs.getString("password"));
+                usr.setJoinDate(rs.getObject( "joindate" , LocalDate.class )); 
+
+               
                 
             }
             rs.close();
@@ -138,7 +144,7 @@ public class UserDatabase {
         boolean test = false;
         
         try {
-            String query = "UPDATE USER SET FIRSTNAME=?, middlename=?, lastname=?, address=?, email=?, password=? where iduser=?";
+            String query = "UPDATE USER SET FNAME=?, mname=?, lname=?, address=?, email=?, password=?, lastupdated=? where iduser=?";
             PreparedStatement pt = this.con.prepareStatement(query);
             pt.setString(1, user.getFirstName());
             pt.setString(2, user.getMiddleName());
@@ -146,8 +152,9 @@ public class UserDatabase {
             pt.setString(4, user.getAddress());
             pt.setString(5, user.getEmail());
             pt.setString(6, user.getPassword());
-            pt.setInt(7, user.getIduser());
             
+            pt.setObject(7, LocalDate.now());
+            pt.setInt(8, user.getIduser());
             pt.executeUpdate();
             test = true;
            
@@ -177,7 +184,8 @@ public class UserDatabase {
                 String address = rs.getString("address");
                 String email = rs.getString("email");
                 String password = rs.getString("password");
-                user = new User(iduser,firstname,middlename,lastname,address,email,password);
+                LocalDate joinDate = rs.getObject ( "joindate" , LocalDate.class );
+                user = new User(iduser,firstname,middlename,lastname,address,email,password,joinDate);
             }
             rs.close();
             pt.close();

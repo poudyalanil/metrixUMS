@@ -7,11 +7,16 @@ package com.metrix.loginpackage;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+import java.time.LocalTime;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import java.time.Instant;
+import java.time.LocalDate;
 
 /**
  *
@@ -28,36 +33,7 @@ public class LoginServlet extends HttpServlet {
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
      */
-    protected void processRequest(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        response.setContentType("text/html;charset=UTF-8");
-        try (PrintWriter out = response.getWriter()) {
-            /* TODO output your page here. You may use following sample code. */
-            out.println("<!DOCTYPE html>");
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>Servlet LoginServlet</title>");            
-            out.println("</head>");
-            out.println("<body>");
-            out.println("<h1>" + request.getContextPath() + "</h1>");
-            
-            String logemail = request.getParameter("email");
-            String logpass = request.getParameter("password");
-            
-            UserDatabase db =  new UserDatabase(ConnectionProvider.getConnection());
-            User user = db.logUser(logemail, logpass);
-            
-            if(user!=null){
-                HttpSession session = request.getSession();
-                session.setAttribute("logUser", user);
-                response.sendRedirect("welcome.jsp");
-            }else{
-                out.println("User Not Found");
-            }
-            out.println("</body>");
-            out.println("</html>");
-        }
-    }
+   
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
@@ -69,30 +45,51 @@ public class LoginServlet extends HttpServlet {
      * @throws IOException if an I/O error occurs
      */
     @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        processRequest(request, response);
-    }
-
-    /**
-     * Handles the HTTP <code>POST</code> method.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
-    @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        String logemail = request.getParameter("email");
+            String logpass = request.getParameter("password");
+            
+            UserDatabase db =  new UserDatabase(ConnectionProvider.getConnection());
+            User user = db.logUser(logemail, logpass);
+            
+            if(user!=null){
+                
+                
+                HttpSession session = request.getSession();
+                session.setAttribute("logUser", user);
+                session.setAttribute("joinDate",user.getJoinDate());
+                
+                 Instant time = Instant.now();
+                 
+                session.setAttribute("sessionTime", time);
+              
+                String query = "INSERT INTO METRIX.HISTORY(UID, LOGDATE) values(?,?);";
+                LocalDate date = LocalDate.now();
+             try{
+                PreparedStatement ps = db.con.prepareStatement(query);
+                ps.setInt(1, user.getIduser());
+                ps.setObject(2, date);
+                ps.execute();
+                ps.close();
+             }catch(SQLException e){
+                 e.printStackTrace();
+             }
+                
+                response.sendRedirect("userDashboard.jsp");
+                
+            }else{
+                HttpSession session = request.getSession();
+                session.setAttribute("error", "Wrong Crendentials \n"
+                                                + "<br> OR<br> "
+                                                + "You might have been blocked");
+               response.sendRedirect("login.jsp");
+                
+                        
+               
+            }
     }
 
-    /**
-     * Returns a short description of the servlet.
-     *
-     * @return a String containing servlet description
-     */
     @Override
     public String getServletInfo() {
         return "Short description";

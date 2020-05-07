@@ -7,11 +7,15 @@ package com.metrix.loginpackage;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.time.LocalDate;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import org.apache.commons.fileupload.FileItem;
+import org.apache.commons.fileupload.disk.DiskFileItemFactory;
+import org.apache.commons.fileupload.servlet.ServletFileUpload;
 
 /**
  *
@@ -47,8 +51,12 @@ public class RegisterServlet extends HttpServlet {
             String address   = request.getParameter("address");
             String email = request.getParameter("email");
             String password =request.getParameter("password");
+            LocalDate today = LocalDate.now();
             
-            User userModel = new User(firstName,middleName,lastName,address,email,password);
+            
+            
+            
+            User userModel = new User(firstName,middleName,lastName,address,email,password,today);
 //create a database model
             UserDatabase regUser = new UserDatabase(ConnectionProvider.getConnection());
             if (regUser.saveUser(userModel)) {

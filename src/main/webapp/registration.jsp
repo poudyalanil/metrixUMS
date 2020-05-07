@@ -39,7 +39,7 @@
                             <div class="row"  >
                                 <div class="col-md-9 col-lg-8 mx-auto" >
                                     <h3 class="login-heading mb-4">SignUp</h3>
-                                    <form action="RegisterServlet" method="POST">
+                                    <form action="RegisterServlet" method="POST" enctype="multipart/form-data">
                                         <div class="form-label-group">
                                             <input type="text" name ="fname" class="form-control" placeholder="First Name" required autofocus>
                                             <label for="fname">First Name</label>
@@ -52,10 +52,12 @@
                                             <input type="text" name ="lname" class="form-control" placeholder="Last Name" required>
                                             <label for="lname">Last Name</label>
                                         </div>
-                                        <div class="form-label-group">
-                                            <input type="number" name ="phno" class="form-control" placeholder="Phone Number" required>
-                                            <label for="phno">Phone Number</label>
-                                        </div>
+<!--                                        TODO-->
+                                        
+<!--                                        <div class="form-label-group">
+                                            <input type="text" name ="image" class="form-control" placeholder="Your Image URL">
+                                            <label for="image">Profile Image</label>
+                                        </div>-->
                                         <div class="form-label-group">
                                             <input type="text" name ="address" class="form-control" placeholder="Address" required>
                                             <label for="address">Address</label>

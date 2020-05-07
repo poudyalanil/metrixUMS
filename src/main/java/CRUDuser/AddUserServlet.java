@@ -13,6 +13,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.time.LocalDate;
 
 /**
  *
@@ -41,19 +42,28 @@ public class AddUserServlet extends HttpServlet {
             out.println("</head>");
             out.println("<body>");
             out.println("<h1>Servlet AddUserServlet at " + request.getContextPath() + "</h1>");
+            
+            
+            
+             
             String firstName = request.getParameter("fname");
             String middleName = request.getParameter("mname");
             String lastName = request.getParameter("lname");
             String address   = request.getParameter("address");
             String email = request.getParameter("email");
             String password =request.getParameter("password");
-            User user = new User(firstName, middleName,lastName,address, email,password);
+            LocalDate today = LocalDate.now();
+            
+            
+            
+            
+            User user = new User(firstName, middleName,lastName,address, email,password,today);
             try{
                 UserDAO usdao = new UserDAO(ConnectionProvider.getConnection());
                 if(usdao.addUser(user)){
                     response.sendRedirect("userList.jsp");
                 }else{
-                    out.print("wrong cre3dential");
+                    out.print("Wrong Crendential");
                 }
                 
             }catch(Exception e){

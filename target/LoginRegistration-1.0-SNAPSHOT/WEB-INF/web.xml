@@ -52,6 +52,10 @@
         <servlet-name>EditProfile</servlet-name>
         <servlet-class>com.metrix.loginpackage.EditProfile</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>UserInfo</servlet-name>
+        <servlet-class>UserUtils.UserInfo</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>RegisterServlet</servlet-name>
         <url-pattern>/RegisterServlet</url-pattern>
@@ -103,6 +107,10 @@
     <servlet-mapping>
         <servlet-name>EditProfile</servlet-name>
         <url-pattern>/EditProfile</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>UserInfo</servlet-name>
+        <url-pattern>/UserInfo</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

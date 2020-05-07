@@ -1,5 +1,10 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!doctype html>
+
+<%
+    String errorMsg  =(String) session.getAttribute("error");
+%>
+
 <html lang="en">
   <head>
     <!-- Required meta tags -->
@@ -44,8 +49,19 @@
                                             <label for="password">Password</label>
                                         </div>
                                         <div style="text-align: center;">
-                                            <button class="btn btn-md btn-outline-light btn-login" type="submit">LogIn</button>
+                                            <button class="btn btn-md btn-outline-light btn-login" type="submit" >LogIn</button>
+                                            <br><br>
+                                         <% if (errorMsg != null) {%>
+                                            <p style="color:red; font-size: 12px;"> 
+                                                <%= errorMsg %>
+                                                <% session.removeAttribute("error");%>
+                                            </p>
+                                        <% }%> 
+                                
+                                            </p>
                                         </div>
+                                       
+                                       
                                     </form>
                                 </div>
                             </div>

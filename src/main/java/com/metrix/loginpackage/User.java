@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 package com.metrix.loginpackage;
-
+import java.time.LocalDate;
 /**
  *
  * @author College
@@ -12,13 +12,15 @@ package com.metrix.loginpackage;
 public class User {
     private int iduser;
     private String firstName, middleName, lastName, address, email, password;
+    private LocalDate joinDate;
+    
     
     public User() {
 
     }
 
     
-    public User(int iduser, String firstName, String middleName, String lastName, String address, String email, String password ){
+    public User(int iduser, String firstName, String middleName, String lastName, String address, String email, String password,LocalDate joinDate ){
         this.iduser = iduser;
         this.firstName = firstName;
         this.middleName = middleName;
@@ -26,14 +28,16 @@ public class User {
         this.address = address;
         this.email = email;
         this.password = password;
+        this.joinDate = joinDate;
     }
-    public User(String firstName, String middleName, String lastName, String address, String email, String password ){
+    public User(String firstName, String middleName, String lastName, String address, String email, String password,LocalDate joinDate ){
         this.firstName = firstName;
         this.middleName = middleName;
         this.lastName = lastName;
         this.address = address;
         this.email = email;
         this.password = password;
+        this.joinDate = joinDate;
     }
 
     public User(String email, String password) {
@@ -97,10 +101,26 @@ public class User {
     public void setPassword(String password) {
         this.password = password;
     }
+
+    public LocalDate getJoinDate() {
+        return joinDate;
+    }
+
+    public void setJoinDate(LocalDate joinDate) {
+        this.joinDate = joinDate;
+    }
     
     @Override
     public String toString() {
-        return "user{" + "iduser=" + iduser + ", FirstName=" + firstName + ", MiddleName=" + middleName + ", LastName=" + lastName + ", address=" + address + ", email =" + email + ", Password=" + password +'}';
+        return "user{" + "iduser=" + iduser +
+                ", FirstName=" + firstName + 
+                ", MiddleName=" + middleName +
+                ", LastName=" + lastName +
+                ", address=" + address +
+                ", email =" + email +
+                ", Password=" + password +
+                ", Joined Date = " + joinDate+
+                '}';
     }
 }
 
