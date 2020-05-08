@@ -1,0 +1,75 @@
+@font-face {
+    font-family: Acme;
+    src: url(../fonts/Acme.ttf);
+}
+@font-face {
+    font-family: Akronim;
+    src: url(../fonts/Akronim.ttf);
+}
+
+*{
+    padding: 0px;
+    margin: 0px;
+}
+
+html{
+    height: 100%;
+}
+
+body{
+    font-family: Acme;
+    background-color: #F6F6F6;
+}
+
+.vertical-menu>h2{
+    font-family: Akronim;
+    color: white;
+    font-size: 40px;
+    font-weight: lighter;
+    text-align: center;
+    padding-top: 13px;
+    margin-bottom: 12px;
+}
+
+.vertical-menu {
+  width: 12%;
+  height: 100vh; 
+  background-color: #18ABA2;
+  float: left;
+}
+
+.vertical-menu a {
+    /*border-top: 1px #F6F6F6 solid;*/
+    border-bottom: 1px #F6F6F6 solid;
+    color: white; /* Black text color */
+    display: block; /* Make the links appear below each other */
+    padding: 12px; /* Add some padding */
+    text-decoration: none; /* Remove underline from links */
+}
+
+.vertical-menu a:hover {
+  background-color: #ccc; /* Dark grey background on mouse-over */
+}
+
+.vertical-menu a.active {
+  background-color: #F6F6F6; /* Add a green color to the "active/current" link */
+  color: black;
+}
+
+.horizontal-menu{
+    float: right;
+    width: 88%;
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.5);
+}
+
+.horizontal-menu>h3{
+    font-size: 20px;
+    float: right;
+    padding: 24px 15px 18px 0px;
+}
+
+.horizontal-menu>.logout{
+    font-size: 18px;
+    float: right;
+    padding:24px 50px 18px 0px;
+}
