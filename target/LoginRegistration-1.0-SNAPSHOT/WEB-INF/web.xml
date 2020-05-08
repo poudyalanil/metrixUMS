@@ -56,6 +56,14 @@
         <servlet-name>UserInfo</servlet-name>
         <servlet-class>UserUtils.UserInfo</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>BlockUserServlet</servlet-name>
+        <servlet-class>CRUDuser.BlockUserServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>Unblock</servlet-name>
+        <servlet-class>CRUDuser.Unblock</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>RegisterServlet</servlet-name>
         <url-pattern>/RegisterServlet</url-pattern>
@@ -111,6 +119,14 @@
     <servlet-mapping>
         <servlet-name>UserInfo</servlet-name>
         <url-pattern>/UserInfo</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>BlockUserServlet</servlet-name>
+        <url-pattern>/BlockUserServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Unblock</servlet-name>
+        <url-pattern>/Unblock</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

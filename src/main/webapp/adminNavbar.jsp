@@ -5,11 +5,9 @@
 <%@page import="com.metrix.loginpackage.User"%>
 <%@page import="com.metrix.loginpackage.ConnectionProvider"%>
 
-<<<<<<< HEAD
+
 <% User user = (User) session.getAttribute("logAdmin");%>
-=======
-<% User user = (User) session.getAttribute("logUser");%>
->>>>>>> f91a370b2014e09f6e40359f4f7fea7f74fd2dca
+
 <!DOCTYPE html>
 <html>
     <head>

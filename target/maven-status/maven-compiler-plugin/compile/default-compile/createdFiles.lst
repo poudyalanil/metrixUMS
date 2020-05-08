@@ -7,10 +7,11 @@ com\metrix\loginpackage\ConnectionProvider.class
 com\metrix\loginpackage\ResetPass.class
 com\mycompany\loginregistration\resources\JavaEE8Resource.class
 CRUDuser\EditUserServlet.class
+CRUDuser\Unblock.class
 CRUDuser\UserDAO.class
 com\metrix\loginpackage\EditProfile.class
-UserUtils\UserInfo.class
 com\metrix\loginpackage\AdminRegister.class
+CRUDuser\BlockUserServlet.class
 com\metrix\loginpackage\UserDatabase.class
 com\mycompany\loginregistration\JAXRSConfiguration.class
 com\metrix\loginpackage\AdminLogin.class

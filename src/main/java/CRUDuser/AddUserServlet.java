@@ -53,11 +53,12 @@ public class AddUserServlet extends HttpServlet {
             String email = request.getParameter("email");
             String password =request.getParameter("password");
             LocalDate today = LocalDate.now();
+            int userRole = 0;
+            int userStatus = 1;
             
             
             
-            
-            User user = new User(firstName, middleName,lastName,address, email,password,today);
+            User user = new User(firstName, middleName,lastName,address, email,password,today,userRole,userStatus);
             try{
                 UserDAO usdao = new UserDAO(ConnectionProvider.getConnection());
                 if(usdao.addUser(user)){

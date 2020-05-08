@@ -10,7 +10,7 @@ import java.time.LocalDate;
  * @author College
  */
 public class User {
-    private int iduser;
+    private int iduser,userRole,userStatus;
     private String firstName, middleName, lastName, address, email, password;
     private LocalDate joinDate;
     
@@ -20,7 +20,7 @@ public class User {
     }
 
     
-    public User(int iduser, String firstName, String middleName, String lastName, String address, String email, String password,LocalDate joinDate ){
+    public User(int iduser, String firstName, String middleName, String lastName, String address, String email, String password,LocalDate joinDate, int userRole, int userStatus ){
         this.iduser = iduser;
         this.firstName = firstName;
         this.middleName = middleName;
@@ -29,8 +29,11 @@ public class User {
         this.email = email;
         this.password = password;
         this.joinDate = joinDate;
+        this.userRole = userRole;
+        this.userStatus = userStatus;
+        
     }
-    public User(String firstName, String middleName, String lastName, String address, String email, String password,LocalDate joinDate ){
+    public User(String firstName, String middleName, String lastName, String address, String email, String password,LocalDate joinDate , int userRole, int userStatus ){
         this.firstName = firstName;
         this.middleName = middleName;
         this.lastName = lastName;
@@ -38,6 +41,8 @@ public class User {
         this.email = email;
         this.password = password;
         this.joinDate = joinDate;
+        this.userRole = userRole;
+        this.userStatus = userStatus;
     }
 
     public User(String email, String password) {
@@ -110,6 +115,22 @@ public class User {
         this.joinDate = joinDate;
     }
     
+     public int getUserRole() {
+        return userRole;
+    }
+
+    public void setUserRole(int userRole) {
+        this.userRole = userRole;
+    }
+    
+     public int getUserStatus() {
+        return userStatus;
+    }
+
+    public void setUserStatus(int userStatus) {
+        this.userStatus = userStatus;
+    }
+    
     @Override
     public String toString() {
         return "user{" + "iduser=" + iduser +
@@ -120,6 +141,8 @@ public class User {
                 ", email =" + email +
                 ", Password=" + password +
                 ", Joined Date = " + joinDate+
+                 ", User Role = " + userRole+
+                 ", User Status = " + userStatus+
                 '}';
     }
 }

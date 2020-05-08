@@ -67,9 +67,10 @@ public class UserDAO {
                 String email = rs.getString("email");
                 String password = rs.getString("password");
                 LocalDate joinDate = rs.getObject ( "joindate" , LocalDate.class );
-                
-                User row = new User(iduser,firstname,middlename,lastname,address,email,password,joinDate);
-                user.add(row);
+                int userRole = rs.getInt("isadmin");
+                int userStatus = rs.getInt("status");
+               User row = new User(iduser,firstname,middlename,lastname,address,email,password,joinDate,userRole,userStatus);
+               user.add(row);
             }
             rs.close();
             pt.close();
@@ -106,11 +107,7 @@ public class UserDAO {
         }
         return test;
     }
-        
-        
-    
-    
-//    get single book information in edit page
+ 
     public User getSingleUser(int id){
         User user = null;
         
@@ -130,7 +127,9 @@ public class UserDAO {
                 String email = rs.getString("email");
                 String password = rs.getString("password");
                 LocalDate joinDate = rs.getObject ( "joindate" , LocalDate.class );
-                user = new User(iduser,firstname,middlename,lastname,address,email,password,joinDate);
+                 int userRole = rs.getInt("isadmin");
+                int userStatus = rs.getInt("status");
+                user = new User(iduser,firstname,middlename,lastname,address,email,password,joinDate,userRole,userStatus);
             }
             rs.close();
             pt.close();
@@ -141,7 +140,20 @@ public class UserDAO {
     }
     public void blockUser(int id){
     try{
-    String query= "UPDATE user set statue = 0, where iduser=?";
+    String query= "UPDATE user set status = 0 where iduser=?";
+      PreparedStatement pt = this.con.prepareStatement(query);
+           pt.setInt(1, id);
+           pt.execute();
+           
+            pt.close();
+    
+    }catch(SQLException e){
+        System.out.println(e);
+    }
+    }
+      public void unBlockUser(int id){
+    try{
+    String query= "UPDATE user set status = 1 where iduser=?";
       PreparedStatement pt = this.con.prepareStatement(query);
            pt.setInt(1, id);
            pt.execute();

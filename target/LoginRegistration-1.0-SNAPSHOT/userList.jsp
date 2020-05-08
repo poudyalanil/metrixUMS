@@ -92,16 +92,30 @@ User Information from Database</h3>
                                 </tr>
 </thead>
                             <tbody>
-                                <c:forEach var="tempBook" items="${USERS_LIST}">
+                                <c:forEach var="user" items="${USERS_LIST}">
 <tr>
-                                        <td>${tempBook.firstName }</td>
-                                        <td>${tempBook.middleName }</td>
-                                        <td>${tempBook.lastName }</td>
-                                        <td>${tempBook.address }</td>
-                                        <td>${tempBook.email }</td>
-                                        <td>${tempBook.password}</td>
-                                        <td><a href="EditUser.jsp?id=${tempBook.iduser }">Edit</a> 
-                                            <a href="DeleteUserServlet?id=${tempBook.iduser}">Delete</a></td>
+                                        <td>${user.firstName }</td>
+                                        <td>${user.middleName }</td>
+                                        <td>${user.lastName }</td>
+                                        <td>${user.address }</td>
+                                        <td>${user.email }</td>
+                                        <td>${user.password}</td>
+                                        <td><a href="EditUser.jsp?id=${user.iduser }">Edit</a> 
+                                            <a class="text-danger" href="DeleteUserServlet?id=${user.iduser}">Delete</a>
+                                            
+                                          
+                                            
+                                            
+                                            <c:choose>
+                                                <c:when test="${user.userStatus eq 0}">
+                                                     <a class="text-success" href="Unblock?id=${user.iduser}">UnBlock</a></td>
+                                                </c:when>
+                                                <c:otherwise>
+                                                    <a class="text-warning" href="BlockUserServlet?id=${user.iduser}">Block</a></td>
+                                                </c:otherwise>
+                                            </c:choose>
+                                            
+                                        
                                     </tr>
 </c:forEach>
                             </tbody>

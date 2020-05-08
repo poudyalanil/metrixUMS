@@ -7,7 +7,7 @@
 <%@page import="java.sql.Connection"%>
 <%@page import="com.metrix.loginpackage.UserDatabase"%>
 <%@page import="com.metrix.loginpackage.User"%>
-<%@page import="com.metrix.loginpackage.ConnectionProvider"%>
+
 
 
 <%@ page import="java.util.*" %>
@@ -15,13 +15,28 @@
 
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ taglib uri = "http://java.sun.com/jsp/jstl/core" prefix = "c"%>
+<%
+    UserDAO userData = new UserDAO(ConnectionProvider.getConnection());
+    List<User> user = userData.getAllUsers();
+    request.setAttribute("USERS_LIST", user);
+   
+    
+%>
 
-
-<% User user = (User) session.getAttribute("logAdmin");
-    if(user==null){
+<% User admin = (User) session.getAttribute("logAdmin");
+   
+    if(admin==null && admin.getUserRole()==0){
         response.sendRedirect("login.jsp");
     }
 %>
+<%@page import="java.util.List"%>
+<%@page import="com.metrix.loginpackage.User"%>
+<%@page import="com.metrix.loginpackage.ConnectionProvider"%>
+<%@page import="CRUDuser.UserDAO"%>
+
+
+
 
 <!DOCTYPE html>
 <html>
@@ -50,7 +65,7 @@
         <div class="container">
             <div class="card-bg">
                 <div class="card-number">
-                    120
+                <%= session.getAttribute("clientCount")%>
                 </div>
                 <div class="card-desc">
                     Total Clients
@@ -58,7 +73,7 @@
             </div>
             <div class="card-bg">
                 <div class="card-number">
-                    5
+               <%= session.getAttribute("adminCount")%>
                 </div>
                 <div class="card-desc">
                     Total Admins
@@ -66,7 +81,7 @@
             </div>
             <div class="card-bg">
                 <div class="card-number">
-                    50
+                   <%= session.getAttribute("totalLogin")%>
                 </div>
                 <div class="card-desc">
                     Total Logins

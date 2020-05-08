@@ -179,14 +179,16 @@ public class UserDatabase {
             
             while(rs.next()){
                 int iduser = rs.getInt("iduser");
-                String firstname = rs.getString("firstname");
-                String middlename = rs.getString("middlename");
-                String lastname = rs.getString("lastname");
+                String firstname = rs.getString("fname");
+                String middlename = rs.getString("mname");
+                String lastname = rs.getString("lname");
                 String address = rs.getString("address");
                 String email = rs.getString("email");
                 String password = rs.getString("password");
                 LocalDate joinDate = rs.getObject ( "joindate" , LocalDate.class );
-                user = new User(iduser,firstname,middlename,lastname,address,email,password,joinDate);
+                int userRole = rs.getInt("isadmin");
+                int userStatus = rs.getInt("status");
+                user = new User(iduser,firstname,middlename,lastname,address,email,password,joinDate,userRole,userStatus);
             }
             rs.close();
             pt.close();

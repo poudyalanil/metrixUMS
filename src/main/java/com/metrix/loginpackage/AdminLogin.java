@@ -10,6 +10,7 @@ import java.io.PrintWriter;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 import javax.servlet.ServletException;
@@ -41,73 +42,75 @@ public class AdminLogin extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet AdminLogin</title>");            
+            out.println("<title>Servlet AdminLogin</title>");
             out.println("</head>");
             out.println("<body>");
             out.println("<h1>Servlet AdminLogin at " + request.getContextPath() + "</h1>");
-            
+
             String logemail = request.getParameter("email");
             String logpass = request.getParameter("password");
-            
-            UserDatabase db =  new UserDatabase(ConnectionProvider.getConnection());
+
+            UserDatabase db = new UserDatabase(ConnectionProvider.getConnection());
             User user = db.logAdmin(logemail, logpass);
-            List <String> fname = new ArrayList<String>();
-            
-            if(user!=null){
+
+            if (user != null) {
                 HttpSession session = request.getSession();
                 session.setAttribute("logAdmin", user);
-               
-                String query = "SELECT * FROM user INNER JOIN history on user.iduser=history.uid;";
-                try{
-                PreparedStatement ps = db.con.prepareStatement(query);
-                ResultSet rs  =ps.executeQuery();
-                int userCount = 0;
-                int adminCount= 0;
-                HttpSession s = request.getSession();
-                while(rs.next()){
-                    int id = rs.getInt("iduser");
-                    fname.add(rs.getString("fname"));
-                    //String fname = rs.getString("fname");
-                    String mname = rs.getString("mname");
-                    String email = rs.getString("email");
-                    String lastUpdated = rs.getString("lastupdated");
-                    String lname = rs.getString("lname");
-                    String address = rs.getString("address");
-                    String joinDate = rs.getString("joindate");
-                    int role =  rs.getInt("isadmin");
-                    int status = rs.getInt("status");
-                    String lastlog = rs.getString("logdate");
-                   if(role ==1){
-                       adminCount ++;
-                   }else{
-                       userCount ++;
-                   }
-                s.setAttribute("uid", id);
-                s.setAttribute("fname", fname);
-                s.setAttribute("mname", mname);
-                s.setAttribute("lname", lname);
-                s.setAttribute("email", email);
-                s.setAttribute("lastUpdated", lastUpdated);
-                s.setAttribute("address", address);
-                s.setAttribute("joinDate", joinDate);
-                s.setAttribute("role", role);
-                s.setAttribute("status", status);
-                s.setAttribute("lastlog", lastlog);
-                
-                
-                }
-                s.setAttribute("userCount", userCount);
-                s.setAttribute("adminCount", adminCount);
-                
-                }catch(SQLException e){
+
+                try {
+                    
+                    String sql1 = "INSERT INTO METRIX.HISTORY(UID, LOGDATE) values(?,?);";
+                    
+                    LocalDate date = LocalDate.now();
+                    PreparedStatement ptt = db.con.prepareStatement(sql1);
+                    ptt.setInt(1, user.getIduser());
+                    ptt.setObject(2, date);
+                    ptt.execute();
+                    ptt.close();
+                    
+                    
+                    
+                    
+                    String query = "SELECT * FROM USER";
+                    PreparedStatement ps = db.con.prepareStatement(query);
+                    ResultSet rs = ps.executeQuery();
+                    int adminCount = 0;
+                    int clientCount = 0;
+                    while (rs.next()) {
+                        if (rs.getInt("isadmin") == 0) {
+                            clientCount++;
+
+                        } else {
+                            adminCount++;
+                        }
+                    }
+
+                    String sql = "SELECT * FROM history";
+                    PreparedStatement pt = db.con.prepareStatement(sql);
+                    ResultSet rt = pt.executeQuery();
+
+                    int totalLogin = 0;
+                    while (rt.next()) {
+                        totalLogin++;
+                    }
+                    pt.close();
+                    rt.close();
+                    session.setAttribute("adminCount", adminCount);
+                    session.setAttribute("clientCount", clientCount);
+                    session.setAttribute("totalLogin", totalLogin);
+
+                   
+
+                } catch (SQLException e) {
+
                     System.out.println(e);
                 }
                 response.sendRedirect("adminDashboard.jsp");
-            }else{
-                HttpSession session  =request.getSession();
+            } else {
+                HttpSession session = request.getSession();
                 session.setAttribute("error", "You got your crendentials wrong OR  Yor are blocked!!");
                 response.sendRedirect("adminLogin.jsp");
-                
+
             }
             out.println("</body>");
             out.println("</html>");

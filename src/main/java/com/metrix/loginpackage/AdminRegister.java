@@ -48,9 +48,11 @@ public class AdminRegister extends HttpServlet {
             String address   = request.getParameter("address");
             String email = request.getParameter("email");
             String password =request.getParameter("password");
+            int userRole = 1;
+             int userStatus = 1;
             
             LocalDate today = LocalDate.now();
-            User userModel = new User(firstName,middleName,lastName,address,email,password, today);
+            User userModel = new User(firstName,middleName,lastName,address,email,password, today,userRole,userStatus);
 //create a database model
             UserDatabase regAdmin = new UserDatabase(ConnectionProvider.getConnection());
             if (regAdmin.saveAdmin(userModel)) {
