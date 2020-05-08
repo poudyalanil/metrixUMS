@@ -17,7 +17,7 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 
 
-<% User user = (User) session.getAttribute("logUser");
+<% User user = (User) session.getAttribute("logAdmin");
     if(user==null){
         response.sendRedirect("login.jsp");
     }
@@ -33,39 +33,52 @@
         <!-- Bootstrap CSS -->
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
 
-        <title>User Dashboard</title>
+        <link href="css/admin.css" rel="stylesheet" />
+        
+        <title>Admin Dashboard</title>
 
-        <style>
-            .inner{
-                margin: 15px 0;
-            }
-        </style>
     </head>
     <body>
-        <br>
-        <br>
-     <h4>
-              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Today's Date: <%= (new java.util.Date()).toLocaleString()%>
-          
-        </h4>
-              <hr>
-              <h4>
-              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Session Time Date: ${sessionTime}
-          
-        </h4>
-              <hr>
-              <h4>
-              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Account Age:
-            
-        </h4><br>
-              <hr>
-              <br>
-             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  <p>
-              <a href="EditProfile.jsp">Profile</a>
-              <br>
-               <a href="userHistory.jsp">My History</a>
-              </p>
-           
+        <jsp:include page="adminNavbar.jsp" />
+        
+        <div class="container">
+            <h4>Welcome Admin,</h4>
+            <div class="time-card">
+                <%= (new java.util.Date()).toLocaleString()%>
+            </div>
+        </div>
+        <div class="container">
+            <div class="card-bg">
+                <div class="card-number">
+                    120
+                </div>
+                <div class="card-desc">
+                    Total Clients
+                </div>
+            </div>
+            <div class="card-bg">
+                <div class="card-number">
+                    5
+                </div>
+                <div class="card-desc">
+                    Total Admins
+                </div>
+            </div>
+            <div class="card-bg">
+                <div class="card-number">
+                    50
+                </div>
+                <div class="card-desc">
+                    Total Logins
+                </div>
+            </div>
+        </div>
+        
+        <!-- Bootstrap core JS-->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+        <!-- Core theme JS-->
+        <script src="js/scripts.js"></script>          
        
     </body>
 </html>

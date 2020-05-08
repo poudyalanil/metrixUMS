@@ -19,27 +19,23 @@
         <!-- Bootstrap CSS -->
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
 
+        <link href="css/user.css" rel="stylesheet" />
+        
         <title>Edit Profile</title>
 
-        <style>
-            .inner{
-                margin: 15px 0;
-            }
-        </style>
     </head>
     <body>
-        <div  class="container-fluid">
-            <nav class="navbar navbar-light">
-                <a class="navbar-brand">Edit Profile</a>
-                <a class="navbar-brand" href="welcome.jsp">Home</a>
-                
-        </div>
+        
+        <jsp:include page="userNavbar.jsp" />
+        
+        
+        
 <div class="container">
+    <h4>Edit Profile</h4>
             <div class="inner">
                 <div class="row">
                     <div class="col-md-3">
-                        <h3>
-Enter Your Updated Information</h3>
+                        <h3>Enter Your Updated Information</h3>
                   
                         <form action="EditProfile" method="post">
                             <div class="form-group">

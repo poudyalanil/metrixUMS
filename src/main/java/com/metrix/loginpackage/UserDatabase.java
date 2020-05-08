@@ -16,7 +16,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 public class UserDatabase {
-    public Connection con ;
+    Connection con ;
 
     public UserDatabase(Connection con) {
         this.con = con;
@@ -94,7 +94,7 @@ public class UserDatabase {
                 usr.setAddress(rs.getString("address"));
                 usr.setEmail(rs.getString("email"));
                 usr.setPassword(rs.getString("password"));
-                usr.setJoinDate(rs.getObject( "joindate" , LocalDate.class )); 
+                usr.setJoinDate(rs.getObject ( "joindate" , LocalDate.class )); 
 
                
                 
@@ -111,7 +111,7 @@ public class UserDatabase {
     public User logAdmin(String email, String password){
         User usr=null;
         try{
-            String query ="select * from admin where email=? and password=?";
+            String query ="select * from user where email=? and password=? and isadmin=1";
             PreparedStatement pst = this.con.prepareStatement(query);
             pst.setString(1, email);
             pst.setString(2, password);
@@ -121,12 +121,13 @@ public class UserDatabase {
             if(rs.next()){
                 usr = new User();
                 usr.setIduser(rs.getInt("iduser"));
-                usr.setFirstName(rs.getString("firstname"));
-                usr.setMiddleName(rs.getString("middlename"));
-                usr.setLastName(rs.getString("lastname"));
+                usr.setFirstName(rs.getString("fname"));
+                usr.setMiddleName(rs.getString("mname"));
+                usr.setLastName(rs.getString("lname"));
                 usr.setAddress(rs.getString("address"));
                 usr.setEmail(rs.getString("email"));
                 usr.setPassword(rs.getString("password"));
+                
                 
             }
             rs.close();

@@ -8,8 +8,8 @@
 <%@page import="com.metrix.loginpackage.ConnectionProvider"%>
 
 
-<%@ page import="java.util.*" %>
-
+<%@page import="java.util.*" %>
+<%@page import="java.time.*" %>
 
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -30,39 +30,53 @@
         <!-- Bootstrap CSS -->
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
 
+        <link href="css/user.css" rel="stylesheet" />
+        
         <title>User Dashboard</title>
 
-        <style>
-            .inner{
-                margin: 15px 0;
-            }
-        </style>
+        
     </head>
     <body>
-        <br>
-        <br>
-     <h4>
-              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Today's Date: <%= (new java.util.Date()).toLocaleString()%>
+        <jsp:include page="userNavbar.jsp" />
+        
+        <div class="container">
+            <h4>Welcome <%= user.getFirstName()%>,</h4>
+            <div class="time-card">
+                <%= (new java.util.Date().toGMTString())%>
+            </div>
+        </div>
+        <div class="container">
+            <div class="card-bg1">
+                <div class="card-number">
+                    20 days
+                </div>
+                <div class="card-desc">
+                    Age of Account
+                </div>
+            </div>
+            <div class="card-bg2">
+                <div class="card-number">
+                    5
+                </div>
+                <div class="card-desc">
+                    No. of Times Logged In
+                </div>
+            </div>
+            <div class="card-bg3">
+                <div class="card-number">
+                    ${sessionTime}
+                </div>
+                <div class="card-desc">
+                    Current Session Time
+                </div>
+            </div>
+        </div>
           
-        </h4>
-              <hr>
-              <h4>
-              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Session Time Date: ${sessionTime}
-          
-        </h4>
-              <hr>
-              <h4>
-              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Account Age:
-            
-        </h4><br>
-              <hr>
-              <br>
-             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  <p>
-              <a href="EditProfile.jsp">Profile</a>
-              <br>
-               <a href="userHistory.jsp">My History</a>
-              </p>
-           
+        <!-- Bootstrap core JS-->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+        <!-- Core theme JS-->
+        <script src="js/scripts.js"></script>
        
     </body>
 </html>

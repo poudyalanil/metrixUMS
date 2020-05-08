@@ -29,7 +29,7 @@ public class UserDAO {
         boolean test = false;
         
         try{
-            String query =  "INSERT INTO METRIX.USER(FIRSTNAME,MIDDLENAME,LASTNAME,ADDRESS,EMAIL,PASSWORD,JOINDATE) VALUES(?,?,?,?,?,?,?)";
+            String query =  "INSERT INTO METRIX.USER(FNAME,MNAME,LNAME,ADDRESS,EMAIL,PASSWORD,JOINDATE) VALUES(?,?,?,?,?,?,?)";
             PreparedStatement pst = this.con.prepareStatement(query);
             pst.setString(1, user.getFirstName());
             pst.setString(2, user.getMiddleName());
@@ -60,9 +60,9 @@ public class UserDAO {
             
             while(rs.next()){
                 int iduser = rs.getInt("iduser");
-                String firstname = rs.getString("firstname");
-                String middlename = rs.getString("middlename");
-                String lastname = rs.getString("lastname");
+                String firstname = rs.getString("fname");
+                String middlename = rs.getString("mname");
+                String lastname = rs.getString("lname");
                 String address = rs.getString("address");
                 String email = rs.getString("email");
                 String password = rs.getString("password");
@@ -86,7 +86,7 @@ public class UserDAO {
         boolean test = false;
         
         try {
-            String query = "UPDATE USER SET FIRSTNAME=?, middlename=?, lastname=?, address=?, email=?, password=? where iduser=?";
+            String query = "UPDATE USER SET FNAME=?, mname=?, lname=?, address=?, email=?, password=? where iduser=?";
             PreparedStatement pt = this.con.prepareStatement(query);
             pt.setString(1, user.getFirstName());
             pt.setString(2, user.getMiddleName());
@@ -123,9 +123,9 @@ public class UserDAO {
             
             while(rs.next()){
                 int iduser = rs.getInt("iduser");
-                String firstname = rs.getString("firstname");
-                String middlename = rs.getString("middlename");
-                String lastname = rs.getString("lastname");
+                String firstname = rs.getString("fname");
+                String middlename = rs.getString("mname");
+                String lastname = rs.getString("lname");
                 String address = rs.getString("address");
                 String email = rs.getString("email");
                 String password = rs.getString("password");
@@ -139,9 +139,19 @@ public class UserDAO {
         }
         return user;
     }
+    public void blockUser(int id){
+    try{
+    String query= "UPDATE user set statue = 0, where iduser=?";
+      PreparedStatement pt = this.con.prepareStatement(query);
+           pt.setInt(1, id);
+           pt.execute();
+           
+            pt.close();
     
-    
-//    delete books from database
+    }catch(SQLException e){
+        System.out.println(e);
+    }
+    }
     
     
     public void deleteUser(int id){

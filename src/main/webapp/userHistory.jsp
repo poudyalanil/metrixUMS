@@ -16,6 +16,7 @@
 
 
 <% User user = (User) session.getAttribute("logUser");
+   
     if (user == null) {
         response.sendRedirect("login.jsp");
     }

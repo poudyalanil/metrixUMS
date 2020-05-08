@@ -39,7 +39,7 @@
                             <div class="row"  >
                                 <div class="col-md-9 col-lg-8 mx-auto" >
                                     <h3 class="login-heading mb-4">SignUp</h3>
-                                    <form action="RegisterServlet" method="POST" enctype="multipart/form-data">
+                                    <form action="RegisterServlet" method="POST">
                                         <div class="form-label-group">
                                             <input type="text" name ="fname" class="form-control" placeholder="First Name" required autofocus>
                                             <label for="fname">First Name</label>
@@ -79,7 +79,7 @@
                                             <label for="password">Password</label>
                                         </div>
                                         <div class="form-label-group">
-                                            <input type="password" name="repassword"  class="form-control" placeholder="Password" required>
+                                            <input type="password" name="repassword"  class="form-control" placeholder="Confirm Password" required>
                                             <label for="rePassword"> Confirm Password</label>
                                         </div>
 

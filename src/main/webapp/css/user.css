@@ -1,0 +1,101 @@
+@font-face {
+    font-family: Advent Pro;
+    src: url(../fonts/AdventPro.ttf);
+}
+
+.container>h4{
+    padding-top: 12vh;
+}
+
+.time-card{
+    margin-left: 1000px;
+    margin-top: -5vh;
+    padding-top: 10px;
+    width: 200px;
+    height: 50px;
+    font-size: 18px;
+    text-align: center;
+    align-items: center;
+    background: #FFFFFF;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.card-bg1{
+    width: 230px;
+    height: 241px;
+    margin: 120px 0px 0px 50px;
+    background: #FFFFFF;
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.5);
+    border-radius: 28px;
+    text-align: center;
+}
+
+.card-bg1>.card-number{
+    font-family: Advent Pro;
+    padding-top: 10px;
+    font-size: 80px;
+    line-height: 80px;
+    /* identical to box height */
+    color: #000000;
+}
+
+.card-bg1>.card-desc{
+    padding-top: 15px;
+    font-size: 25px;
+    line-height: 32px;
+}
+.card-bg2{
+    width: 230px;
+    height: 241px;
+    margin: -240px 0px 0px 500px;
+    background: #FFFFFF;
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.5);
+    border-radius: 28px;
+    text-align: center;
+}
+
+.card-bg2>.card-number{
+    font-family: Advent Pro;
+    padding-top: 10px;
+    font-size: 110px;
+    line-height: 132px;
+    /* identical to box height */
+    color: #000000;
+}
+
+.card-bg2>.card-desc{
+    padding-top: 15px;
+    font-size: 25px;
+    line-height: 32px;
+}
+.card-bg3{
+    width: 230px;
+    height: 241px;
+    margin: -250px 0px 0px 950px;
+    background: #FFFFFF;
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.5);
+    border-radius: 28px;
+    text-align: center;
+}
+
+.card-bg3>.card-number{
+    font-family: Advent Pro;
+    padding-top: 10px;
+    font-size: 20px;
+    line-height: 132px;
+    /* identical to box height */
+    color: #000000;
+}
+
+.card-bg3>.card-desc{
+    padding-top: 15px;
+    font-size: 25px;
+    line-height: 32px;
+}
+
+.container>h4{
+    padding-top: 12vh;
+}
+.inner{
+    margin: 25px 30px;
+}

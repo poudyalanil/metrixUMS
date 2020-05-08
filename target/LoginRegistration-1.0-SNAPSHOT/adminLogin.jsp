@@ -3,7 +3,9 @@
     Created on : May 1, 2020, 11:04:34 AM
     Author     : Binil
 --%>
-
+<%
+    String errorMsg  =(String) session.getAttribute("error");
+%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
@@ -20,9 +22,16 @@
   <body>
     
   <div class="container">
+      
     <div class="row">
       <div class="col-sm-9 col-md-7 col-lg-5 mx-auto"style="margin-top:130px; padding-top: 20px;padding-bottom: 20px"; >
           <div class="card card-signin my-5 " >
+                <% if (errorMsg != null) {%>
+                                            <p style="color:red; font-size: 12px;"> 
+                                                <%= errorMsg %>
+                                                <% session.removeAttribute("error");%>
+                                            </p>
+                                            <% }%> 
           <div class="card-body">
             <h5 class="card-title text-center"> Admin-SignIn</h5>
             <form class="form-signin" action="AdminLogin" method="POST">
@@ -39,7 +48,7 @@
                 <div style='text-align: center;'>
                     <button class="btn btn-md btn-light btn-login" type="submit">Login</button>
                 </div>
-              
+                                   
               
               </form>
           </div>

@@ -50,9 +50,6 @@ public class RegisterServlet extends HttpServlet {
             String password =request.getParameter("password");
             LocalDate today = LocalDate.now();
             
-            
-            
-            
             User userModel = new User(firstName,middleName,lastName,address,email,password,today);
 //create a database model
             UserDatabase regUser = new UserDatabase(ConnectionProvider.getConnection());
