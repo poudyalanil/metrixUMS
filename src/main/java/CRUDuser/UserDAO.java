@@ -107,6 +107,8 @@ public class UserDAO {
         }
         return test;
     }
+    
+    
  
     public User getSingleUser(int id){
         User user = null;
@@ -164,6 +166,22 @@ public class UserDAO {
         System.out.println(e);
     }
     }
+        public void resetPassword(int id){
+    try{
+    String query= "UPDATE user set password = ? where iduser=?";
+      PreparedStatement pt = this.con.prepareStatement(query);
+           pt.setString(1, "password!!");
+           pt.setInt(2, id);
+           pt.execute();
+           
+            pt.close();
+    
+    }catch(SQLException e){
+        System.out.println(e);
+    }
+    }
+      
+      
     
     
     public void deleteUser(int id){

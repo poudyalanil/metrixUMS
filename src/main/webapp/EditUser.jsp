@@ -62,8 +62,9 @@
 Edit User Details</h3>
 <form action="EditUserServlet" method="post">
                             <div class="form-group">
-                                <label>User ID</label>
-                                <input class="form-control" name="iduser" value="${edit_users.iduser }" required>
+                                <label>User ID: ${edit_users.iduser }</label>
+                               
+                               
                             </div>
                             
 <div class="form-group">
@@ -93,8 +94,8 @@ Edit User Details</h3>
                                 <label>Password</label>
                                 <input class="form-control" name="password" value="${edit_users.password }" required>
                             </div>
-<button type="submit" class="btn btn-primary">Submit</button>
-                            <button  class="btn btn-primary"><a href="userList.jsp">Cancel</a></button>
+<button name="iduser" value="${edit_users.iduser }" type="submit" class="btn btn-primary">Submit</button>
+<button class="btn btn-primary"><a href="userList.jsp">Cancel</a></button>
                         </form>
 </div>
 </div>

@@ -5,6 +5,7 @@
 <%@page import="com.metrix.loginpackage.ConnectionProvider"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <% User user = (User) session.getAttribute("logUser");
+    
     if(user==null){
         response.sendRedirect("index.jsp");
     }

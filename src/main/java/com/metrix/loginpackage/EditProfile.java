@@ -61,7 +61,8 @@ public class EditProfile extends HttpServlet {
             try{
                 UserDatabase usdao = new UserDatabase(ConnectionProvider.getConnection());
                 if(usdao.updateProfile(user)){
-                    response.sendRedirect("welcome.jsp");
+                    
+                    response.sendRedirect("userDashboard.jsp");
                 }else{
                     out.print("wrong cre3dential");
                 }

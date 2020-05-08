@@ -5,7 +5,9 @@
 <%@page import="com.metrix.loginpackage.User"%>
 <%@page import="com.metrix.loginpackage.ConnectionProvider"%>
 
-<% User user = (User) session.getAttribute("logUser");%>
+<% User user = (User) session.getAttribute("logUser");
+
+%>
 
 
 <!DOCTYPE html>
@@ -34,7 +36,7 @@
              if(user ==null){%>
               <a class="navbar-brand js-scroll-trigger" href="#page-top">User Management System </a>
               <%}else{%>
-              <a class="navbar-brand js-scroll-trigger" href="#page-top">Hi, <%= user.getFirstName()%></a>
+              <a class="navbar-brand js-scroll-trigger" href="#page-top">Hi, <%= user.getFirstName()%> <%= user.getUserRole()%></a>
               
               <%}%>
                             
@@ -44,9 +46,17 @@
                         <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#portfolio">Features</a></li>
                         <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#about">About</a></li>
                         <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#contact">Contact</a></li>
-                      <%if(user !=null){%>
-        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger"  href="userDashboard.jsp">My Account</a>
-                        <%}%>
+                      <%if(user !=null && user.getUserRole() ==1){%>
+                         <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger"  href="adminDashboard.jsp">Admin Dashboard</a>
+          
+                     
+            
+            <%}%>
+             <%if(user !=null && user.getUserRole() ==0){%>
+             <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger"  href="userDashboard.jsp">My Account</a>
+          
+            <%}%>
+            
                       
    <%if(user ==null){%>
 

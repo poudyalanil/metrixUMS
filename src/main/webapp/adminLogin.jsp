@@ -3,6 +3,19 @@
     Created on : May 1, 2020, 11:04:34 AM
     Author     : Binil
 --%>
+
+<%@page import="com.metrix.loginpackage.User"%>
+
+<% User user = (User) session.getAttribute("logUser");
+   
+    if(user !=null && user.getUserRole() == 1){
+        response.sendRedirect("adminDashboard.jsp");
+    }
+    if(user !=null && user.getUserRole() ==0){
+        response.sendRedirect("userDashboard.jsp");
+    }
+    
+%>
 <%
     String errorMsg  =(String) session.getAttribute("error");
 %>

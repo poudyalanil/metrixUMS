@@ -55,7 +55,9 @@ public class AdminLogin extends HttpServlet {
 
             if (user != null) {
                 HttpSession session = request.getSession();
-                session.setAttribute("logAdmin", user);
+                session.setAttribute("logUser", user);
+                int isadminTest = user.getUserRole();
+              
 
                 try {
                     
@@ -77,6 +79,10 @@ public class AdminLogin extends HttpServlet {
                     int adminCount = 0;
                     int clientCount = 0;
                     while (rs.next()) {
+                        int userStatus = rs.getInt("status");
+                        int isadmin = rs.getInt("isadmin"); 
+                        session.setAttribute("status", userStatus);
+                        session.setAttribute("isadmin", isadmin);
                         if (rs.getInt("isadmin") == 0) {
                             clientCount++;
 

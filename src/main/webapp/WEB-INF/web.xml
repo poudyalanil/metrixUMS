@@ -46,7 +46,7 @@
     </servlet>
     <servlet>
         <servlet-name>ResetPass</servlet-name>
-        <servlet-class>com.metrix.loginpackage.ResetPass</servlet-class>
+        <servlet-class>com.metrix.loginpackage.ResetPasswordAdmin</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>EditProfile</servlet-name>
@@ -63,6 +63,14 @@
     <servlet>
         <servlet-name>Unblock</servlet-name>
         <servlet-class>CRUDuser.Unblock</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ResetPasswordServlet</servlet-name>
+        <servlet-class>CRUDuser.ResetPasswordServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ResetPasswordUser</servlet-name>
+        <servlet-class>com.metrix.loginpackage.ResetPasswordUser</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>RegisterServlet</servlet-name>
@@ -127,6 +135,14 @@
     <servlet-mapping>
         <servlet-name>Unblock</servlet-name>
         <url-pattern>/Unblock</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ResetPasswordServlet</servlet-name>
+        <url-pattern>/ResetPasswordServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ResetPasswordUser</servlet-name>
+        <url-pattern>/ResetPasswordUser</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

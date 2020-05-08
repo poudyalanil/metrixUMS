@@ -24,7 +24,7 @@
     
 %>
 
-<% User admin = (User) session.getAttribute("logAdmin");
+<% User admin = (User) session.getAttribute("logUser");
    
     if(admin==null && admin.getUserRole()==0){
         response.sendRedirect("login.jsp");
@@ -57,7 +57,10 @@
         <jsp:include page="adminNavbar.jsp" />
         
         <div class="container">
-            <h4>Welcome Admin,</h4>
+            <h4>Welcome Admin, 
+            <%= admin.getUserRole()%>
+            
+            </h4>
             <div class="time-card">
                 <%= (new java.util.Date()).toLocaleString()%>
             </div>

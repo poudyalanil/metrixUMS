@@ -1,6 +1,18 @@
+<%@page import="com.metrix.loginpackage.User"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!doctype html>
 
+
+
+<% User user = (User) session.getAttribute("logUser");
+   
+    if(user !=null && user.getUserRole() == 1){
+        response.sendRedirect("adminDashboard.jsp");
+    }
+    if(user !=null && user.getUserRole() ==0 ){
+        response.sendRedirect("userDashboard.jsp");
+    }
+%>
 <%
     String errorMsg  =(String) session.getAttribute("error");
 %>
@@ -57,7 +69,7 @@
                                                 <% session.removeAttribute("error");%>
                                             </p>
                                         <% }%> 
-                                
+                                ${newPassword}
                                             </p>
                                         </div>
                                        

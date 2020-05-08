@@ -4,7 +4,18 @@
     Author     : goani
 --%>
 
+
+<%@page import="com.metrix.loginpackage.User"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+
+<% User user = (User) session.getAttribute("logUser");
+   
+    if(user ==null || user.getUserRole() == 0){
+        response.sendRedirect("index.jsp");
+    }if(user !=null && user.getUserRole()==0){
+        response.sendRedirect("userDashboard.jsp");
+    }
+%>
 <!doctype html>
 <html lang="en">
   <head>

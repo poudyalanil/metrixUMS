@@ -4,6 +4,23 @@
 <%@page import="CRUDuser.UserDAO"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ taglib uri = "http://java.sun.com/jsp/jstl/core" prefix = "c"%>
+
+
+<% User isuser = (User) session.getAttribute("logUser");
+  
+  
+   
+    if(isuser ==null || isuser.getUserRole() == 0){
+        response.sendRedirect("index.jsp");
+    }
+   if(isuser !=null && isuser.getUserRole()==0){
+        response.sendRedirect("userDashboard.jsp");
+    }
+%>
+   
+    
+
+
 <%
     UserDAO userData = new UserDAO(ConnectionProvider.getConnection());
     List<User> user = userData.getAllUsers();
@@ -11,13 +28,23 @@
 %>
 
 
-<!DOCTYPE html>
+
 <html>
     <head>
         <!-- Required meta tags -->
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
+        <style>
+            
+                .scrollbar-x {
+                position: relative;
+                height: 200px;
+                overflow: auto;
+}
+                .scrollbar-y {
+                display: block;
+}
+        </style>
         <!-- Bootstrap CSS -->
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
 
@@ -30,6 +57,9 @@
         </style>
     </head>
     <body>
+        <jsp:include page="adminNavbar.jsp" />
+        
+       
         <div  class="container-fluid">
             <nav class="navbar navbar-light">
                 <a class="navbar-brand">Manage Users</a>
@@ -79,7 +109,7 @@ Create New User</h3>
 <div class="col-md-9">
                         <h3>
 User Information from Database</h3>
-<table class="table">
+ <table class="table table-hover"" align="center" cellpadding="5" cellspacing="5" border="1">
                             <thead class="bg-light">
 <tr>
                                     <th scope="col">First Name</th>
@@ -87,24 +117,30 @@ User Information from Database</h3>
                                     <th scope="col">Last Name</th>
                                     <th scope="col">Address</th>
                                     <th scope="col">Email</th>
-                                    <th scope="col">Password</th>
+                                    
                                     <th scope="col">Action</th>
                                 </tr>
 </thead>
                             <tbody>
                                 <c:forEach var="user" items="${USERS_LIST}">
-<tr>
-                                        <td>${user.firstName }</td>
+<tr>                
+                                        <td>
+                                            <c:if test="${user.userRole eq 1}">
+                                            <b>${user.firstName }</b>
+                                            </c:if>
+                                           <c:if test="${user.userRole eq 0}">
+                                            ${user.firstName }
+                                            </c:if></td>
                                         <td>${user.middleName }</td>
                                         <td>${user.lastName }</td>
                                         <td>${user.address }</td>
                                         <td>${user.email }</td>
-                                        <td>${user.password}</td>
+                                        
                                         <td><a href="EditUser.jsp?id=${user.iduser }">Edit</a> 
                                             <a class="text-danger" href="DeleteUserServlet?id=${user.iduser}">Delete</a>
                                             
-                                          
-                                            
+                                          <a class="text-success" href="ResetPasswordServlet?id=${user.iduser}">Reset Password</a>
+                                      
                                             
                                             <c:choose>
                                                 <c:when test="${user.userStatus eq 0}">
@@ -129,5 +165,7 @@ User Information from Database</h3>
         <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    </body>         
+       
     </body>
 </html>

@@ -19,6 +19,10 @@
     if(user==null){
         response.sendRedirect("login.jsp");
     }
+    if(user !=null && user.getUserRole() == 1){
+         response.sendRedirect("adminDashboard.jsp");
+    }
+    
 %>
 <!DOCTYPE html>
 <html>

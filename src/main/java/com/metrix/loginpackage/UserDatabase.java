@@ -50,9 +50,9 @@ public class UserDatabase {
     
     public boolean saveAdmin(User user){
         boolean set = false;
-        try{
+       try{
             //Insert register data to database
-           String query = "INSERT INTO METRIX.ADMIN(FNAME,MNAME,LNAME,ADDRESS,EMAIL,PASSWORD) VALUES(?,?,?,?,?,?);";
+           String query = "INSERT INTO METRIX.USER(FNAME,MNAME,LNAME,ADDRESS,EMAIL,PASSWORD,JOINDATE,ISADMIN) VALUES(?,?,?,?,?,?,?,1);";
            
            PreparedStatement pt = this.con.prepareStatement(query);
            pt.setString(1, user.getFirstName());
@@ -61,16 +61,15 @@ public class UserDatabase {
            pt.setString(4, user.getAddress());
            pt.setString(5, user.getEmail());
            pt.setString(6, user.getPassword());
+           pt.setObject(7, user.getJoinDate());
+        
            
            pt.executeUpdate();
            set = true;
            con.close();
-          
-            pt.close();
         }catch(Exception e){
             e.printStackTrace();
         }
-        
         return set;
     }
     
@@ -127,7 +126,8 @@ public class UserDatabase {
                 usr.setAddress(rs.getString("address"));
                 usr.setEmail(rs.getString("email"));
                 usr.setPassword(rs.getString("password"));
-                
+                usr.setUserRole(rs.getInt("isadmin"));
+                        
                 
             }
             rs.close();

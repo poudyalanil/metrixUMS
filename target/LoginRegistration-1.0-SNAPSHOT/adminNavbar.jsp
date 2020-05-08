@@ -6,7 +6,7 @@
 <%@page import="com.metrix.loginpackage.ConnectionProvider"%>
 
 
-<% User user = (User) session.getAttribute("logAdmin");%>
+<% User user = (User) session.getAttribute("logUser");%>
 
 <!DOCTYPE html>
 <html>
@@ -21,10 +21,10 @@
     <body>
         <div class="vertical-menu">
             <h2>UMS</h2>
-            <a href="adminDashboard" class="active">Dashboard</a>
+            <a href="adminDashboard.jsp" class="active">Dashboard</a>
             <a href="userList.jsp">Users</a>
-            <a href="#">Role</a>
-            <a href="userHistory.jsp">History</a>
+            <a href="userRole.jsp">Role</a>
+            <a href="adminHistory.jsp">History</a>
         </div>
         <div class="horizontal-menu">
             <div class="dropdown">
