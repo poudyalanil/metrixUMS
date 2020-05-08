@@ -31,61 +31,57 @@
         <!-- Bootstrap CSS -->
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
 
+        <link href="css/user.css" rel="stylesheet" />
+        
         <title>User History</title>
 
-        <style>
-            .inner{
-                margin: 15px 0;
-            }
-        </style>
     </head>
     <body>
-        <br>
-
         
-        <table align="center" cellpadding="5" cellspacing="5" border="1">
-            <tr>
+        <jsp:include page="userNavbar.jsp" />
+        
+        <div class="container">
+            <h4>History</h4>
+            <div class="inner">
+                <table align="center" cellpadding="5" cellspacing="5" border="1">
+                    <tr>
 
-            </tr>
-            <tr>
-               
-                <td><b>User ID</b></td>
-                <td><b>Last Logged In Date</b></td>
-               
-            </tr>
-            <%
-                try {
-                    Class.forName("com.mysql.cj.jdbc.Driver");
-                    Connection con = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/metrix?serverTimezone=UTC", "root", "");
-                    Statement statement = con.createStatement();
-                    String sql = "SELECT * FROM history where uid = "+user.getIduser();
+                    </tr>
+                    <tr>
 
-                    ResultSet resultSet = statement.executeQuery(sql);
-                    while (resultSet.next()) {
-            %>
-            <tr>
+                        <td><b>User ID</b></td>
+                        <td><b>Last Logged In Date</b></td>
 
-                
-                <td><%=resultSet.getString("uid")%></td>
-                <td><%=resultSet.getString("logdate")%></td>
-               
+                    </tr>
+                    <%
+                        try {
+                            Class.forName("com.mysql.cj.jdbc.Driver");
+                            Connection con = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/metrix?serverTimezone=UTC", "root", "");
+                            Statement statement = con.createStatement();
+                            String sql = "SELECT * FROM history where uid = "+user.getIduser();
 
-            </tr>
-
-            <%
-                    }
-
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-            %>
-        </table>
-
-        <br>
-        <a href="EditProfile.jsp">Edit Profile</a>
+                            ResultSet resultSet = statement.executeQuery(sql);
+                            while (resultSet.next()) {
+                    %>
+                    <tr>
 
 
+                        <td><%=resultSet.getString("uid")%></td>
+                        <td><%=resultSet.getString("logdate")%></td>
 
+
+                    </tr>
+
+                    <%
+                            }
+
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                        }
+                    %>
+                </table>
+            </div>
+        </div>
 
     </body>
 </html>

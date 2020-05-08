@@ -77,12 +77,12 @@
                                             <label for="password">Password</label>
                                         </div>
                                         <div class="form-label-group">
-                                            <input type="password" name="repassword"  class="form-control" placeholder="Password" required>
+                                            <input type="password" name="repassword"  class="form-control" placeholder="Confirm Password" required>
                                             <label for="rePassword"> Confirm Password</label>
                                         </div>
 
                                         <div style='text-align: center;'>
-                                            <button class="btn btn-md btn-outline-light btn-login" type="submit" href="login.jsp">SignUp</button>
+                                            <button class="btn btn-md btn-outline-light btn-login" type="submit" href="adminLogin.jsp">SignUp</button>
                                         </div>
                                         
                                     </form>
@@ -90,7 +90,7 @@
                             </div>
                         </div>
                     </div>
-                    <a class="small" style="float: right; margin: -40px 20px 0px 0px;" href="login.jsp">SignIn</a>
+                    <a class="small" style="float: right; margin: -40px 20px 0px 0px;" href="adminLogin.jsp">SignIn</a>
                 </div>
             </div>
         </div>

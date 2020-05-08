@@ -17,7 +17,11 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 
 
+<<<<<<< HEAD
 <% User user = (User) session.getAttribute("logAdmin");
+=======
+<% User user = (User) session.getAttribute("logUser");
+>>>>>>> f91a370b2014e09f6e40359f4f7fea7f74fd2dca
     if(user==null){
         response.sendRedirect("login.jsp");
     }
