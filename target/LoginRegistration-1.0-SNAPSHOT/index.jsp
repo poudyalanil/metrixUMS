@@ -1,15 +1,9 @@
 
 <%@ taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core" %>
-
 <%@page import="com.metrix.loginpackage.UserDatabase"%>
 <%@page import="com.metrix.loginpackage.User"%>
 <%@page import="com.metrix.loginpackage.ConnectionProvider"%>
-
-<% User user = (User) session.getAttribute("logUser");
-
-%>
-
-
+<% User user = (User) session.getAttribute("logUser");%>
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -30,45 +24,28 @@
         <!-- Navigation-->
         <nav class="navbar navbar-expand-lg bg-secondary text-uppercase fixed-top" id="mainNav">
             <div class="container">
-               
-                
-             <%
-             if(user ==null){%>
-              <a class="navbar-brand js-scroll-trigger" href="#page-top">User Management System </a>
-              <%}else{%>
-              <a class="navbar-brand js-scroll-trigger" href="#page-top">Hi, <%= user.getFirstName()%> <%= user.getUserRole()%></a>
-              
-              <%}%>
-                            
-            <button class="navbar-toggler navbar-toggler-right text-uppercase font-weight-bold bg-primary text-white rounded" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">Menu <i class="fas fa-bars"></i></button>
+                <% if (user == null) {%>
+                <a class="navbar-brand js-scroll-trigger" href="#page-top">User Management System </a>
+                <%} else {%>
+                <a class="navbar-brand js-scroll-trigger" href="#page-top">Hi, <%= user.getFirstName()%> <%= user.getUserRole()%></a><%}%>
+
+                <button class="navbar-toggler navbar-toggler-right text-uppercase font-weight-bold bg-primary text-white rounded" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">Menu <i class="fas fa-bars"></i></button>
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav ml-auto">
                         <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#portfolio">Features</a></li>
                         <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#about">About</a></li>
                         <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#contact">Contact</a></li>
-                      <%if(user !=null && user.getUserRole() ==1){%>
-                         <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger"  href="adminDashboard.jsp">Admin Dashboard</a>
-          
-                     
-            
-            <%}%>
-             <%if(user !=null && user.getUserRole() ==0){%>
-             <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger"  href="userDashboard.jsp">My Account</a>
-          
-            <%}%>
-            
-                      
-   <%if(user ==null){%>
-
-                        
-                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger"  href="login.jsp">Login/Register</a>
-                     <%}else{
-                     %>        
+                            <%if (user != null && user.getUserRole() == 1) {%>
+                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger"  href="adminDashboard.jsp">Admin Dashboard</a>
+                            <%}%>
+                            <%if (user != null && user.getUserRole() == 0) {%>
+                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger"  href="userDashboard.jsp">My Account</a>
+                            <%}%>
+                            <%if (user == null) {%> <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger"  href="login.jsp">Login/Register</a>
+                            <%} else {
+                            %>        
                         <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger"  href="LogoutServlet">Logout</a>
                             <%}%>
-                            
-                        
-                                                            
                         </li>
                     </ul>
                 </div>
@@ -176,7 +153,7 @@
                     <div class="col-lg-4 mr-auto"><p class="lead">lorem ipsum</p></div>
                 </div>
                 <!-- About Section Button-->
-           
+
             </div>
         </section>
         <!-- Contact Section-->

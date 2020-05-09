@@ -1,14 +1,5 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-package CRUDuser;
 
-/**
- *
- * @author College
- */
+package CRUDuser;
 import com.metrix.loginpackage.User;
 import java.sql.*;
 import java.time.LocalDate;
@@ -22,9 +13,6 @@ public class UserDAO {
     public UserDAO(Connection con) {
         this.con = con;
     }
-    
-    
-    //add books information to database
     public boolean addUser(User user){
         boolean test = false;
         
@@ -47,8 +35,6 @@ public class UserDAO {
         }
         return test;
     }
-    
-//    retrieve the book details from databse
     public List<User> getAllUsers(){
         List<User> user = new ArrayList<>();
         
@@ -80,9 +66,6 @@ public class UserDAO {
         }
         return user;
     }
-    
-    
-//    eidt book information
     public boolean editUserInfo(User user){
         boolean test = false;
         
@@ -107,9 +90,6 @@ public class UserDAO {
         }
         return test;
     }
-    
-    
- 
     public User getSingleUser(int id){
         User user = null;
         
@@ -179,11 +159,7 @@ public class UserDAO {
     }catch(SQLException e){
         System.out.println(e);
     }
-    }
-      
-      
-    
-    
+    } 
     public void deleteUser(int id){
         try{
             

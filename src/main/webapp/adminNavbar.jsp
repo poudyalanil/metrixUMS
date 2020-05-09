@@ -1,10 +1,8 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core" %>
-
 <%@page import="com.metrix.loginpackage.UserDatabase"%>
 <%@page import="com.metrix.loginpackage.User"%>
 <%@page import="com.metrix.loginpackage.ConnectionProvider"%>
-
 
 <% User user = (User) session.getAttribute("logUser");%>
 
@@ -36,8 +34,6 @@
                 </i>
             </div>
             <h3>Hello, <%= user.getFirstName()%></h3>
-        </div>
-        
-        
+        </div>   
     </body>
 </html>

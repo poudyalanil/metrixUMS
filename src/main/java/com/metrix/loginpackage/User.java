@@ -1,26 +1,18 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.metrix.loginpackage;
+
 import java.time.LocalDate;
-/**
- *
- * @author College
- */
+
 public class User {
-    private int iduser,userRole,userStatus;
+
+    private int iduser, userRole, userStatus;
     private String firstName, middleName, lastName, address, email, password;
     private LocalDate joinDate;
-    
-    
+
     public User() {
 
     }
 
-    
-    public User(int iduser, String firstName, String middleName, String lastName, String address, String email, String password,LocalDate joinDate, int userRole, int userStatus ){
+    public User(int iduser, String firstName, String middleName, String lastName, String address, String email, String password, LocalDate joinDate, int userRole, int userStatus) {
         this.iduser = iduser;
         this.firstName = firstName;
         this.middleName = middleName;
@@ -31,9 +23,10 @@ public class User {
         this.joinDate = joinDate;
         this.userRole = userRole;
         this.userStatus = userStatus;
-        
+
     }
-    public User(String firstName, String middleName, String lastName, String address, String email, String password,LocalDate joinDate , int userRole, int userStatus ){
+
+    public User(String firstName, String middleName, String lastName, String address, String email, String password, LocalDate joinDate, int userRole, int userStatus) {
         this.firstName = firstName;
         this.middleName = middleName;
         this.lastName = lastName;
@@ -48,7 +41,7 @@ public class User {
     public User(String email, String password) {
         this.email = email;
         this.password = password;
-        
+
     }
 
     public int getIduser() {
@@ -114,36 +107,35 @@ public class User {
     public void setJoinDate(LocalDate joinDate) {
         this.joinDate = joinDate;
     }
-    
-     public int getUserRole() {
+
+    public int getUserRole() {
         return userRole;
     }
 
     public void setUserRole(int userRole) {
         this.userRole = userRole;
     }
-    
-     public int getUserStatus() {
+
+    public int getUserStatus() {
         return userStatus;
     }
 
     public void setUserStatus(int userStatus) {
         this.userStatus = userStatus;
     }
-    
+
     @Override
     public String toString() {
-        return "user{" + "iduser=" + iduser +
-                ", FirstName=" + firstName + 
-                ", MiddleName=" + middleName +
-                ", LastName=" + lastName +
-                ", address=" + address +
-                ", email =" + email +
-                ", Password=" + password +
-                ", Joined Date = " + joinDate+
-                 ", User Role = " + userRole+
-                 ", User Status = " + userStatus+
-                '}';
+        return "user{" + "iduser=" + iduser
+                + ", FirstName=" + firstName
+                + ", MiddleName=" + middleName
+                + ", LastName=" + lastName
+                + ", address=" + address
+                + ", email =" + email
+                + ", Password=" + password
+                + ", Joined Date = " + joinDate
+                + ", User Role = " + userRole
+                + ", User Status = " + userStatus
+                + '}';
     }
 }
-
