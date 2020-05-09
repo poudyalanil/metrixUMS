@@ -21,7 +21,13 @@
         <title>Edit Profile</title>
     </head>
     <body>
-        <jsp:include page="userNavbar.jsp" />
+        <%if(user.getUserRole()==0){%>
+            <jsp:include page="userNavbar.jsp" />
+        <%}%>
+        <%if(user.getUserRole()==1){%>
+            <jsp:include page="adminNavbar.jsp" />
+        <%}%>
+        
         <div class="container">
             <h4>Edit Profile</h4>
             <div class="inner">
@@ -57,3 +63,8 @@
                             <button type="submit" class="btn btn-primary">Submit</button>
                         </form>
                     </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

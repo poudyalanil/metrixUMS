@@ -1,6 +1,6 @@
 :root {
   --input-padding-x: 1.5rem;
-  --input-padding-y: .75rem;
+  --input-padding-y: 0.75rem;
 }
 @font-face {
     font-family: Acme;
@@ -41,14 +41,14 @@ body {
   width: 100%;
 }
 
-.form-signin {
+/*.form-signin {
   font-size: 80%;
   border-radius: 5rem;
   letter-spacing: 1px;
   font-weight: bold;
   padding: 1rem;
   transition: all 0.2s;
-}
+}*/
 
 .form-label-group {
   position: relative;

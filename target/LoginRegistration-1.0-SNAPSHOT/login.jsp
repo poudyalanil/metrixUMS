@@ -43,7 +43,8 @@
                             <div class="row"  >
                                 <div class="col-md-9 col-lg-8 mx-auto" >
                                     <h3 class="login-heading mb-4"><span>Sign</span>In</h3>
-                                    <form class="form-signin" action="LoginServlet" method="POST">  <div class="form-label-group">
+                                    <form class="form-signin" action="LoginServlet" method="POST">  
+                                        <div class="form-label-group">
                                             <input type="email" name="email" class="form-control" placeholder="Email address" required>
                                             <label for="email">Email address</label>
                                         </div>

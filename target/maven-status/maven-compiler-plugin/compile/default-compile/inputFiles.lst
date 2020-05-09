@@ -1,20 +1,19 @@
-C:\Users\goani\OneDrive\Documents\ums\src\main\java\com\metrix\loginpackage\AdminLogin.java
-C:\Users\goani\OneDrive\Documents\ums\src\main\java\CRUDuser\BlockUserServlet.java
-C:\Users\goani\OneDrive\Documents\ums\src\main\java\com\metrix\loginpackage\RegisterServlet.java
-C:\Users\goani\OneDrive\Documents\ums\src\main\java\CRUDuser\Unblock.java
-C:\Users\goani\OneDrive\Documents\ums\src\main\java\com\metrix\loginpackage\LoginServlet.java
-C:\Users\goani\OneDrive\Documents\ums\src\main\java\com\metrix\loginpackage\ResetPasswordAdmin.java
-C:\Users\goani\OneDrive\Documents\ums\src\main\java\CRUDuser\AddUserServlet.java
-C:\Users\goani\OneDrive\Documents\ums\src\main\java\com\metrix\loginpackage\AdminRegister.java
-C:\Users\goani\OneDrive\Documents\ums\src\main\java\com\mycompany\loginregistration\JAXRSConfiguration.java
-C:\Users\goani\OneDrive\Documents\ums\src\main\java\CRUDuser\EditUserServlet.java
-C:\Users\goani\OneDrive\Documents\ums\src\main\java\com\metrix\loginpackage\LogoutServlet.java
-C:\Users\goani\OneDrive\Documents\ums\src\main\java\CRUDuser\ResetPasswordServlet.java
-C:\Users\goani\OneDrive\Documents\ums\src\main\java\CRUDuser\DeleteUserServlet.java
-C:\Users\goani\OneDrive\Documents\ums\src\main\java\com\metrix\loginpackage\EditProfile.java
-C:\Users\goani\OneDrive\Documents\ums\src\main\java\com\metrix\loginpackage\User.java
-C:\Users\goani\OneDrive\Documents\ums\src\main\java\CRUDuser\UserDAO.java
-C:\Users\goani\OneDrive\Documents\ums\src\main\java\com\metrix\loginpackage\ConnectionProvider.java
-C:\Users\goani\OneDrive\Documents\ums\src\main\java\com\metrix\loginpackage\UserDatabase.java
-C:\Users\goani\OneDrive\Documents\ums\src\main\java\com\mycompany\loginregistration\resources\JavaEE8Resource.java
-C:\Users\goani\OneDrive\Documents\ums\src\main\java\com\metrix\loginpackage\ResetPasswordUser.java
+E:\Binil\Works\ClassWorks\2Sem2\System Analysis and Design\Coursework\metrixUMS\src\main\java\com\metrix\loginpackage\AdminLogin.java
+E:\Binil\Works\ClassWorks\2Sem2\System Analysis and Design\Coursework\metrixUMS\src\main\java\com\metrix\loginpackage\ConnectionProvider.java
+E:\Binil\Works\ClassWorks\2Sem2\System Analysis and Design\Coursework\metrixUMS\src\main\java\com\metrix\loginpackage\User.java
+E:\Binil\Works\ClassWorks\2Sem2\System Analysis and Design\Coursework\metrixUMS\src\main\java\CRUDuser\AddUserServlet.java
+E:\Binil\Works\ClassWorks\2Sem2\System Analysis and Design\Coursework\metrixUMS\src\main\java\CRUDuser\Unblock.java
+E:\Binil\Works\ClassWorks\2Sem2\System Analysis and Design\Coursework\metrixUMS\src\main\java\com\metrix\loginpackage\ResetPasswordUser.java
+E:\Binil\Works\ClassWorks\2Sem2\System Analysis and Design\Coursework\metrixUMS\src\main\java\com\metrix\loginpackage\LoginServlet.java
+E:\Binil\Works\ClassWorks\2Sem2\System Analysis and Design\Coursework\metrixUMS\src\main\java\CRUDuser\DeleteUserServlet.java
+E:\Binil\Works\ClassWorks\2Sem2\System Analysis and Design\Coursework\metrixUMS\src\main\java\CRUDuser\ResetPasswordServlet.java
+E:\Binil\Works\ClassWorks\2Sem2\System Analysis and Design\Coursework\metrixUMS\src\main\java\CRUDuser\EditUserServlet.java
+E:\Binil\Works\ClassWorks\2Sem2\System Analysis and Design\Coursework\metrixUMS\src\main\java\CRUDuser\UserDAO.java
+E:\Binil\Works\ClassWorks\2Sem2\System Analysis and Design\Coursework\metrixUMS\src\main\java\com\mycompany\loginregistration\JAXRSConfiguration.java
+E:\Binil\Works\ClassWorks\2Sem2\System Analysis and Design\Coursework\metrixUMS\src\main\java\com\metrix\loginpackage\RegisterServlet.java
+E:\Binil\Works\ClassWorks\2Sem2\System Analysis and Design\Coursework\metrixUMS\src\main\java\CRUDuser\BlockUserServlet.java
+E:\Binil\Works\ClassWorks\2Sem2\System Analysis and Design\Coursework\metrixUMS\src\main\java\com\metrix\loginpackage\EditProfile.java
+E:\Binil\Works\ClassWorks\2Sem2\System Analysis and Design\Coursework\metrixUMS\src\main\java\com\metrix\loginpackage\AdminRegister.java
+E:\Binil\Works\ClassWorks\2Sem2\System Analysis and Design\Coursework\metrixUMS\src\main\java\com\mycompany\loginregistration\resources\JavaEE8Resource.java
+E:\Binil\Works\ClassWorks\2Sem2\System Analysis and Design\Coursework\metrixUMS\src\main\java\com\metrix\loginpackage\LogoutServlet.java
+E:\Binil\Works\ClassWorks\2Sem2\System Analysis and Design\Coursework\metrixUMS\src\main\java\com\metrix\loginpackage\UserDatabase.java

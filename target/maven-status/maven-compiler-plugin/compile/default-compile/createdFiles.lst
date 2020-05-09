@@ -11,7 +11,6 @@ CRUDuser\UserDAO.class
 com\metrix\loginpackage\EditProfile.class
 com\metrix\loginpackage\AdminRegister.class
 CRUDuser\BlockUserServlet.class
-com\metrix\loginpackage\ResetPasswordAdmin.class
 CRUDuser\ResetPasswordServlet.class
 com\metrix\loginpackage\UserDatabase.class
 com\mycompany\loginregistration\JAXRSConfiguration.class
