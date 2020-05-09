@@ -8,6 +8,7 @@ package com.metrix.loginpackage;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.time.LocalTime;
 import javax.servlet.ServletException;
@@ -52,15 +53,36 @@ public class LoginServlet extends HttpServlet {
             
             UserDatabase db =  new UserDatabase(ConnectionProvider.getConnection());
             User user = db.logUser(logemail, logpass);
-            
+            HttpSession session = request.getSession();
+            session.setAttribute("isLoggedIn", "false");
+           
             if(user!=null){
+                session.setAttribute("isLoggedIn", "true");
+                String sql = "SELECT * from history where uid = "+user.getIduser();
+               
+                try{
+                PreparedStatement p = db.con.prepareStatement(sql);
+                ResultSet rs = p.executeQuery();
+                int loginCount =0;
+                while(rs.next()){
+                    loginCount ++;
+                }
+                session.setAttribute("loginCount", loginCount);
+                }catch(SQLException e){
+                    System.out.println(e);
+                }
                 
                 
-                HttpSession session = request.getSession();
+                int accountAge = 5;
+                
+                
                 session.setAttribute("logUser", user);
                 session.setAttribute("joinDate",user.getJoinDate());
                 
-                 Instant time = Instant.now();
+                session.setAttribute("accountAge", accountAge);
+                
+                 Instant time = Instant.ofEpochSecond(accountAge);
+                 
                  
                 session.setAttribute("sessionTime", time);
               
@@ -79,7 +101,7 @@ public class LoginServlet extends HttpServlet {
                 response.sendRedirect("userDashboard.jsp");
                 
             }else{
-                HttpSession session = request.getSession();
+               
                 session.setAttribute("error", "Wrong Crendentials \n"
                                                 + "<br> OR<br> "
                                                 + "You might have been blocked");

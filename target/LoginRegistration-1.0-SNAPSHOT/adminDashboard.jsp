@@ -26,8 +26,14 @@
 
 <% User admin = (User) session.getAttribute("logUser");
    
-    if(admin==null && admin.getUserRole()==0){
+    if(admin==null){
+        RequestDispatcher rd=request.getRequestDispatcher("adminLogin.jsp");
+        rd.forward(request, response);
+        
         response.sendRedirect("login.jsp");
+    }
+    if(admin !=null && admin.getUserRole() == 0){
+         response.sendRedirect("userDashboard.jsp");
     }
 %>
 <%@page import="java.util.List"%>

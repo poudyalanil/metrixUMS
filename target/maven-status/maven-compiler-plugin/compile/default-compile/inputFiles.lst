@@ -3,6 +3,7 @@ C:\Users\goani\OneDrive\Documents\ums\src\main\java\CRUDuser\BlockUserServlet.ja
 C:\Users\goani\OneDrive\Documents\ums\src\main\java\com\metrix\loginpackage\RegisterServlet.java
 C:\Users\goani\OneDrive\Documents\ums\src\main\java\CRUDuser\Unblock.java
 C:\Users\goani\OneDrive\Documents\ums\src\main\java\com\metrix\loginpackage\LoginServlet.java
+C:\Users\goani\OneDrive\Documents\ums\src\main\java\com\metrix\loginpackage\ResetPasswordAdmin.java
 C:\Users\goani\OneDrive\Documents\ums\src\main\java\CRUDuser\AddUserServlet.java
 C:\Users\goani\OneDrive\Documents\ums\src\main\java\com\metrix\loginpackage\AdminRegister.java
 C:\Users\goani\OneDrive\Documents\ums\src\main\java\com\mycompany\loginregistration\JAXRSConfiguration.java
@@ -11,9 +12,9 @@ C:\Users\goani\OneDrive\Documents\ums\src\main\java\com\metrix\loginpackage\Logo
 C:\Users\goani\OneDrive\Documents\ums\src\main\java\CRUDuser\ResetPasswordServlet.java
 C:\Users\goani\OneDrive\Documents\ums\src\main\java\CRUDuser\DeleteUserServlet.java
 C:\Users\goani\OneDrive\Documents\ums\src\main\java\com\metrix\loginpackage\EditProfile.java
-C:\Users\goani\OneDrive\Documents\ums\src\main\java\com\metrix\loginpackage\ResetPass.java
 C:\Users\goani\OneDrive\Documents\ums\src\main\java\com\metrix\loginpackage\User.java
 C:\Users\goani\OneDrive\Documents\ums\src\main\java\CRUDuser\UserDAO.java
 C:\Users\goani\OneDrive\Documents\ums\src\main\java\com\metrix\loginpackage\ConnectionProvider.java
 C:\Users\goani\OneDrive\Documents\ums\src\main\java\com\metrix\loginpackage\UserDatabase.java
 C:\Users\goani\OneDrive\Documents\ums\src\main\java\com\mycompany\loginregistration\resources\JavaEE8Resource.java
+C:\Users\goani\OneDrive\Documents\ums\src\main\java\com\metrix\loginpackage\ResetPasswordUser.java

@@ -17,11 +17,19 @@
 
 <% User user = (User) session.getAttribute("logUser");
     if(user==null){
+        RequestDispatcher rd=request.getRequestDispatcher("login.jsp");
+        rd.forward(request, response);
+        
         response.sendRedirect("login.jsp");
     }
     if(user !=null && user.getUserRole() == 1){
          response.sendRedirect("adminDashboard.jsp");
     }
+    Instant time = (Instant) session.getAttribute("sessionTime");
+    Instant now = Instant.now();
+    
+  
+    
     
 %>
 <!DOCTYPE html>
@@ -52,15 +60,15 @@
         <div class="container">
             <div class="card-bg1">
                 <div class="card-number">
-                    20 days
+                    ${accountAge} 
                 </div>
                 <div class="card-desc">
-                    Age of Account
+                    Days Old Account
                 </div>
             </div>
             <div class="card-bg2">
                 <div class="card-number">
-                    5
+                    ${loginCount}
                 </div>
                 <div class="card-desc">
                     No. of Times Logged In
@@ -68,7 +76,7 @@
             </div>
             <div class="card-bg3">
                 <div class="card-number">
-                    ${sessionTime}
+                  
                 </div>
                 <div class="card-desc">
                     Current Session Time
