@@ -10,11 +10,14 @@
   
   
    
-    if(isuser ==null || isuser.getUserRole() == 0){
-        response.sendRedirect("index.jsp");
+  if(isuser == null){
+        RequestDispatcher rd=request.getRequestDispatcher("adminLogin.jsp");
+        rd.forward(request, response);
+        
+        response.sendRedirect("login.jsp");
     }
-   if(isuser !=null && isuser.getUserRole()==0){
-        response.sendRedirect("userDashboard.jsp");
+   else if(isuser !=null && isuser.getUserRole() == 0){
+         response.sendRedirect("userDashboard.jsp");
     }
 %>
    

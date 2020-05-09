@@ -6,17 +6,17 @@
 package com.metrix.loginpackage;
 
 import java.io.IOException;
-import java.io.PrintWriter;
+
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.time.LocalTime;
+
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import java.time.Instant;
+
 import java.time.LocalDate;
 
 /**
@@ -73,7 +73,7 @@ public class LoginServlet extends HttpServlet {
                 }
                 
                 
-                int accountAge = 5;
+                int accountAge = LocalDate.now().compareTo(user.getJoinDate());
                 
                 
                 session.setAttribute("logUser", user);
@@ -81,10 +81,7 @@ public class LoginServlet extends HttpServlet {
                 
                 session.setAttribute("accountAge", accountAge);
                 
-                 Instant time = Instant.ofEpochSecond(accountAge);
                  
-                 
-                session.setAttribute("sessionTime", time);
               
                 String query = "INSERT INTO METRIX.HISTORY(UID, LOGDATE) values(?,?);";
                 LocalDate date = LocalDate.now();

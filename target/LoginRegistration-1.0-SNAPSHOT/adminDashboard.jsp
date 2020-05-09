@@ -16,6 +16,19 @@
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ taglib uri = "http://java.sun.com/jsp/jstl/core" prefix = "c"%>
+
+<% User admin = (User) session.getAttribute("logUser");
+   
+    if(admin == null){
+        RequestDispatcher rd=request.getRequestDispatcher("adminLogin.jsp");
+        rd.forward(request, response);
+        
+        response.sendRedirect("login.jsp");
+    }
+   else if(admin !=null && admin.getUserRole() == 0){
+         response.sendRedirect("userDashboard.jsp");
+    }
+%>
 <%
     UserDAO userData = new UserDAO(ConnectionProvider.getConnection());
     List<User> user = userData.getAllUsers();
@@ -24,18 +37,7 @@
     
 %>
 
-<% User admin = (User) session.getAttribute("logUser");
-   
-    if(admin==null){
-        RequestDispatcher rd=request.getRequestDispatcher("adminLogin.jsp");
-        rd.forward(request, response);
-        
-        response.sendRedirect("login.jsp");
-    }
-    if(admin !=null && admin.getUserRole() == 0){
-         response.sendRedirect("userDashboard.jsp");
-    }
-%>
+
 <%@page import="java.util.List"%>
 <%@page import="com.metrix.loginpackage.User"%>
 <%@page import="com.metrix.loginpackage.ConnectionProvider"%>

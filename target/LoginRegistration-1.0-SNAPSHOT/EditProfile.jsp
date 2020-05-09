@@ -6,9 +6,13 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <% User user = (User) session.getAttribute("logUser");
     
-    if(user==null){
-        response.sendRedirect("index.jsp");
+   if(user == null){
+        RequestDispatcher rd=request.getRequestDispatcher("login.jsp");
+        rd.forward(request, response);
+        
+        response.sendRedirect("login.jsp");
     }
+  
 %>
 <!DOCTYPE html>
 <html>

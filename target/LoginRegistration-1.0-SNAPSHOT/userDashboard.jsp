@@ -20,14 +20,16 @@
         RequestDispatcher rd=request.getRequestDispatcher("login.jsp");
         rd.forward(request, response);
         
-        response.sendRedirect("login.jsp");
+       response.sendRedirect("login.jsp");
     }
-    if(user !=null && user.getUserRole() == 1){
+    else if(user !=null && user.getUserRole() == 1){
          response.sendRedirect("adminDashboard.jsp");
     }
-    Instant time = (Instant) session.getAttribute("sessionTime");
-    Instant now = Instant.now();
-    
+     long now =  System.currentTimeMillis();
+     long time = session.getCreationTime();
+     
+     long sessionTime  =(now-time)/60000;
+     
   
     
     
@@ -76,7 +78,10 @@
             </div>
             <div class="card-bg3">
                 <div class="card-number">
-                  
+                  <%
+                      out.println( sessionTime);
+                      
+                       %>
                 </div>
                 <div class="card-desc">
                     Current Session Time

@@ -18,7 +18,7 @@
     if(isuser ==null || isuser.getUserRole() == 0){
         response.sendRedirect("index.jsp");
     }
-   if(isuser !=null && isuser.getUserRole()==0){
+    else if(isuser !=null && isuser.getUserRole()==0){
         response.sendRedirect("userDashboard.jsp");
     }
 %>
@@ -52,10 +52,10 @@
         </style>
     </head>
     <body>
+         <jsp:include page="adminNavbar.jsp" />
         <div  class="container-fluid">
             <nav class="navbar navbar-light">
-                <a class="navbar-brand">Manage Users</a>
-                <a class="navbar-brand" href="adminDashboard.jsp">Home</a>
+                
                 <form class="form-inline">
                     <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
                     <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
@@ -86,7 +86,7 @@ User Information from Database</h3>
 <tr>                
                                         
                                             <c:if test="${user.userRole eq 1}">
-                                                <td> <abbr title="First Name">${user.firstName }</abbr></td>>
+                                                <td> <abbr title="First Name">${user.firstName }</abbr> <i class="fa fa-check" aria-hidden="true"></i></td>
                                             </c:if>
                                            <c:if test="${user.userRole eq 0}">
                                             <td >${user.firstName }</td>
