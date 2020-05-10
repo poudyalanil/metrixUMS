@@ -44,7 +44,7 @@ public class ResetPasswordUser extends HttpServlet {
                 if (i > 0) {
                     response.sendRedirect("login.jsp");
                 } else {
-                    s.setAttribute("error", "Email is wrong");
+                    s.setAttribute("errorReset", "Email is wrong");
                     response.sendRedirect("resetPassword.jsp");
                 }
             } catch (Exception e) {

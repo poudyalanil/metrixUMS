@@ -107,9 +107,10 @@ body{
 .know-us{
     color: white;
     text-align: justify;
-    padding: 250px;
-    margin-top: 50px;
-    margin-bottom: 50px;
+    margin-top: 70px;
+    padding: 180px;
+    
+    
 }
 .know-us>h1{
     margin-bottom: 25px;
