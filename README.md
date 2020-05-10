@@ -15,13 +15,15 @@ It is a User Management System developed on top of Java Maven. It is backed up b
  * Java
  * Maven
  * Glassfish/Tomcat
- * SQL
+ * MySQL
  * Bootstrap
  * JUnit
+ * JSTL
  
 -------------------
 This web app is deployed in Heroku platform
-[Click Here...](http://metrix-ums.herokuapp.com/)
+<a href="http://metrix-ums.herokuapp.com/" target="_blank">Click Here...</a>
+
  
 
 
