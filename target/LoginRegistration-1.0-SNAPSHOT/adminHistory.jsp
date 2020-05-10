@@ -40,10 +40,9 @@
                 position: relative;
                 height: 280px;
                 overflow: auto;
-            }
-            .scrollbar-y {
                 display: block;
             }
+            
         </style>
         <!-- Bootstrap CSS -->
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
@@ -69,11 +68,12 @@
                             try {
                                 Connection conn = ConnectionProvider.getConnection();
                                 int count = 0;
-                                PreparedStatement pst = conn.prepareStatement("SELECT  fname, ");
-
                                 String sql = "SELECT user.iduser, user.fname,user.lname, user.lastupdated, history.logdate FROM user INNER JOIN history ON user.iduser=history.uid AND user.isadmin=0;";
 
-                                ResultSet res = pst.executeQuery(sql);
+                                PreparedStatement pst = conn.prepareStatement(sql);
+
+                                
+                                ResultSet res = pst.executeQuery();
                                 while (res.next()) {
                                     count += 1;
                         %>

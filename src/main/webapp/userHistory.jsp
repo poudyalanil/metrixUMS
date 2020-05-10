@@ -3,6 +3,8 @@
     Created on : May 6, 2020, 8:15:15 PM
     Author     : goani
 --%>
+<%@page import="com.metrix.loginpackage.ConnectionProvider"%>
+<%@page import="java.sql.PreparedStatement"%>
 <%@page import="java.sql.DriverManager"%>
 <%@page import="java.sql.ResultSet"%>
 <%@page import="java.sql.Statement"%>
@@ -28,38 +30,55 @@
     <body>
         <jsp:include page="userNavbar.jsp" />
         <div class="container">
-            <h4>History</h4>
+            
+            <h2 style="paddint-top:20px"><%= user.getFirstName()%>'s History</h2>
+            
+
             <div class="inner">
-                <table align="center" cellpadding="5" cellspacing="5" border="1">
-                    <tr>
-                    </tr>
-                    <tr>
-                        <td><b>User ID</b></td>
-                        <td><b>Last Logged In Date</b></td>
+                 <ul class="list-group list-group-flush">
+                     <li class="list-group-item list-group-item-primary"><p> You joined <b>Metrix UMS</b> on <%= user.getJoinDate()%>.</p></li>
+                                          <li class="list-group-item list-group-item-primary"> You have logged into the system for <b>${loginCount}</b> times.</li>
+                                          <br>
+                                           <li class="list-group-item list-group-item-dark"> Your Login Sequence</li>
+                                           <div style="overflow:scroll; height: 380px">
+                                           
 
-                    </tr>
-                    <%
-                        try {
-                            Class.forName("com.mysql.cj.jdbc.Driver");
-                            Connection con = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/metrix?serverTimezone=UTC", "root", "");
-                            Statement statement = con.createStatement();
-                            String sql = "SELECT * FROM history where uid = " + user.getIduser();
+                <%
+                    try {
+                        Connection con = ConnectionProvider.getConnection();
+                       
 
-                            ResultSet resultSet = statement.executeQuery(sql);
-                            while (resultSet.next()) {
-                    %>
-                    <tr>
-                        <td><%=resultSet.getString("uid")%></td>
-                        <td><%=resultSet.getString("logdate")%></td>
-                    </tr>
-                    <%
-                            }
+                        String sql = "SELECT user.iduser, user.fname,user.lname, user.lastupdated, history.logdate FROM user INNER JOIN history ON user.iduser=history.uid  AND user.iduser = " + user.getIduser() + " order by history.logdate DESC;";
+                        PreparedStatement ps = con.prepareStatement(sql);
+                        ResultSet rs = ps.executeQuery(sql);
+                        
+                        int count = 0;
+                       
+                        while (rs.next()) {
+                            count++;
+                            
+                %>
+                
+                    <li class="list-group-item">
+                        <%= count%> | &nbsp;&nbsp;&nbsp;
+                    You logged into your dashboard on
+                       <b> <%=rs.getString("logdate") %></b>
+                    
+                    </li>
+                   
+                    
+                 
+                <%
+                        }%>
+                 </div>  
+                                           </ul>
+                <%
 
-                        } catch (Exception e) {
-                            e.printStackTrace();
-                        }
-                    %>
-                </table>
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                %>
+
             </div>
         </div>
     </body>

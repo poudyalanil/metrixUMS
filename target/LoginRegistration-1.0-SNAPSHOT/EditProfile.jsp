@@ -32,7 +32,7 @@
             <h4>Edit Profile</h4>
             <div class="inner">
                 <div class="row">
-                    <div class="col-md-3">
+                    <div class="col-md-7 offset-4">
                         <h3>Enter Your Updated Information</h3>
 
                         <form action="EditProfile" method="post">

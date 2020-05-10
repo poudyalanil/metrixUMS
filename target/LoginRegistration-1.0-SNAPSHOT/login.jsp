@@ -57,6 +57,8 @@
                                             <br><br>
                                             <% if (errorMsg != null) {%>
                                             <p style="color:red; font-size: 12px;"> 
+                                                <a href="resetPassword.jsp"> Forgot Password ??</a>
+                                                <br>
                                                 <%= errorMsg%>
                                                 <% session.removeAttribute("error");%>
                                             </p>
