@@ -81,11 +81,11 @@
                                         -->
 
                                         <div class="form-label-group">
-                                            <input type="password" name = "password"  class="form-control" placeholder="Password" required>
+                                            <input type="password" name = "password" minlength="8" class="form-control" placeholder="Password" required>
                                             <label for="password">Password</label>
                                         </div>
                                         <div class="form-label-group">
-                                            <input type="password" name="repassword"  class="form-control" placeholder="Confirm Password" required>
+                                            <input type="password" name="repassword" minlength="8" class="form-control" placeholder="Confirm Password" required>
                                             <label for="rePassword"> Confirm Password</label>
                                         </div>
 

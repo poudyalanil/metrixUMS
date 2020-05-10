@@ -86,7 +86,7 @@
                             </div>
                             <div class="form-group">
                                 <label>Password</label>
-                                <input class="form-control" name="password" place-holder="Password" required>
+                                <input class="form-control" minlength="8" name="password" place-holder="Password" required>
                             </div>
                             <button type="submit" class="btn btn-primary">Submit</button>
                             <button type="reset" class="btn btn-primary">Reset</button>
