@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" ?>
+<<<<<<< HEAD
 <testsuite tests="2" failures="0" name="JUnitTest" time="0.004" errors="0" skipped="0">
+=======
+<testsuite tests="2" failures="0" name="JUnitTest" time="0.011" errors="0" skipped="0">
+>>>>>>> deff832dd09d6da736b3806c44fc40abe6464ab3
   <properties>
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
     <property name="java.vm.version" value="13+33"/>
@@ -58,6 +62,11 @@
     <property name="sun.cpu.endian" value="little"/>
     <property name="sun.cpu.isalist" value="amd64"/>
   </properties>
+<<<<<<< HEAD
   <testcase classname="JUnitTest" name="testSetFirstName" time="0.004"/>
   <testcase classname="JUnitTest" name="testSetEmail" time="0"/>
+=======
+  <testcase classname="JUnitTest" name="testSetFirstName" time="0.008"/>
+  <testcase classname="JUnitTest" name="testSetEmail" time="0.003"/>
+>>>>>>> deff832dd09d6da736b3806c44fc40abe6464ab3
 </testsuite>

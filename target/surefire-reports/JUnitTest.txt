@@ -1,4 +1,8 @@
 -------------------------------------------------------------------------------
 Test set: JUnitTest
 -------------------------------------------------------------------------------
+<<<<<<< HEAD
 Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.171 sec
+=======
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.143 sec
+>>>>>>> deff832dd09d6da736b3806c44fc40abe6464ab3
