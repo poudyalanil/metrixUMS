@@ -174,4 +174,27 @@ public class UserDAO {
             ex.printStackTrace();;
         }
     }
+    public void makeAdmin(int id){
+        try{
+            String query= "UPDATE user set isadmin = 1 where iduser=?";
+            PreparedStatement pt = this.con.prepareStatement(query);
+            pt.setInt(1, id);
+            pt.execute();
+            pt.close();
+        } catch(Exception ex){
+            ex.printStackTrace();
+        }
+    }
+    public void makeNormalUser(int id){
+        try{
+            String query= "UPDATE user set isadmin = 0 where iduser=?";
+            PreparedStatement pt = this.con.prepareStatement(query);
+            pt.setInt(1, id);
+            pt.execute();
+            pt.close();
+        } catch(Exception ex){
+            ex.printStackTrace();
+        }
+    }
+    
 }

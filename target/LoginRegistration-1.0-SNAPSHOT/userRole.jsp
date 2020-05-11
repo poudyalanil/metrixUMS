@@ -85,10 +85,10 @@
                                         <td>${user.password}</td>
                                         <c:choose>
                                             <c:when test="${user.userRole eq 0}">
-                                                <td> <a class="text-success" href="Unblock?id=${user.iduser}">Make Admin</a></td>
+                                                <td> <a class="text-success" href="MakeAdmin?id=${user.iduser}">Make Admin</a></td>
                                             </c:when>
                                             <c:otherwise>
-                                                <td> <a class="text-warning" href="BlockUserServlet?id=${user.iduser}">Make Normal User</a></td>
+                                                <td> <a class="text-warning" href="MakeNormalUser?id=${user.iduser}">Make Normal User</a></td>
                                             </c:otherwise>
                                         </c:choose>
                                     </tr>

@@ -53,7 +53,7 @@
     <body>
         <jsp:include page="adminNavbar.jsp" />
         <div class="container">
-            <h5 class="max-auto">User History</h5>
+            <h2 class="max-auto">User History</h2>
             <div class="scrollbar-x scrollbar-y">
                 <table class="table table-hover"" align="center" cellpadding="5" cellspacing="5" border="1">
                     <tr>

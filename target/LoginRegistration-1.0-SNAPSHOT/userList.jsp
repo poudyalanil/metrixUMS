@@ -48,9 +48,7 @@
     <body>
         <jsp:include page="adminNavbar.jsp" />
         <div  class="container-fluid">
-            <nav class="navbar navbar-light">
-                <a class="navbar-brand">Manage Users</a>
-                <a class="navbar-brand" href="adminDashboard.jsp">Home</a>
+            <nav class="navbar navbar-light" style="float: right;">
                 <form class="form-inline">
                     <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
                     <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
@@ -58,6 +56,8 @@
             </nav>
         </div>
         <div class="container">
+            <h1 class="navbar-brand" style="padding-top: 4vh; font-size: 35px;">Manage Users</h1>
+            <a href="registerAdmin.jsp"><button class="btn btn-light float-right" style="box-shadow: 0px 2px 5px 0px rgba(0,0,0,0.5); margin-top: 5vh;">Create Admin User</button></a>
             <div class="inner">
                 <div class="row">
                     <div class="col-md-3">

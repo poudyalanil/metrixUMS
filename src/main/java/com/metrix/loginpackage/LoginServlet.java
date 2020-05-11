@@ -24,7 +24,8 @@ public class LoginServlet extends HttpServlet {
         UserDatabase db = new UserDatabase(ConnectionProvider.getConnection());
         User user = db.logUser(logemail, logpass);
         HttpSession session = request.getSession();
-        if (user != null) {
+        
+        if (user != null && user.getUserRole()==0) {    
             session.setAttribute("isLoggedIn", "true");
             String sql = "SELECT * from history where uid = " + user.getIduser();
 
@@ -55,15 +56,16 @@ public class LoginServlet extends HttpServlet {
                 PreparedStatement ps = db.con.prepareStatement(query);
                 ps.setInt(1, user.getIduser());
                 ps.setObject(2, date);
+                response.sendRedirect("userDashboard.jsp");
                 ps.execute();
                 ps.close();
+                
             } catch (SQLException e) {
                 e.printStackTrace();
             }
+            
 
-            response.sendRedirect("userDashboard.jsp");
-
-        } else {
+        } else {    
             
             
             

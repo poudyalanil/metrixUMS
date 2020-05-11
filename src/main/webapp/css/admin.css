@@ -3,7 +3,7 @@
     src: url(../fonts/AdventPro.ttf);
 }
 
-.container>h4{
+.container>h4,h2{
     padding-top: 12vh;
 }
 

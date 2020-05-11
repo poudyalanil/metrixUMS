@@ -72,6 +72,14 @@
         <servlet-name>ResetPasswordUser</servlet-name>
         <servlet-class>com.metrix.loginpackage.ResetPasswordUser</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>MakeAdmin</servlet-name>
+        <servlet-class>com.metrix.loginpackage.MakeAdmin</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>MakeNormalUser</servlet-name>
+        <servlet-class>com.metrix.loginpackage.MakeNormalUser</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>RegisterServlet</servlet-name>
         <url-pattern>/RegisterServlet</url-pattern>
@@ -143,6 +151,14 @@
     <servlet-mapping>
         <servlet-name>ResetPasswordUser</servlet-name>
         <url-pattern>/ResetPasswordUser</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>MakeAdmin</servlet-name>
+        <url-pattern>/MakeAdmin</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>MakeNormalUser</servlet-name>
+        <url-pattern>/MakeNormalUser</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

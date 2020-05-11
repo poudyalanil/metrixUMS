@@ -24,11 +24,10 @@ public class LogoutServlet extends HttpServlet {
             out.println("<h1>Servlet LogoutServlet at " + request.getContextPath() + "</h1>");
 
             HttpSession session = request.getSession();
+            session.removeAttribute("logUser");
             session.invalidate();
             response.sendRedirect("index.jsp");
-
-            out.println("</body>");
-            out.println("</html>");
+            return;
         }
     }
 

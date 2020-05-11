@@ -67,7 +67,7 @@ public class UserDatabase {
     public User logUser(String email, String password) {
         User usr = null;
         try {
-            String query = "select * from user where email=? and password=? and status=1";
+            String query = "select * from user where email=? and password=? and status=1 and isadmin=0";
             PreparedStatement pst = this.con.prepareStatement(query);
             pst.setString(1, email);
             pst.setString(2, password);
@@ -98,7 +98,7 @@ public class UserDatabase {
     public User logAdmin(String email, String password) {
         User usr = null;
         try {
-            String query = "select * from user where email=? and password=? and isadmin=1";
+            String query = "select * from user where email=? and password=? and status=1 and isadmin=1";
             PreparedStatement pst = this.con.prepareStatement(query);
             pst.setString(1, email);
             pst.setString(2, password);

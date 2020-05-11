@@ -6,7 +6,7 @@
     if (user != null && user.getUserRole() == 1) {
         response.sendRedirect("adminDashboard.jsp");
     }
-    if (user != null && user.getUserRole() == 0) {
+    else if (user != null && user.getUserRole() == 0) {
         response.sendRedirect("userDashboard.jsp");
     }
 %>

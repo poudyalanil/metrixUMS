@@ -24,9 +24,52 @@
         <title>Register</title>
     </head>
     <body>
-        <div class="container-fluid">
+        <jsp:include page="adminNavbar.jsp" />
+        <div class="container" style="padding-top: 12vh">
+            <h3 class="login-heading mb-4">Enter Admin Information</h3>
+            <form action="AdminRegister" method="POST">
+                <div class="form-label-group">
+                    <input type="text" name ="fname" class="form-control" placeholder="First Name" required autofocus>
+                    <label for="fname">First Name</label>
+                </div>
+                <div class="form-label-group">
+                    <input type="text" name ="mname" class="form-control" placeholder="Middle Name" >
+                    <label for="mname">Middle Name</label>
+                </div>
+                <div class="form-label-group">
+                    <input type="text" name ="lname" class="form-control" placeholder="Last Name" required>
+                    <label for="lname">Last Name</label>
+                </div>
+                <div class="form-label-group">
+                    <input type="number" name ="phno" class="form-control" placeholder="Phone Number" required>
+                    <label for="phno">Phone Number</label>
+                </div>
+                <div class="form-label-group">
+                    <input type="text" name ="address" class="form-control" placeholder="Address" required>
+                    <label for="address">Address</label>
+                </div>
+
+                <div class="form-label-group">
+                    <input type="email" name="email" class="form-control" placeholder="Email address" required>
+                    <label for="email">Email address</label>
+                </div>
+                <div class="form-label-group">
+                    <input type="password" name = "password" minlength="8" class="form-control" placeholder="Password" required>
+                    <label for="password">Password</label>
+                </div>
+                <div class="form-label-group">
+                    <input type="password" name="repassword" minlength="8"  class="form-control" placeholder="Confirm Password" required>
+                    <label for="rePassword"> Confirm Password</label>
+                </div>
+
+                <div style='text-align: center;'>
+                    <button class="btn btn-md btn-outline-light btn-login" type="submit" href="adminLogin.jsp">SignUp</button>
+                </div>
+            </form>
+        </div>
+<!--        <div class="container-fluid">
             <div class="row no-gutter">
-                <div class="d-none d-md-flex col-md-4 col-lg-6 mgreen" >
+                <div class="d-none d-md-flex col-md-4 col-lg-6 mgreen" style='background-color: #2D18AB'>
                     <div class="container know-us"> 
                         <h1><span class="random">Add New Admin to</span><span class="logo"> USM</span></h1>
                         <p>
@@ -39,57 +82,12 @@
                 </div>
                 <div class="col-md-8 col-lg-6">
                     <div class="login d-flex align-items-center py-5 alignus">
-                        <div class="container">
-                            <div class="row"  >
-                                <div class="col-md-9 col-lg-8 mx-auto" >
-                                    <h3 class="login-heading mb-4">Enter Admin Information</h3>
-                                    <form action="AdminRegister" method="POST">
-                                        <div class="form-label-group">
-                                            <input type="text" name ="fname" class="form-control" placeholder="First Name" required autofocus>
-                                            <label for="fname">First Name</label>
-                                        </div>
-                                        <div class="form-label-group">
-                                            <input type="text" name ="mname" class="form-control" placeholder="Middle Name" >
-                                            <label for="mname">Middle Name</label>
-                                        </div>
-                                        <div class="form-label-group">
-                                            <input type="text" name ="lname" class="form-control" placeholder="Last Name" required>
-                                            <label for="lname">Last Name</label>
-                                        </div>
-                                        <div class="form-label-group">
-                                            <input type="number" name ="phno" class="form-control" placeholder="Phone Number" required>
-                                            <label for="phno">Phone Number</label>
-                                        </div>
-                                        <div class="form-label-group">
-                                            <input type="text" name ="address" class="form-control" placeholder="Address" required>
-                                            <label for="address">Address</label>
-                                        </div>
-
-                                        <div class="form-label-group">
-                                            <input type="email" name="email" class="form-control" placeholder="Email address" required>
-                                            <label for="email">Email address</label>
-                                        </div>
-                                        <div class="form-label-group">
-                                            <input type="password" name = "password" minlength="8" class="form-control" placeholder="Password" required>
-                                            <label for="password">Password</label>
-                                        </div>
-                                        <div class="form-label-group">
-                                            <input type="password" name="repassword" minlength="8"  class="form-control" placeholder="Confirm Password" required>
-                                            <label for="rePassword"> Confirm Password</label>
-                                        </div>
-
-                                        <div style='text-align: center;'>
-                                            <button class="btn btn-md btn-outline-light btn-login" type="submit" href="adminLogin.jsp">SignUp</button>
-                                        </div>
-                                    </form>
-                                </div>
-                            </div>
-                        </div>
+                        
                     </div>
                     <a class="small" style="float: right; margin: -40px 20px 0px 0px;" href="adminLogin.jsp">SignIn</a>
                 </div>
             </div>
-        </div>
+        </div>-->
 
 
         <!-- Optional JavaScript -->
