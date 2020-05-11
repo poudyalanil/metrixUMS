@@ -5,7 +5,7 @@
 <%@page import="com.metrix.loginpackage.UserDatabase"%>
 <%@page import="com.metrix.loginpackage.User"%>
 <%@page import="com.metrix.loginpackage.ConnectionProvider"%>
-
+<% User user = (User) session.getAttribute("logUser"); %>
 
 <!DOCTYPE html>
 <html>
@@ -22,7 +22,7 @@
         </div>
         <div class="horizontal-menu">
             <a href="LogoutServlet" class="logout">Logout</a>
-            <h3>Hello, </h3>
+            <h3>Hello, <%= user.getFirstName()%></h3>
         </div>
     </body>
 </html>

@@ -31,7 +31,7 @@
         <jsp:include page="userNavbar.jsp" />
         <div class="container">
             
-            <h2 style="paddint-top:20px"><%= user.getFirstName()%>'s History</h2>
+            <h2><%= user.getFirstName()%>'s History</h2>
             
 
             <div class="inner">

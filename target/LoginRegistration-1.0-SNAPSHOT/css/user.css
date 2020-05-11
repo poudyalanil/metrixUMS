@@ -93,7 +93,7 @@
     line-height: 32px;
 }
 
-.container>h4{
+.container>h4,h2{
     padding-top: 12vh;
 }
 .inner{
