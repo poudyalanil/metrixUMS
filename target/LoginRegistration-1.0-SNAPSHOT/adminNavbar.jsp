@@ -19,10 +19,12 @@
     <body>
         <div class="vertical-menu">
             <h2>UMS</h2>
-            <a href="adminDashboard.jsp" class="active">Dashboard</a>
-            <a href="userList.jsp">Users</a>
-            <a href="userRole.jsp">Role</a>
-            <a href="adminHistory.jsp">History</a>
+            <% String uri = request.getRequestURI();
+            String pageName = uri.substring(uri.lastIndexOf("/")+1);%>
+            <a href="adminDashboard.jsp" class="<%= (pageName.contentEquals("adminDashboard.jsp"))?"active":"" %>" style="border-top: 1px #F6F6F6 solid;">Dashboard</a>
+            <a href="userList.jsp" class="<%= (pageName.contentEquals("userList.jsp"))?"active":"" %>">Users</a>
+            <a href="userRole.jsp" class="<%= (pageName.contentEquals("userRole.jsp"))?"active":"" %>">Role</a>
+            <a href="adminHistory.jsp" class="<%= (pageName.contentEquals("adminHistory.jsp"))?"active":"" %>">History</a>
         </div>
         <div class="horizontal-menu">
             <div class="dropdown">

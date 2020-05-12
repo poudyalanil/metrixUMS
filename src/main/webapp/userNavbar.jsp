@@ -16,9 +16,11 @@
     <body>
         <div class="vertical-menu">
             <h2>UMS</h2>
-            <a href="userDashboard.jsp" class="active">Dashboard</a>
-            <a href="EditProfile.jsp">Profile</a>
-            <a href="userHistory.jsp">History</a>
+            <% String uri = request.getRequestURI();
+            String pageName = uri.substring(uri.lastIndexOf("/")+1);%>
+            <a href="userDashboard.jsp" class="<%= (pageName.contentEquals("userDashboard.jsp"))?"active":"" %>" style= "border-top: 1px #F6F6F6 solid;">Dashboard</a>
+            <a href="EditProfile.jsp" class="<%= (pageName.contentEquals("EditProfile.jsp"))?"active":"" %>">Profile</a>
+            <a href="userHistory.jsp" class="<%= (pageName.contentEquals("userHistory.jsp"))?"active":"" %>">History</a>
         </div>
         <div class="horizontal-menu">
             <a href="LogoutServlet" class="logout">Logout</a>
