@@ -55,7 +55,7 @@
         <header class="masthead bg-primary text-white text-center">
             <div class="container d-flex align-items-center flex-column">
                 <!-- Masthead Avatar Image--><img class="masthead-avatar mb-5" src="images/signin-image.jpg" alt="" /><!-- Masthead Heading-->
-                <h1 class="masthead-heading text-uppercase mb-0">Software Analysis and Development</h1>
+                <h1 class="masthead-heading text-uppercase mb-0">System Analysis and Design Methods</h1>
                 <!-- Icon Divider-->
                 <div class="divider-custom divider-light">
                     <div class="divider-custom-line"></div>

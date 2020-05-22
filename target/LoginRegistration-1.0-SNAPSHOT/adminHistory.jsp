@@ -54,87 +54,90 @@
         <jsp:include page="adminNavbar.jsp" />
         <div class="container">
             <h2 class="max-auto">User History</h2>
-            <div class="scrollbar-x scrollbar-y">
-                <table class="table table-hover"" align="center" cellpadding="5" cellspacing="5" border="1">
-                    <tr>
-                    </tr>
-                    <tr>
-                        <td><b>SN</b></td>
-                        <td><b>User ID</b></td>
-                        <td><b>Name</b></td>
-                        <td><b>Last Logged in Date</b></td>
-                        <td><b>Last Profile Updated</b></td> </tr>
+            <div class="history-card-bg">
+                <div class="scrollbar-x scrollbar-y">
+                    <table class="table table-hover"" align="center" cellpadding="5" cellspacing="5" border="0">
+                        <tr>
+                        </tr>
+                        <tr>
+                            <td><b>SN</b></td>
+                            <td><b>User ID</b></td>
+                            <td><b>Name</b></td>
+                            <td><b>Joined Date</b></td>
+                            <td><b>Last Logged in Date</b></td>
+                            <td><b>Last Profile Updated</b></td> </tr>
+                            <%
+                                try {
+                                    Connection conn = ConnectionProvider.getConnection();
+                                    int count = 0;
+                                    String sql = "SELECT user.iduser, user.fname,user.lname, user.joindate, user.lastupdated, history.logdate FROM user INNER JOIN history ON user.iduser=history.uid AND user.isadmin=0;";
+
+                                    PreparedStatement pst = conn.prepareStatement(sql);
+
+
+                                    ResultSet res = pst.executeQuery();
+                                    while (res.next()) {
+                                        count += 1;
+                            %>
+                        <tr>
+
+                            <td><%= count%></td>
+                            <td><%=res.getString("iduser")%></td>
+                            <td><%=res.getString("fname")%> &nbsp;&nbsp; <%=res.getString("lname")%></td>
+                            <td><%=res.getString("joindate")%></td>
+                            <td><%=res.getString("logdate")%></td>
+                            <td><%=res.getString("lastupdated")%></td>
+                        </tr>
+                        <%}
+                                pst.close();
+                                res.close();
+                            } catch (Exception e) {
+                                e.printStackTrace();
+                            }
+                        %>
+                    </table>  
+                </div>
+            </div>
+            <h5 class="mx-auto">My History</h5>
+            <div class="history-card-bg">
+                <div class="scrollbar-x scrollbar-y">
+                    <table class="table table-hover"" align="center" cellpadding="5" cellspacing="5" border="0">
+                        <tr>
+                        </tr>
+                        <tr>
+                            <td><b>SN</b></td>
+                            <td><b>Join Date</b></td>
+                            <td><b>Last Logged in Date</b></td>
+                            <td><b>Last Profile Updated</b></td>
+                        </tr>
                         <%
                             try {
-                                Connection conn = ConnectionProvider.getConnection();
+                                Connection con = ConnectionProvider.getConnection();
                                 int count = 0;
-                                String sql = "SELECT user.iduser, user.fname,user.lname, user.lastupdated, history.logdate FROM user INNER JOIN history ON user.iduser=history.uid AND user.isadmin=0;";
+                                PreparedStatement ps = con.prepareStatement("SELECT  fname, ");
 
-                                PreparedStatement pst = conn.prepareStatement(sql);
+                                String sql = "SELECT user.iduser, user.fname,user.lname, user.lastupdated, user.joindate, history.logdate FROM user INNER JOIN history ON user.iduser=history.uid  AND user.iduser = " + admin.getIduser() + ";";
 
-                                
-                                ResultSet res = pst.executeQuery();
-                                while (res.next()) {
+                                ResultSet resultSet = ps.executeQuery(sql);
+                                while (resultSet.next()) {
                                     count += 1;
                         %>
-                    <tr>
+                        <tr>
+                            <td><%= count%></td>
+                            <td><%=resultSet.getString("joindate")%></td>
+                            <td><%=resultSet.getString("logdate")%></td>
+                            <td><%=resultSet.getString("lastupdated")%></td>
+                        </tr>
+                        <%
+                                }
 
-                        <td><%= count%></td>
-                        <td><%=res.getString("iduser")%></td>
-                        <td><%=res.getString("fname")%> &nbsp;&nbsp; <%=res.getString("lname")%></td>
-                        <td><%=res.getString("logdate")%></td>
-                        <td><%=res.getString("lastupdated")%></td>
-                    </tr>
-                    <%}
-                            pst.close();
-                            res.close();
-                        } catch (Exception e) {
-                            e.printStackTrace();
-                        }
-                    %>
-                </table>  
-            </div>
-            <hr>
-            <h5 class="mx-auto">My History</h5>
-            <div class="scrollbar-x scrollbar-y">
-                <table class="table table-hover"" align="center" cellpadding="5" cellspacing="5" border="1">
-                    <tr>
-                    </tr>
-                    <tr>
-                        <td><b>SN</b></td>
-                        <td><b>User ID</b></td>
-                        <td><b>Name</b></td>
-                        <td><b>Last Logged in Date</b></td>
-                        <td><b>Last Profile Updated</b></td>
-                    </tr>
-                    <%
-                        try {
-                            Connection con = ConnectionProvider.getConnection();
-                            int count = 0;
-                            PreparedStatement ps = con.prepareStatement("SELECT  fname, ");
-
-                            String sql = "SELECT user.iduser, user.fname,user.lname, user.lastupdated, history.logdate FROM user INNER JOIN history ON user.iduser=history.uid  AND user.iduser = " + admin.getIduser() + ";";
-
-                            ResultSet resultSet = ps.executeQuery(sql);
-                            while (resultSet.next()) {
-                                count += 1;
-                    %>
-                    <tr>
-                        <td><%= count%></td>
-                        <td><%=resultSet.getString("iduser")%></td>
-                        <td><%=resultSet.getString("fname")%> &nbsp;&nbsp;<%=resultSet.getString("lname")%></td>
-                        <td><%=resultSet.getString("logdate")%></td>
-                        <td><%=resultSet.getString("lastupdated")%></td>
-                    </tr>
-                    <%
+                            } catch (Exception e) {
+                                e.printStackTrace();
                             }
-
-                        } catch (Exception e) {
-                            e.printStackTrace();
-                        }
-                    %>
-                </table>
-            </div>    
+                        %>
+                    </table>
+                </div>
+            </div>
         </div>
 
         <!-- Bootstrap core JS-->

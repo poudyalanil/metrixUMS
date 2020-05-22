@@ -35,67 +35,52 @@
 
         <title>User Management</title>
 
-        <style>
-            .inner{
-                margin: 15px 0;
-            }
-        </style>
+        <link href="css/admin.css" rel="stylesheet" />
+        
     </head>
     <body>
         <jsp:include page="adminNavbar.jsp" />
-        <div  class="container-fluid">
-            <nav class="navbar navbar-light">
-                <form class="form-inline">
-                    <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-                </form>
-            </nav>
-        </div>
         <div class="container">
             <div class="inner">
-                <div class="row">
-                    <div class="col-md-12">
-                        <h3>
-                            User Information from Database</h3>
-                        <table class="table">
-                            <thead class="bg-light">
+                <h2>Roles</h2>
+                <div class="history-card-bg">
+                    <table class="table table-hover" align="center" cellpadding="5" cellspacing="5">
+                        <thead class="bg-light">
+                            <tr>
+                                <th scope="col">Full Name</th>
+                                <th scope="col">Authenticated User</th>
+                                <th scope="col">Administrator</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <c:forEach var="user" items="${USERS_LIST}">
                                 <tr>
-                                    <th scope="col">First Name</th>
-                                    <th scope="col">Middle Name</th>
-                                    <th scope="col">Last Name</th>
-                                    <th scope="col">Address</th>
-                                    <th scope="col">Email</th>
-                                    <th scope="col">Password</th>
-                                    <th scope="col">Action</th>
+                                    <c:if test="${user.userRole eq 1}">
+                                        <td> <abbr title="First Name">${user.firstName } ${user.middleName } ${user.lastName }</abbr> <i class="fa fa-check" aria-hidden="true"></i></td>
+                                    </c:if>
+                                    <c:if test="${user.userRole eq 0}">
+                                        <td >${user.firstName } ${user.middleName } ${user.lastName }</td>
+                                    </c:if>
+                                    <c:choose>
+                                        <c:when test="${user.userRole eq 0}">
+                                            <td><a href="MakeNormalUser?id=${user.iduser}"><input type="radio" checked="checked"></a></td>
+                                        </c:when>
+                                        <c:otherwise>
+                                            <td><a href="MakeNormalUser?id=${user.iduser}"><input type="radio"></a></td>
+                                        </c:otherwise>
+                                    </c:choose>
+                                    <c:choose>
+                                        <c:when test="${user.userRole eq 1}">
+                                            <td><a href="MakeAdmin?id=${user.iduser}"><input type="radio" checked="checked"></a></td>
+                                        </c:when>
+                                        <c:otherwise>
+                                            <td><a href="MakeAdmin?id=${user.iduser}"><input type="radio"></a></td>
+                                        </c:otherwise>
+                                    </c:choose>
                                 </tr>
-                            </thead>
-                            <tbody>
-                                <c:forEach var="user" items="${USERS_LIST}">
-                                    <tr>
-                                        <c:if test="${user.userRole eq 1}">
-                                            <td> <abbr title="First Name">${user.firstName }</abbr> <i class="fa fa-check" aria-hidden="true"></i></td>
-                                            </c:if>
-                                            <c:if test="${user.userRole eq 0}">
-                                            <td >${user.firstName }</td>
-                                        </c:if>
-                                        <td>${user.middleName }</td>
-                                        <td>${user.lastName }</td>
-                                        <td>${user.address }</td>
-                                        <td>${user.email }</td>
-                                        <td>${user.password}</td>
-                                        <c:choose>
-                                            <c:when test="${user.userRole eq 0}">
-                                                <td> <a class="text-success" href="MakeAdmin?id=${user.iduser}">Make Admin</a></td>
-                                            </c:when>
-                                            <c:otherwise>
-                                                <td> <a class="text-warning" href="MakeNormalUser?id=${user.iduser}">Make Normal User</a></td>
-                                            </c:otherwise>
-                                        </c:choose>
-                                    </tr>
-                                </c:forEach>
-                            </tbody>
-                        </table>
-                    </div>
+                            </c:forEach>
+                        </tbody>
+                    </table>
                 </div>
             </div>
         </div>
