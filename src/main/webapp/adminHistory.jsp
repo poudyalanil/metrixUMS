@@ -58,14 +58,13 @@
                 <div class="scrollbar-x scrollbar-y">
                     <table class="table table-hover"" align="center" cellpadding="5" cellspacing="5" border="0">
                         <tr>
+                            <th>SN</th>
+                            <th>User ID</th>
+                            <th>Name</th>
+                            <th>Joined Date</th>
+                            <th>Last Logged in Date</th>
+                            <th>Last Profile Updated</th>
                         </tr>
-                        <tr>
-                            <td><b>SN</b></td>
-                            <td><b>User ID</b></td>
-                            <td><b>Name</b></td>
-                            <td><b>Joined Date</b></td>
-                            <td><b>Last Logged in Date</b></td>
-                            <td><b>Last Profile Updated</b></td> </tr>
                             <%
                                 try {
                                     Connection conn = ConnectionProvider.getConnection();
@@ -103,12 +102,10 @@
                 <div class="scrollbar-x scrollbar-y">
                     <table class="table table-hover"" align="center" cellpadding="5" cellspacing="5" border="0">
                         <tr>
-                        </tr>
-                        <tr>
-                            <td><b>SN</b></td>
-                            <td><b>Join Date</b></td>
-                            <td><b>Last Logged in Date</b></td>
-                            <td><b>Last Profile Updated</b></td>
+                            <th>SN</th>
+                            <th>Join Date</th>
+                            <th>Last Logged in Date</th>
+                            <th>Last Profile Updated</th>
                         </tr>
                         <%
                             try {
