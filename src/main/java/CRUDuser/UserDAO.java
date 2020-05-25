@@ -9,16 +9,21 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 public class UserDAO {
     Connection con;
+    public static PreparedStatement pst;
 
     public UserDAO(Connection con) {
         this.con = con;
     }
+    
+    public UserDAO() {
+    }
+    
     public boolean addUser(User user){
         boolean test = false;
         
         try{
             String query =  "INSERT INTO METRIX.USER(FNAME,MNAME,LNAME,ADDRESS,EMAIL,PASSWORD,JOINDATE) VALUES(?,?,?,?,?,?,?)";
-            PreparedStatement pst = this.con.prepareStatement(query);
+            pst = this.con.prepareStatement(query);
             pst.setString(1, user.getFirstName());
             pst.setString(2, user.getMiddleName());
             pst.setString(3, user.getLastName());

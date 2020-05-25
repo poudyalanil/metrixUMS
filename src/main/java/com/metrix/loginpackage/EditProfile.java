@@ -47,7 +47,7 @@ public class EditProfile extends HttpServlet {
                     
                     response.sendRedirect("userDashboard.jsp");
                 }else{
-                    out.print("wrong cre3dential");
+                    out.print("wrong credential");
                 }
                 
             }catch(Exception e){

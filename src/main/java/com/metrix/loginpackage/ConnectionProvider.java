@@ -13,7 +13,7 @@ public class ConnectionProvider {
 //            !!! IMPORTANT!!!
 //                THIS IS SUBJECTIVE
             Class.forName("com.mysql.cj.jdbc.Driver");
-            con=DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/metrix?serverTimezone=UTC","root","");
+            con=DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/metrix","root","root");
             
         }catch(Exception e){
             e.printStackTrace();

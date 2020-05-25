@@ -13,6 +13,9 @@ public class UserDatabase {
     public UserDatabase(Connection con) {
         this.con = con;
     }
+    
+    public UserDatabase() {
+    }
 
     //for register user 
     public boolean saveUser(User user) {
