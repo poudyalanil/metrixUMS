@@ -8,7 +8,11 @@ import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 public class UserDAO {
+    // Creating Connectino object from ConnectionProvider Class
     Connection con;
+    
+   //Empty Constructor
+    public UserDAO(){}
 
     public UserDAO(Connection con) {
         this.con = con;
@@ -18,7 +22,9 @@ public class UserDAO {
         
         try{
             String query =  "INSERT INTO METRIX.USER(FNAME,MNAME,LNAME,ADDRESS,EMAIL,PASSWORD,JOINDATE) VALUES(?,?,?,?,?,?,?)";
+            System.out.println("Connection In Progress......");
             PreparedStatement pst = this.con.prepareStatement(query);
+            System.out.println("Connection Success......");
             pst.setString(1, user.getFirstName());
             pst.setString(2, user.getMiddleName());
             pst.setString(3, user.getLastName());
