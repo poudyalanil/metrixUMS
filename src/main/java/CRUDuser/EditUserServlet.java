@@ -1,3 +1,4 @@
+// EditUserServlet is used for editing user's information
 
 package CRUDuser;
 
@@ -26,6 +27,7 @@ public class EditUserServlet extends HttpServlet {
             out.println("<body>");
             out.println("<h1>Servlet EditUserServlet at " + request.getContextPath() + "</h1>");
             
+            // getting form data
             int iduser = Integer.parseInt(request.getParameter("iduser"));
             String firstName = request.getParameter("fname");
             String middleName = request.getParameter("mname");
@@ -36,14 +38,15 @@ public class EditUserServlet extends HttpServlet {
             LocalDate today = LocalDate.now();
             int userRole = 0;
             int userStatus = 1;
-
+                
+            //passing information in user object
             User user = new User(iduser, firstName, middleName, lastName, address, email, password, today, userRole, userStatus);
             try {
                 UserDAO usdao = new UserDAO(ConnectionProvider.getConnection());
                 if (usdao.editUserInfo(user)) {
                     response.sendRedirect("userList.jsp");
                 } else {
-                    out.print("wrong cre3dential");
+                    out.print("Unable to update");
                 }
 
             } catch (Exception e) {

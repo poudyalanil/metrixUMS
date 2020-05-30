@@ -1,4 +1,4 @@
-
+// EditProfile is used for editing information by user
 package com.metrix.loginpackage;
 
 import CRUDuser.UserDAO;
@@ -25,6 +25,7 @@ public class EditProfile extends HttpServlet {
             out.println("<body>");
             out.println("<h1>Servlet EditProfile at " + request.getContextPath() + "</h1>");
             
+            // getting form data
             String firstName = request.getParameter("fname");
             String middleName = request.getParameter("mname");
             String lastName = request.getParameter("lname");
@@ -32,6 +33,7 @@ public class EditProfile extends HttpServlet {
             String email = request.getParameter("email");
             String password =request.getParameter("password");
             
+            // setting session attribute
             HttpSession s = request.getSession();
             User user = (User)s.getAttribute("logUser");
             user.setFirstName(firstName);

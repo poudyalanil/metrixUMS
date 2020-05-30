@@ -1,6 +1,8 @@
+<!--login.jsp is for normal/guest user login-->
 <%@page import="com.metrix.loginpackage.User"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!doctype html>
+<!--checking user's authentication state-->
 <% User user = (User) session.getAttribute("logUser");
 
     if (user != null && user.getUserRole() == 1) {
@@ -55,6 +57,7 @@
                                         <div style="text-align: center;">
                                             <button class="btn btn-md btn-outline-light btn-login" type="submit" >LogIn</button>
                                             <br><br>
+<!--                                            showing error message if there is any-->
                                             <% if (errorMsg != null) {%>
                                             <p style="color:red; font-size: 12px;"> 
                                                 <a href="resetPassword.jsp"> Forgot Password ??</a>

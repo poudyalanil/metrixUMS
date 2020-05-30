@@ -1,3 +1,4 @@
+// AdminLogin is used for loggin admin
 package com.metrix.loginpackage;
 
 import java.io.IOException;
@@ -28,10 +29,12 @@ public class AdminLogin extends HttpServlet {
             out.println("</head>");
             out.println("<body>");
             out.println("<h1>Servlet AdminLogin at " + request.getContextPath() + "</h1>");
-
+             
+            // getting login information from login form
             String logemail = request.getParameter("email");
             String logpass = request.getParameter("password");
-
+            
+            // getting database connection
             UserDatabase db = new UserDatabase(ConnectionProvider.getConnection());
             User user = db.logAdmin(logemail, logpass);
 
@@ -41,8 +44,9 @@ public class AdminLogin extends HttpServlet {
                 try {
 
                     String sql1 = "INSERT INTO METRIX.HISTORY(UID, LOGDATE) values(?,?);";
-
+                    // getting current date
                     LocalDate date = LocalDate.now();
+                    
                     PreparedStatement ptt = db.con.prepareStatement(sql1);
                     ptt.setInt(1, user.getIduser());
                     ptt.setObject(2, date);
@@ -51,6 +55,7 @@ public class AdminLogin extends HttpServlet {
                     String query = "SELECT * FROM USER";
                     PreparedStatement ps = db.con.prepareStatement(query);
                     ResultSet rs = ps.executeQuery();
+                    // initializing admincount and client count
                     int adminCount = 0;
                     int clientCount = 0;
                     while (rs.next()) {
@@ -65,7 +70,7 @@ public class AdminLogin extends HttpServlet {
                             adminCount++;
                         }
                     }
-
+                    // getting user's all history
                     String sql = "SELECT * FROM history";
                     PreparedStatement pt = db.con.prepareStatement(sql);
                     ResultSet rt = pt.executeQuery();

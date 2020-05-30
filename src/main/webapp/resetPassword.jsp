@@ -3,7 +3,7 @@
     Created on : May 8, 2020, 11:12:33 PM
     Author     : goani
 --%>
-
+<!--resetPassword.jsp is used for resetting the password by user if user gets email address right-->
 <%@page import="java.sql.ResultSet"%>
 <%@page import="java.sql.PreparedStatement"%>
 <%@page import="com.metrix.loginpackage.ConnectionProvider"%>

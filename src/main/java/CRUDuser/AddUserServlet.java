@@ -1,4 +1,4 @@
-
+//AddUserServlet.java is used for adding user by admin
 package CRUDuser;
 import com.metrix.loginpackage.ConnectionProvider;
 import com.metrix.loginpackage.User;
@@ -24,22 +24,31 @@ public class AddUserServlet extends HttpServlet {
             out.println("<body>");
             out.println("<h1>Servlet AddUserServlet at " + request.getContextPath() + "</h1>");
             
+            // getting form data
             String firstName = request.getParameter("fname");
             String middleName = request.getParameter("mname");
             String lastName = request.getParameter("lname");
             String address   = request.getParameter("address");
             String email = request.getParameter("email");
             String password =request.getParameter("password");
+            
+        // getting current date
             LocalDate today = LocalDate.now();
+        
+           // userRole =0 is normal user and userRole=1 is admin
             int userRole = 0;
+             // userStatus =0 is blocked and userStatus=1 is active user
             int userStatus = 1;
+            
+            // creating new User object
             User user = new User(firstName, middleName,lastName,address, email,password,today,userRole,userStatus);
             try{
+                // getting database connection
                 UserDAO usdao = new UserDAO(ConnectionProvider.getConnection());
                 if(usdao.addUser(user)){
                     response.sendRedirect("userList.jsp");
                 }else{
-                    out.print("Wrong Crendential");
+                    out.print("Unable to add user");
                 }
                 
             }catch(Exception e){

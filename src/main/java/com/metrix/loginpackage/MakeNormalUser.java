@@ -1,6 +1,5 @@
-
+// MakeNormalUser is used  for making ans admin a normal user
 package com.metrix.loginpackage;
-
 import CRUDuser.UserDAO;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -32,6 +31,7 @@ public class MakeNormalUser extends HttpServlet {
             out.println("</head>");
             out.println("<body>");
             out.println("<h1>Servlet MakeNormalUser at " + request.getContextPath() + "</h1>");
+            // getting user's id
             int id = Integer.parseInt(request.getParameter("id"));
             try{
                 UserDAO dao = new UserDAO(ConnectionProvider.getConnection());

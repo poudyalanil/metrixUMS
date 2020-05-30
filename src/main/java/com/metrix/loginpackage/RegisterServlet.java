@@ -1,6 +1,5 @@
-
+// RegisterServlet is used for regestering new user by guest user
 package com.metrix.loginpackage;
-
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.time.LocalDate;
@@ -25,12 +24,15 @@ public class RegisterServlet extends HttpServlet {
             out.println("<body>");
             out.println("<h1>Servlet RegisterServlet at " + request.getContextPath() + "</h1>");
             
+            // getting form data
             String firstName = request.getParameter("fname");
             String middleName = request.getParameter("mname");
             String lastName = request.getParameter("lname");
             String address   = request.getParameter("address");
             String email = request.getParameter("email");
             String password =request.getParameter("password");
+            
+            // getting current date
             LocalDate today = LocalDate.now();
              int userRole = 0;
              int userStatus = 1;

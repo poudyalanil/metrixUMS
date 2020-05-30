@@ -3,8 +3,10 @@
     Created on : Apr 25, 2020, 7:59:53 AM
     Author     : goani
 --%>
+<!--reisterAdmin.jsp is for adding new user by the admin-->
 <%@page import="com.metrix.loginpackage.User"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<!--checking user's authentication state and perfoming actions accordingly-->
 <% User user = (User) session.getAttribute("logUser");
     if (user == null || user.getUserRole() == 0) {
         response.sendRedirect("index.jsp");

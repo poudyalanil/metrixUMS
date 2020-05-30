@@ -3,8 +3,10 @@
     Created on : May 1, 2020, 11:04:34 AM
     Author     : Binil
 --%>
-
+<!--adminLogin.jsp is used for logging admin in-->
 <%@page import="com.metrix.loginpackage.User"%>
+
+<!--checking authentication state-->
 <% User user = (User) session.getAttribute("logUser");
     if (user != null && user.getUserRole() == 1) {
         response.sendRedirect("adminDashboard.jsp");
@@ -13,6 +15,7 @@
         response.sendRedirect("userDashboard.jsp");
     }
 %>
+<!--getting error message from session-->
 <%    String errorMsg = (String) session.getAttribute("error");
 %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -30,6 +33,7 @@
             <div class="row">
                 <div class="col-sm-9 col-md-7 col-lg-5 mx-auto"style="margin-top:130px; padding-top: 20px;padding-bottom: 20px"; >
                     <div class="card card-signin my-5 " >
+<!--                        showing error message if there is any-->
                         <% if (errorMsg != null) {%>
                         <p style="color:red; font-size: 12px;"> 
                             <%= errorMsg%>

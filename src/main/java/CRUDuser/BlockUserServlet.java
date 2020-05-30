@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author goani
  */
+//BlockUserServlet is used for blocking the user
 public class BlockUserServlet extends HttpServlet {
 
   

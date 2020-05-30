@@ -3,7 +3,7 @@
     Created on : May 22, 2020, 1:07:05 PM
     Author     : Binil
 --%>
-
+<!--addUser.jsp is used for adding normal user by the authenticated admin-->
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -20,6 +20,7 @@
                 <a href="userList.jsp"><button class="btn btn-light float-right" style="box-shadow: 0px 2px 5px 0px rgba(0,0,0,0.5); margin-top: 5vh;">Go Back</button></a>
                 <h2>Create New User</h2>
                 <form action="AddUserServlet" method="post">
+<!--                    this for is used to enter the deatils of new user-->
                     <div class="form-group">
                         <label>First Name</label>
                         <input class="form-control" name="fname" place-holder="First Name" required>

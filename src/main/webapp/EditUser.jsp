@@ -1,7 +1,10 @@
+<!--EditUSer.jsp is for editing the user's information by the admin-->
+
 <%@page import="com.metrix.loginpackage.User"%>
 <%@page import="CRUDuser.UserDAO"%>
 <%@page import="com.metrix.loginpackage.ConnectionProvider"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<!--Checking user's authentication state and getting database connection-->
 <%
     int id = Integer.parseInt(request.getParameter("id"));
     UserDAO dao = new UserDAO(ConnectionProvider.getConnection());
@@ -23,6 +26,7 @@
             <div class="inner">
                 <h2>Edit User Form</h2>
                 <form action="EditUserServlet" method="post">
+<!--                    this forms get the user's details and sets them as values to input field values are grabbed using user's id-->
                     <div class="form-group">
                         <label>User ID: ${edit_users.iduser }</label>
                     </div>

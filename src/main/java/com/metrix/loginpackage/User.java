@@ -2,6 +2,7 @@ package com.metrix.loginpackage;
 
 import java.time.LocalDate;
 
+// User model for user's opertation
 public class User {
 
     private int iduser, userRole, userStatus;
@@ -43,7 +44,7 @@ public class User {
         this.password = password;
 
     }
-
+// getters
     public int getIduser() {
         return iduser;
     }
@@ -64,6 +65,7 @@ public class User {
         return middleName;
     }
 
+    //setters
     public void setMiddleName(String middleName) {
         this.middleName = middleName;
     }
@@ -124,6 +126,7 @@ public class User {
         this.userStatus = userStatus;
     }
 
+    //parsing data to string
     @Override
     public String toString() {
         return "user{" + "iduser=" + iduser

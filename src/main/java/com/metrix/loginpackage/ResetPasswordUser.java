@@ -1,5 +1,5 @@
+// ResetPassword is used for resetting user's password
 package com.metrix.loginpackage;
-
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.Connection;
@@ -30,6 +30,7 @@ public class ResetPasswordUser extends HttpServlet {
             out.println("<h1>Servlet ResetPasswordUser at " + request.getContextPath() + "</h1>");
 
             try {
+                // getting databse connection
                 Connection con = ConnectionProvider.getConnection();
                 String email = request.getParameter("emailReset");
                 String query = "update metrix.user set password=? where email =?";

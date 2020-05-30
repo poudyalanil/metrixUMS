@@ -1,3 +1,4 @@
+// Unblock id used for ublockking blocked user.
 package CRUDuser;
 
 import com.metrix.loginpackage.ConnectionProvider;
@@ -29,6 +30,7 @@ public class Unblock extends HttpServlet {
             int id = Integer.parseInt(request.getParameter("id"));
 
             try {
+                // getting database connection
                 UserDAO usdo = new UserDAO(ConnectionProvider.getConnection());
                 usdo.unBlockUser(id);
                 response.sendRedirect("userList.jsp");

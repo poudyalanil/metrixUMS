@@ -1,11 +1,14 @@
-
+<!--EditProfile.jsp is used for editing user's profile by the authenticated user-->
 <%@page import="com.metrix.loginpackage.UserDatabase"%>
 <%@page import="com.metrix.loginpackage.User"%>
 <%@page import="com.metrix.loginpackage.ConnectionProvider"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<% User user = (User) session.getAttribute("logUser");
 
-    if (user == null) {
+
+<!--//checking if the user is logged in or not-->
+<% User user = (User) session.getAttribute("logUser");
+    
+if (user == null) {
         RequestDispatcher rd = request.getRequestDispatcher("login.jsp");
         rd.forward(request, response);
         response.sendRedirect("login.jsp");
@@ -21,6 +24,8 @@
         <title>Edit Profile</title>
     </head>
     <body>
+<!--        
+        Displaying nav bar according to user's authentication state-->
         <%if(user.getUserRole()==0){%>
             <jsp:include page="userNavbar.jsp" />
         <%}%>
@@ -36,6 +41,7 @@
                         <h3>Enter Your Updated Information</h3>
 
                         <form action="EditProfile" method="post">
+<!--                            form with filled values of the logged in user-->
                             <div class="form-group">
                                 <label>First Name</label>
                                 <input class="form-control" name="fname" value="<%= user.getFirstName()%>"required>

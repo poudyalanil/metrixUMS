@@ -1,8 +1,9 @@
-
+<!--index.jsp is entry point to metrixUMS-->
 <%@ taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core" %>
 <%@page import="com.metrix.loginpackage.UserDatabase"%>
 <%@page import="com.metrix.loginpackage.User"%>
 <%@page import="com.metrix.loginpackage.ConnectionProvider"%>
+<!--getting user's details to show on navbar-->
 <% User user = (User) session.getAttribute("logUser");%>
 <!DOCTYPE html>
 <html lang="en">
@@ -24,6 +25,7 @@
         <!-- Navigation-->
         <nav class="navbar navbar-expand-lg bg-secondary text-uppercase fixed-top" id="mainNav">
             <div class="container">
+<!--                showing dynamic navbar information accoring to user's authentication state-->
                 <% if (user == null) {%>
                 <a class="navbar-brand js-scroll-trigger" href="#page-top">User Management System </a>
                 <%} else {%>

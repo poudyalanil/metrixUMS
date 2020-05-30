@@ -3,7 +3,7 @@
     Created on : May 8, 2020, 9:36:37 PM
     Author     : goani
 --%>
-
+<!--adminHistory is used for looking at the activity in the system it shows all the user's logged in history and admin's history -->
 <%@page import="java.sql.ResultSet"%>
 <%@page import="java.sql.Statement"%>
 <%@page import="java.sql.PreparedStatement"%>
@@ -17,12 +17,13 @@
 <%@ page import="java.util.*" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ taglib uri = "http://java.sun.com/jsp/jstl/core" prefix = "c"%>
+<!--getting database connection-->
 <%
     UserDAO userData = new UserDAO(ConnectionProvider.getConnection());
     List<User> user = userData.getAllUsers();
     request.setAttribute("USERS_LIST", user);
 %>
-
+<!--checking user's authentication status-->
 <% User admin = (User) session.getAttribute("logUser");
 
     if (admin == null && admin.getUserRole() == 0) {
@@ -36,6 +37,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <style>
+            
             .scrollbar-x {
                 position: relative;
                 height: 280px;
@@ -65,6 +67,7 @@
                             <th>Last Logged in Date</th>
                             <th>Last Profile Updated</th>
                         </tr>
+<!--                        getting all information of user's history-->
                             <%
                                 try {
                                     Connection conn = ConnectionProvider.getConnection();
@@ -107,6 +110,7 @@
                             <th>Last Logged in Date</th>
                             <th>Last Profile Updated</th>
                         </tr>
+                        <!--getting all information of admin's history-->
                         <%
                             try {
                                 Connection con = ConnectionProvider.getConnection();

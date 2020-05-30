@@ -3,6 +3,7 @@
     Created on : May 8, 2020, 9:19:17 PM
     Author     : goani
 --%>
+<!--userRole.jsp is used for setting user's roles by the admin-->
 <%@page import="java.util.List"%>
 <%@page import="com.metrix.loginpackage.User"%>
 <%@page import="com.metrix.loginpackage.ConnectionProvider"%>
@@ -11,7 +12,6 @@
 <%@ taglib uri = "http://java.sun.com/jsp/jstl/core" prefix = "c"%>
 
 <% User isuser = (User) session.getAttribute("logUser");
-
     if (isuser == null || isuser.getUserRole() == 0) {
         response.sendRedirect("index.jsp");
     } else if (isuser != null && isuser.getUserRole() == 0) {
@@ -53,6 +53,7 @@
                             </tr>
                         </thead>
                         <tbody>
+<!--                            admin has option to make user normal user and admin-->
                             <c:forEach var="user" items="${USERS_LIST}">
                                 <tr>
                                     <c:if test="${user.userRole eq 1}">

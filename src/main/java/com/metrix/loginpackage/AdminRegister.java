@@ -1,4 +1,4 @@
-
+// AdminRegister is used for addinng admin by admin
 package com.metrix.loginpackage;
 
 import java.io.IOException;
@@ -25,6 +25,7 @@ public class AdminRegister extends HttpServlet {
             out.println("<body>");
             out.println("<h1>Servlet RegisterServlet at " + request.getContextPath() + "</h1>");
             
+            // getting form data
             String firstName = request.getParameter("fname");
             String middleName = request.getParameter("mname");
             String lastName = request.getParameter("lname");
@@ -36,7 +37,8 @@ public class AdminRegister extends HttpServlet {
             
             LocalDate today = LocalDate.now();
             User userModel = new User(firstName,middleName,lastName,address,email,password, today,userRole,userStatus);
-//create a database model
+            
+            //create a database model
             UserDatabase regAdmin = new UserDatabase(ConnectionProvider.getConnection());
             if (regAdmin.saveAdmin(userModel)) {
                 response.sendRedirect("adminLogin.jsp");

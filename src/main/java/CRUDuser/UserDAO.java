@@ -8,7 +8,7 @@ import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 public class UserDAO {
-    // Creating Connectino object from ConnectionProvider Class
+    // Creating Connection object from ConnectionProvider Class
     Connection con;
     
    //Empty Constructor
@@ -17,6 +17,7 @@ public class UserDAO {
     public UserDAO(Connection con) {
         this.con = con;
     }
+//    adding user by admin
     public boolean addUser(User user){
         boolean test = false;
         
@@ -25,6 +26,8 @@ public class UserDAO {
             System.out.println("Connection In Progress......");
             PreparedStatement pst = this.con.prepareStatement(query);
             System.out.println("Connection Success......");
+            
+//            setting user's data from adduser servlet
             pst.setString(1, user.getFirstName());
             pst.setString(2, user.getMiddleName());
             pst.setString(3, user.getLastName());
@@ -50,7 +53,9 @@ public class UserDAO {
             PreparedStatement pt = this.con.prepareStatement(query);
             ResultSet rs = pt.executeQuery();
             
+//            getting information
             while(rs.next()){
+                
                 int iduser = rs.getInt("iduser");
                 String firstname = rs.getString("fname");
                 String middlename = rs.getString("mname");
@@ -72,11 +77,14 @@ public class UserDAO {
         }
         return user;
     }
+    //editing user information by admin
     public boolean editUserInfo(User user){
         boolean test = false;
         
         try {
+            // sql query for updating information
             String query = "UPDATE USER SET FNAME=?, mname=?, lname=?, address=?, email=?, password=? where iduser=?";
+            
             PreparedStatement pt = this.con.prepareStatement(query);
             pt.setString(1, user.getFirstName());
             pt.setString(2, user.getMiddleName());
@@ -96,6 +104,7 @@ public class UserDAO {
         }
         return test;
     }
+    // getting information about sinfle user using user's unique id
     public User getSingleUser(int id){
         User user = null;
         
@@ -126,6 +135,7 @@ public class UserDAO {
         }
         return user;
     }
+    // blocking user using user's id
     public void blockUser(int id){
     try{
     String query= "UPDATE user set status = 0 where iduser=?";
@@ -139,6 +149,7 @@ public class UserDAO {
         System.out.println(e);
     }
     }
+    // unblocking user using user's id
       public void unBlockUser(int id){
     try{
     String query= "UPDATE user set status = 1 where iduser=?";
@@ -152,6 +163,7 @@ public class UserDAO {
         System.out.println(e);
     }
     }
+      // resetting user's password and setting it to "password!!"
         public void resetPassword(int id){
     try{
     String query= "UPDATE user set password = ? where iduser=?";
@@ -166,6 +178,7 @@ public class UserDAO {
         System.out.println(e);
     }
     } 
+        // deleting user using user's id
     public void deleteUser(int id){
         try{
             
@@ -180,6 +193,7 @@ public class UserDAO {
             ex.printStackTrace();;
         }
     }
+    // changing user's iadmin value to 1
     public void makeAdmin(int id){
         try{
             String query= "UPDATE user set isadmin = 1 where iduser=?";
@@ -191,6 +205,7 @@ public class UserDAO {
             ex.printStackTrace();
         }
     }
+    //changing user's isadmin value 0
     public void makeNormalUser(int id){
         try{
             String query= "UPDATE user set isadmin = 0 where iduser=?";

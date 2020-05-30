@@ -1,5 +1,5 @@
+// LoginServlet is used for logging user in
 package com.metrix.loginpackage;
-
 import java.io.IOException;
 
 import java.sql.PreparedStatement;
@@ -18,6 +18,8 @@ public class LoginServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        
+           // getting form data
         String logemail = request.getParameter("email");
         String logpass = request.getParameter("password");
 
@@ -42,10 +44,10 @@ public class LoginServlet extends HttpServlet {
             }
 
             int accountAge = LocalDate.now().compareTo(user.getJoinDate());
-
+            
+            // setting sesion attribute
             session.setAttribute("logUser", user);
             session.setAttribute("joinDate", user.getJoinDate());
-
             session.setAttribute("accountAge", accountAge);
 
             String query = "INSERT INTO METRIX.HISTORY(UID, LOGDATE) values(?,?);";

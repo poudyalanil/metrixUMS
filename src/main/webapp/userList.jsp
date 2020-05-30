@@ -6,12 +6,10 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ taglib uri = "http://java.sun.com/jsp/jstl/core" prefix = "c"%>
 <% User isuser = (User) session.getAttribute("logUser");
-
     if (isuser == null) {
         RequestDispatcher rd = request.getRequestDispatcher("adminLogin.jsp");
         rd.forward(request, response);
-
-       
+   
     } else if (isuser != null && isuser.getUserRole() == 0) {
         response.sendRedirect("userDashboard.jsp");
     }

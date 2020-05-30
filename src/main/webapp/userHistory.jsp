@@ -3,6 +3,7 @@
     Created on : May 6, 2020, 8:15:15 PM
     Author     : goani
 --%>
+<!--userHistory.jsp is used for showing user's history-->
 <%@page import="com.metrix.loginpackage.ConnectionProvider"%>
 <%@page import="java.sql.PreparedStatement"%>
 <%@page import="java.sql.DriverManager"%>
@@ -30,7 +31,7 @@
     <body>
         <jsp:include page="userNavbar.jsp" />
         <div class="container">
-            
+<!--            getting user's information from session attribute-->
             <h2><%= user.getFirstName()%>'s History</h2>
             
 

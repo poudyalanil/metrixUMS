@@ -1,5 +1,5 @@
+// LogoutServlet is used for logging out user
 package com.metrix.loginpackage;
-
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -24,7 +24,9 @@ public class LogoutServlet extends HttpServlet {
             out.println("<h1>Servlet LogoutServlet at " + request.getContextPath() + "</h1>");
 
             HttpSession session = request.getSession();
+            //removing session attribute
             session.removeAttribute("logUser");
+            // invalidating user's session
             session.invalidate();
             response.sendRedirect("index.jsp");
             return;

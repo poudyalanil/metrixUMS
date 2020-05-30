@@ -3,6 +3,7 @@
     Created on : May 6, 2020, 8:15:15 PM
     Author     : goani
 --%>
+<!--admin dashboard whow the general information about the system admin should be logged in to see the details-->
 <%@page import="java.sql.PreparedStatement"%>
 <%@page import="java.sql.Connection"%>
 <%@page import="com.metrix.loginpackage.UserDatabase"%>
@@ -14,6 +15,7 @@
 <%@ page import="java.util.*" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ taglib uri = "http://java.sun.com/jsp/jstl/core" prefix = "c"%>
+<!--checking user's authentication state-->
 <% User admin = (User) session.getAttribute("logUser");
     if (admin == null) {
         RequestDispatcher rd = request.getRequestDispatcher("adminLogin.jsp");
@@ -23,6 +25,7 @@
         response.sendRedirect("userDashboard.jsp");
     }
 %>
+<!--getting database connection-->
 <%
     UserDAO userData = new UserDAO(ConnectionProvider.getConnection());
     List<User> user = userData.getAllUsers();
@@ -45,12 +48,14 @@
                 <%= admin.getUserRole()%>
             </h4>
             <div class="time-card">
+<!--                getting current date-->
                 <%= (new java.util.Date()).toLocaleString()%>
             </div>
         </div>
         <div class="container">
             <div class="card-bg">
                 <div class="card-number">
+<!--                    getting number of clients -->
                     <%= session.getAttribute("clientCount")%>
                 </div>
                 <div class="card-desc">
@@ -59,6 +64,7 @@
             </div>
             <div class="card-bg">
                 <div class="card-number">
+<!--                    getting count of users with isadmin value 1-->
                     <%= session.getAttribute("adminCount")%>
                 </div>
                 <div class="card-desc">
@@ -67,6 +73,7 @@
             </div>
             <div class="card-bg">
                 <div class="card-number">
+<!--                    getting session time once the user is logged in-->
                     <%= session.getAttribute("totalLogin")%>
                 </div>
                 <div class="card-desc">

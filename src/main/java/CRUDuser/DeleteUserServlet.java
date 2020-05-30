@@ -1,4 +1,4 @@
-
+// DeleteUSerServlet is used for deleting the user
 package CRUDuser;
 
 import com.metrix.loginpackage.ConnectionProvider;

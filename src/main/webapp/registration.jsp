@@ -3,7 +3,7 @@
     Created on : Apr 25, 2020, 7:59:53 AM
     Author     : goani
 --%>
-
+<!--registration.jsp is used for registering new user by the guest user-->
 <%@page import="com.metrix.loginpackage.User"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 

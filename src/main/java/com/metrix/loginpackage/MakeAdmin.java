@@ -1,4 +1,4 @@
-
+// MakeAdmin is used for changing user's role to admin
 package com.metrix.loginpackage;
 
 import CRUDuser.UserDAO;
@@ -32,9 +32,11 @@ public class MakeAdmin extends HttpServlet {
             out.println("</head>");
             out.println("<body>");
             out.println("<h1>Servlet MakeAdmin at " + request.getContextPath() + "</h1>");
+            // getting user's id
             int id = Integer.parseInt(request.getParameter("id"));
             try{
                 UserDAO dao = new UserDAO(ConnectionProvider.getConnection());
+                // calling makeAdmin function on userDAO
                 dao.makeAdmin(id);
                 response.sendRedirect("userRole.jsp");
             } catch(Exception ex){

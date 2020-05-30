@@ -1,3 +1,4 @@
+// ResetPawsswordServlet is used for re setting password
 package CRUDuser;
 
 import com.metrix.loginpackage.ConnectionProvider;
@@ -31,6 +32,7 @@ public class ResetPasswordServlet extends HttpServlet {
             int id = Integer.parseInt(request.getParameter("id"));
             
             try{
+                //getting database connection 
                 UserDAO usdo = new UserDAO(ConnectionProvider.getConnection());
                 usdo.resetPassword(id);
                 response.sendRedirect("userList.jsp");
