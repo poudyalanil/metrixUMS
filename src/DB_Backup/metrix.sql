@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 10, 2020 at 04:44 PM
+-- Generation Time: Jun 02, 2020 at 03:47 PM
 -- Server version: 10.4.11-MariaDB
 -- PHP Version: 7.4.5
 
@@ -119,7 +119,14 @@ INSERT INTO `history` (`id`, `uid`, `logDate`) VALUES
 (79, 19, '2020-05-09'),
 (80, 14, '2020-05-09'),
 (81, 19, '2020-05-09'),
-(82, 19, '2020-05-09');
+(82, 19, '2020-05-09'),
+(83, 21, '2020-05-10'),
+(84, 14, '2020-05-10'),
+(85, 14, '2020-05-10'),
+(86, 14, '2020-05-10'),
+(87, 14, '2020-05-21'),
+(88, 14, '2020-05-22'),
+(89, 14, '2020-05-22');
 
 -- --------------------------------------------------------
 
@@ -152,9 +159,10 @@ INSERT INTO `user` (`iduser`, `fname`, `mname`, `lname`, `address`, `email`, `pa
 (14, 'Admin', 'Unknown', 'Admin', 'Kathmandu', 'admin@admin.com', 'admin', '2020-05-06', '2020-05-07', 1, 1),
 (15, 'Sameer', 'md', 'khan', 'KTM', 'md@md.com', 'password!!', '2020-05-07', '2020-05-07', 1, 0),
 (17, 'test', 'test', 'test', 'test', 't@t.c', 't', '2020-05-07', NULL, 1, 1),
-(18, 'Harilal', 'Pd.', 'Bhattrai', 'Kathmandu', 'harilal@gmail.com', '123', '2020-05-07', NULL, 1, 0),
+(18, 'Harilal', 'Pd.', 'Bhattrai', 'Kathmandu', 'harilal@gmail.com', '123', '2020-05-07', NULL, 0, 0),
 (19, 'Anil', 'Parsad', 'Poudyal', 'Kathmandu', 'anil@anil.com', 'password!!', '2020-05-08', NULL, 1, 0),
-(20, 'Anil', 'Parsad', 'Poudyal', 'Checkpost', 'anil@gmail.com', 'password!!', '2020-05-08', NULL, 1, 0);
+(20, 'Anil', 'Parsad', 'Poudyal', 'Checkpost', 'anil@gmail.com', 'password!!', '2020-05-08', NULL, 1, 0),
+(21, 'Ram', 'Pd.', 'Sharma', 'KTM', 'ram@ram.com', 'password!!', '2020-05-10', NULL, 1, 0);
 
 --
 -- Indexes for dumped tables
@@ -181,13 +189,13 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `history`
 --
 ALTER TABLE `history`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=83;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=90;
 
 --
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `iduser` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+  MODIFY `iduser` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 
 --
 -- Constraints for dumped tables
