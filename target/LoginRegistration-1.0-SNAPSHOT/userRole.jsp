@@ -64,18 +64,18 @@
                                     </c:if>
                                     <c:choose>
                                         <c:when test="${user.userRole eq 0}">
-                                            <td><a href="MakeNormalUser?id=${user.iduser}"><input type="radio" checked="checked"></a></td>
+                                            <td><input type="radio" checked="checked" onclick="location.href='MakeNormalUser?id=${user.iduser}';"></td>
                                         </c:when>
                                         <c:otherwise>
-                                            <td><a href="MakeNormalUser?id=${user.iduser}"><input type="radio"></a></td>
+                                            <td><input type="radio" onclick="location.href='MakeNormalUser?id=${user.iduser}';"></td>
                                         </c:otherwise>
                                     </c:choose>
                                     <c:choose>
                                         <c:when test="${user.userRole eq 1}">
-                                            <td><a href="MakeAdmin?id=${user.iduser}"><input type="radio" checked="checked"></a></td>
+                                            <td><input type="radio" checked="checked" onclick="location.href='MakeAdmin?id=${user.iduser}';"></td>
                                         </c:when>
                                         <c:otherwise>
-                                            <td><a href="MakeAdmin?id=${user.iduser}"><input type="radio"></a></td>
+                                            <td><input type="radio" onclick="location.href='MakeAdmin?id=${user.iduser}';"></td>
                                         </c:otherwise>
                                     </c:choose>
                                 </tr>

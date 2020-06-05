@@ -70,7 +70,7 @@
                             <%
                                 String value=request.getParameter("first_name");
                                 Class.forName("com.mysql.jdbc.Driver").newInstance();
-                                Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/metrix","root", "");
+                                Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/metrix?serverTimezone=UTC","root", "");
                                 Statement st=conn.createStatement();
                                 ResultSet rs = st.executeQuery("select * from user where lower(fname) like lower('%"+value+"%')");
                                 if(rs.next()){ 
